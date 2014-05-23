@@ -14,3 +14,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+# Ignore the test coverage results
+coverage/*
+
+# Ignore the database yml file
+/config/database.yml
