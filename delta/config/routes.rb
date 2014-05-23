@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+  post '/answers/create.:format', to: 'answers#create', as: :create_answer, constraints: {:format => /json/}
 
   get '/login', to: 'sessions#login', as: 'login'
   get '/logout', to: 'sessions#logout', as: 'logout'
@@ -39,6 +40,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'profile'
   post '/attempt_login', to: 'sessions#attempt_login'
   resources :users
+  resources :answers
+
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
