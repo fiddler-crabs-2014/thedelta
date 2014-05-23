@@ -4,14 +4,15 @@ class SessionsController < ApplicationController
 
   end
 
-  def admin
-
-  end
-
   def attempt_login
 
-    if params[:email].present? && params[:password].present?
-      found_user = User.where(email: params[:email]).first
+    if params[:email_username].present? && params[:password].present?
+      #user can login using either email or username
+      if params[:email_username].include?("@")
+        found_user = User.where(email: params[:email_username]).first
+      else
+        found_user = User.where(username: params[:email_username]).first
+      end
       if found_user
         authorized_user = found_user.authenticate(params[:password])
       end

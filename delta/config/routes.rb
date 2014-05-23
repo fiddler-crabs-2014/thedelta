@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
-  get '/login', to: 'sessions#login'
-  get '/logout', to: 'sessions#logout'
+  get '/login', to: 'sessions#login', as: 'login'
+  get '/logout', to: 'sessions#logout', as: 'logout'
   get '/profile', to: 'users#profile', as: 'profile'
   post '/attempt_login', to: 'sessions#attempt_login'
   resources :users
