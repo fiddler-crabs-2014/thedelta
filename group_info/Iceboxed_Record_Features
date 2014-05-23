@@ -1,0 +1,8 @@
+Hit enter adds /n where curser is.
+Hit tab adds /t where curser is.
+
+record deltas(changes) [["hello","+0", 0],["!","+5",1000], ["hello!","end",-1]]
+
+start "hello"
+change to "hello!"
+end "hello!"

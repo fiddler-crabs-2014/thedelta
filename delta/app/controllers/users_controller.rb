@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :confirm_logged_in, only: :profile
+
 
   def new
     @user = User.new
@@ -16,20 +18,20 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
         format.html { redirect_to :profile, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        # format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        # format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
-
   def profile
     @user = User.find(session[:user_id])
+  end
+
+  def edit
+    @user = current_user
   end
 
   private
