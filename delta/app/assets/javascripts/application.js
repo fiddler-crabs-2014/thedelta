@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require languages
+//= require recorder
 //= require_self
 //= require_tree .
