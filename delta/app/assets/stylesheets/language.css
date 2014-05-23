@@ -1,7 +1,7 @@
 /*font-family: 'Open Sans', sans-serif;
 font-family: 'Lato', sans-serif;*/
 body {
-  background-color: #87D69B;
+  background: #87D69B;
   margin: 0;
 }
 
@@ -87,4 +87,4 @@ nav ul li {
    border-radius: 0;
    height: 34px;
    -webkit-appearance: none;
-   }
+}
