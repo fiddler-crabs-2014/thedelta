@@ -1,2 +1,19 @@
-I know <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => true}, {:id => 'start_language'}) %>
-Teach me <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => true}, {:id => 'end_language'}) %>
+<div class="language_container">
+  <nav>
+    <h2>Delta</h2>
+    <ul>
+      <li>Sign In</li>•
+      <li>Whatever</li>•
+      <li>Mission</li>
+    </ul>
+  </nav>
+
+  <div class="pick_languages">
+    <div class="styled-select">
+      
+      <h1>I know: <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'Select Language'}, {:id => 'start_language'}) %> </h1><br>
+      <h1>Teach me: <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'Select Language'}, {:id => 'end_language'}) %></h1><span><%= link_to 'Go' %></span> 
+    </div>
+  </div>
+  
+</div>
