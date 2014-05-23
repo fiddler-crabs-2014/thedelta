@@ -10,6 +10,10 @@ $(function(){
   var stop_time = 0;
 
   $("#start").on("click", function(){
+    if(!start){
+      state[state.length-1] = [$("form textarea").val(), 0];
+    };
+
     start = true;
     start_time = Date.now();
   });
@@ -34,9 +38,6 @@ $(function(){
   });
 
 
-  if(!start){
-    state[state.length-1] = [$("form textarea").val(), 0];
-  };;
 
 
   $("form textarea").on("input", function(){
@@ -87,7 +88,7 @@ $(function(){
       var value = $this.val();
 
       $this.val(value.substring(0, start)
-                  + " /t"
+                  + '\t'
                   + value.substring(end));
 
       this.selectionStart = this.selectionEnd = start + 1;
