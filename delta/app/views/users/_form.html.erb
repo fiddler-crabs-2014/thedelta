@@ -1,27 +1,29 @@
+<div id='login' style="width:480px;margin:60px auto;border:1px solid black;">
 <%= form_for(user) do |f| %>
   <%= render 'shared/error_messages', object: f.object, html: {:class => "form"} %>
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control input-lg', style: 'margin:20px; width:440px; border-radius:5px;' %>
   </div>
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username, class: 'form-control input-lg', style: 'margin:20px; width:440px; border-radius:5px;'%>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email,class: 'form-control input-lg', style: 'margin:20px; width:440px; border-radius:5px;' %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: 'form-control input-lg', style: 'margin:20px; width:440px; border-radius:5px;' %>
   </div>
   <div class="field">
     <%= f.label :password_confirm %><br />
-    <%= f.password_field :password_confirm %>
+    <%= f.password_field :password_confirm,class: 'form-control input-lg', style: 'margin:20px; width:440px; border-radius:5px;' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn-lg btn-success', style: "width: 440px; margin:20px;" %>
   </div>
 <% end %>
+</div>
