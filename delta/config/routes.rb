@@ -32,6 +32,12 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
+  get '/login', to: 'sessions#login'
+  get '/logout', to: 'sessions#logout'
+  get '/profile', to: 'users#profile', as: 'profile'
+  post '/attempt_login', to: 'sessions#attempt_login'
+  resources :users
+
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments

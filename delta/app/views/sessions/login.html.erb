@@ -1,0 +1,17 @@
+<div class="container">
+
+<div id='login' style="width:480px;margin:60px auto;border:1px solid black;">
+  <%= form_tag attempt_login_path, class: 'form-signin'  do %>
+  <h2 class="form-signin-heading" style='background-color:grey;color:white; padding:15px;margin-top:0px'>Please Sign In</h2>
+    <div class="form-group">
+    <%= text_field_tag :email, "", url: attempt_login_path, method:'POST', class: 'form-control input-lg',
+    placeholder: 'Email address', style: 'margin:20px; width:440px; border-radius:5px;', autofocus: true %>
+    </div>
+    <div class="form-group">
+    <%= password_field_tag :password, "", class: 'form-control input-lg', style: 'margin:20px; width:440px; border-radius:5px;',
+    placeholder: 'Password'%>
+    </div>
+      <%= submit_tag 'Sign In', class: 'btn-lg btn-success', style: 'margin:0px 20px 20px 20px; width:440px; border-radius: 5px;'  %>
+  <% end %>
+  </div>
+</div>
