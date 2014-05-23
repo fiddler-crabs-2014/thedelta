@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#login', as: 'login'
   get '/logout', to: 'sessions#logout', as: 'logout'
+  get '/sign-up', to: 'users#new', as: 'sign_up'
   get '/profile', to: 'users#profile', as: 'profile'
   post '/attempt_login', to: 'sessions#attempt_login'
   resources :users
