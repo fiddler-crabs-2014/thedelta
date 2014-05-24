@@ -4,10 +4,15 @@ class QuestionsController < ApplicationController
 
 
   def index
-  	p @category = Category.find(params[:category])
+  	@category = Category.find(params[:category])
   	#@start_language = Language.find(params[:start_language])
   	#@end_language = Language.find(params[:end_language])
-  	p @questions = Question.where(category_id: @category)
+  	@questions = Question.where(category_id: @category)
+  end
+
+
+  def show
+  	@question = Question.find(params[:id])
   end
 
 end
