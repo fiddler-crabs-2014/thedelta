@@ -19,7 +19,7 @@ button#Record,button#Stop,
 button#Play,button#Clear,
 input#Save {
   font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
-  font-size: 90%;
+  font-size: 95%;
 }
 form {
   margin: 0;

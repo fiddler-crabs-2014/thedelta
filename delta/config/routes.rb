@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get '/sign-up', to: 'users#new', as: 'sign_up'
   get '/profile', to: 'users#profile', as: 'profile'
   post '/attempt_login', to: 'sessions#attempt_login'
+  get '/get_answer/', to: 'questions#get_answer', as: :get_answer
   resources :users
   resources :answers
   resources :categories, only: [:index]

@@ -2,11 +2,14 @@ class CategoriesController < ApplicationController
 
   protect_from_forgery with: :exception
 
-
   def index
-  	@categories = Category.all
-    @start_language = params[:start_language]
-    @end_language   = params[:end_language]
+    if params[:start_language] && params[:end_language]
+    	@categories = Category.all
+      @start_language = params[:start_language]
+      @end_language   = params[:end_language]
+    else
+      redirect_to root_path
+    end
   end
 
   def show
