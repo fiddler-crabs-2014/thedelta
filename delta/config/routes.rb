@@ -41,8 +41,8 @@ Rails.application.routes.draw do
   post '/attempt_login', to: 'sessions#attempt_login'
   resources :users
   resources :answers
-  resources :categories, only: [:index, :show]
-  get '/questions', to: 'questions#index', as: 'questions'
+  resources :categories, only: [:index]
+  resources :questions, only: [:index, :show]
 
 
   # Example resource route with more complex sub-resources:
