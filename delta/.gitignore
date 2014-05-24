@@ -17,7 +17,7 @@
 
 
 # Ignore the test coverage results
-coverage/*
+/coverage/*
 
 # Ignore the database yml file
 /config/database.yml
