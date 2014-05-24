@@ -48,7 +48,7 @@ group :development, :test do
 	gem 'pry-rails'
 	gem 'faker'
 	gem 'factory_girl_rails'
-	
+	gem 'travis-lint'
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'selenium-webdriver'
