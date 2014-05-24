@@ -1,3 +1,7 @@
-<h1> Here are all of our current categories </h1>
+<h1><%= @start_language %> Start to End<%= @end_language %></h1>
+<h2> Categories: </h2>
 
-<%= @categories %>
+
+
+
+<%= render partial: 'shared/category', collection: @categories %>
