@@ -1,0 +1,41 @@
+textarea {
+  resize: none;
+  width:100%;
+  height:150px;
+
+}
+
+#recorder {
+  width: 400px;
+  margin: 0 auto;
+  tab-size: 3;
+  -moz-tab-size: 3;
+  -o-tab-size: 3;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-size: 90%;
+}
+
+button#Record,button#Stop,
+button#Play,button#Clear,
+input#Save {
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-size: 95%;
+}
+form {
+  margin: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+form input {
+  float: right;
+}
+
+pre {
+  height: 150px;
+  margin: 20px 0 0 10px;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  /*white-space: pre-wrap;*/
+}

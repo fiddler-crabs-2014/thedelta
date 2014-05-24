@@ -1,0 +1,9 @@
+<div id="categories">
+  <h1><%= @start_language %> to <%= @end_language %></h1>
+  <h2> Categories: </h2>
+
+
+
+
+  <%= render partial: 'shared/category', collection: @categories, :locals => {start_language: @start_language, end_language: @end_language } %>
+</div>

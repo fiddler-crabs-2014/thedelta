@@ -1,0 +1,17 @@
+#categories {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#categories h2 {
+  margin-bottom: 20px;
+}
+
+.category_index {
+  width: 90%;
+  margin-left: 5%;
+  padding: 15px;
+  margin-top: 10px;
+  
+}
