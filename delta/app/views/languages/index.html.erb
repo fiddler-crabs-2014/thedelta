@@ -8,7 +8,7 @@
       <h1>Teach me: <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'SELECT LANGUAGE'}, {:id => 'end_language'}) %></h1>
       
       <div class="go_link">
-        <span><%= link_to 'Go', categories_path, :data => {:start_language => '', :end_language => ''} %><span class="glyphicon glyphicon-arrow-right"></span></span>
+        <span><%= link_to 'Go learn!', categories_path %></span>
       </div> 
     </div>
   </div>

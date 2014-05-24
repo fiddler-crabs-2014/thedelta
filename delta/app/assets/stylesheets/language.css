@@ -66,11 +66,13 @@
 
 /* go button */
 
-.go_link span {
+.go_link {
   color: white;
   margin-left: 0px;
+  margin-top: 10px;
   background-color: #4E9689;
   padding: 10px;
+  width: 15%;
 }
 
 .go_link a {

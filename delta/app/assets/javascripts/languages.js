@@ -37,8 +37,6 @@ $(document).ready(function(){
     }
     else {
       ahref = $(this).find('a')
-      $(ahref).data('end-language', end_language_selected)
-      $(ahref).data('start_language', start_language_selected)
-    }
+      ahref.attr('href', "/categories?end_language=" + end_language_selected + "&start_language=" + start_language_selected)    }
   });
 });
