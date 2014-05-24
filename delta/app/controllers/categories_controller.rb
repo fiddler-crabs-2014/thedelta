@@ -5,6 +5,10 @@ class CategoriesController < ApplicationController
 
   def index
   	@categories = Category.all
+    @start_language = params[:start_language]
+    @end_language   = params[:end_language]
+    p @start_language
+    p @end_language
   end
 
   def show
