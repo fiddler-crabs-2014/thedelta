@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "languages#index"
+  get '/categories', to: 'categories#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -41,6 +42,8 @@ Rails.application.routes.draw do
   post '/attempt_login', to: 'sessions#attempt_login'
   resources :users
   resources :answers
+  resources :categories, only: [:index, :show]
+  get '/questions', to: 'questions#index', as: 'questions'
 
 
   # Example resource route with more complex sub-resources:
