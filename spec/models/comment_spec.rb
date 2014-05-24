@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Comment do
 
-	it { should belongs_to(:user) }
-	it { should belongs_to(:answer) }
+	it { should belong_to(:user) }
+	it { should belong_to(:answer) }
 
 end
