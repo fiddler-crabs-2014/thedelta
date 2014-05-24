@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/environment.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/application.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/application.rb": [
         1,
         null,
         null,
@@ -40,13 +40,13 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/boot.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/environments/test.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/environments/test.rb": [
         1,
         null,
         null,
@@ -87,7 +87,7 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/initializers/backtrace_silencers.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -96,18 +96,18 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/initializers/cookies_serializer.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/initializers/filter_parameter_logging.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/initializers/inflections.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -125,18 +125,18 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/initializers/mime_types.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/initializers/session_store.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/initializers/wrap_parameters.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -152,7 +152,7 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/spec/factories.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/spec/factories.rb": [
         1,
         null,
         1,
@@ -175,9 +175,10 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/config/routes.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/config/routes.rb": [
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -212,6 +213,9 @@
         null,
         1,
         null,
+        1,
+        1,
+        1,
         1,
         1,
         1,
@@ -244,11 +248,11 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/app/helpers/application_helper.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/app/controllers/users_controller.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -307,8 +311,11 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/app/controllers/application_controller.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/application_controller.rb": [
         1,
+        null,
+        null,
+        null,
         null,
         null,
         1,
@@ -358,7 +365,7 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/spec/features/user_spec.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/spec/features/user_spec.rb": [
         1,
         null,
         1,
@@ -375,7 +382,7 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/spec/models/user_spec.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -405,7 +412,7 @@
         2,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/app/models/user.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/user.rb": [
         1,
         1,
         1,
@@ -419,7 +426,7 @@
         null,
         null
       ],
-      "/Users/adrianpask/Documents/DevBootCamp/thedelta/delta/app/models/answer.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/answer.rb": [
         1,
         1,
         1,
@@ -428,6 +435,6 @@
         null
       ]
     },
-    "timestamp": 1400884690
+    "timestamp": 1400964199
   }
 }
