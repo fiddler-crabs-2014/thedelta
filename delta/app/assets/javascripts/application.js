@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.caret
 //= require languages
 //= require recorder
 //= require_self
