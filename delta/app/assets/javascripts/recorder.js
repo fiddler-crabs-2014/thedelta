@@ -71,85 +71,18 @@ $(function(){
     }
   })(jQuery)
 
-
-
-
-  var state = [0];
-  var start = false;
-  var start_time = 0;
-  var time_from_start = 0;
-  var stop_time = 0;
-
-  $("#Record").on("click", function(){
-
-    if(!start){
-      state[state.length-1] = [$("form textarea").val(), stop_time];
-    };
-
-    start = true;
-    start_time = Date.now();
-  });
-
-  $("#Stop").on("click", function(){
-    start = false;
-    stop_time = time_from_start;
-  });
-
-  $("#Clear").on("click", function(){
-    $("#view").empty();
-    state = [0];
-    start = false;
-    stop_time = 0;
-    start_time = 0;
-    time_from_start = 0;
-  });
-
-  $("#Play").on("click", function(){
-    $("#view").html(state[0][0])
-    state.forEach(function(step){
-      setTimeout(function(){
-        $("#view").html(step[0]);
-      },step[1]);
-    });
-  });
-
-
-  $("form textarea").on("input", function(){
-    if(start){
-      time_from_start = Date.now() - start_time + stop_time;
-
-      add_string = $("form textarea").val();
-      add_string = add_string.replace(/</g,"&lt;");
-      add_string = add_string.replace(/>/g,"&gt;");
-
-      state.push([add_string, time_from_start]);
-
-    };
-  });
-
-
-  $("form[name=recorder]").submit(function(e){
-    e.preventDefault();
- 
-    $.post("/answers/create.json", {delta: state}, function(response){
-
-      var play_state = $.map(response, function(value, index) {
-        return [value];
-      });
-
-      $("#view").html(play_state[0][0])
-
-      play_state.forEach(function(step){
-
-        setTimeout(function(){
-          $("#view").html(step[0]);
-        },step[1]);
-
-      });
-
-    },"JSON");
-  });
-
+  var recorder = new Recorder({textarea_sel: "#recorder textarea",
+                               record_sel:   "#Record",
+                               stop_sel:     "#Stop",
+                               play_sel:     "#Play",
+                               clear_sel:     "#Clear",
+                               view_sel:     "#view",
+                               });
+  recorder.record();
+  recorder.stop();
+  recorder.clear();
+  recorder.play("#Play","#view",recorder.state);
+  recorder.save();
 
   $("textarea").keydown(function(e) {
 
@@ -180,3 +113,113 @@ function formattingKeyPress(key, substitute, event, myObj){
     $myObj.caret(start+1);
   }
 };
+
+function Recorder(args){
+  this.textarea_sel = args.textarea_sel;
+  this.record_sel = args.record_sel;
+  this.stop_sel = args.stop_sel;
+  this.play_sel = args.play_sel;
+  this.clear_sel = args.clear_sel;
+  this.view_sel = args.view_sel;
+
+  this.state = [0];
+  this.start = false;
+  this.start_time = 0;
+  this.time_from_start = 0;
+  this.stop_time = 0;
+  console.log(this.state);
+};
+
+Recorder.prototype.record = function(){
+  console.log(this.state);
+  $(this.record_sel).on("click", function(){
+    console.log(this.state);
+
+    if(!this.start){
+      this.state[this.state.length-1] = [$(this.textarea_sel).val(), this.stop_time];
+    };
+
+    this.start = true;
+    this.start_time = Date.now();
+  }.bind(this));
+
+  $(this.textarea_sel).on("input", function(){
+    if(this.start){
+      this.time_from_start = Date.now() - this.start_time + this.stop_time;
+
+      var add_string = $(this.textarea_sel).val();
+      add_string = add_string.replace(/</g,"&lt;");
+      add_string = add_string.replace(/>/g,"&gt;");
+
+      this.state.push([add_string, this.time_from_start]);
+
+    };
+  }.bind(this));
+};
+
+Recorder.prototype.stop = function() {
+  $(this.stop_sel).on("click", function(){
+    this.start = false;
+    this.stop_time = this.time_from_start;
+  }.bind(this));
+};
+
+Recorder.prototype.clear = function() {
+  $(this.clear_sel).on("click", function(){
+    console.log("CLEARING");
+    console.log(this.view_sel);
+    $(this.view_sel).empty();
+    console.log(this);
+    console.log(this.state);
+
+    this.state = [0];
+    console.log(this.state);
+    this.start = false;
+    this.stop_time = 0;
+    this.start_time = 0;
+    this.time_from_start = 0;
+  }.bind(this));
+};
+
+Recorder.prototype.play = function(play_sel, view_sel, states) {
+  $(play_sel).on("click", function(){
+    console.log("PLAYA AUSIUSIUS");
+
+    states.forEach(function(step){
+
+      setTimeout(function(){
+        $(view_sel).html(step[0]);
+      },step[1]);
+
+    });
+
+  }.bind(this));
+};
+
+Recorder.prototype.save = function() {
+  $("form[name=recorder]").submit(function(e){
+    e.preventDefault();
+    $("#loader").removeClass("hidden");
+    $("#loader").addClass("show");
+ 
+    $.post("/answers/create.json", {delta: this.state}, function(response){
+      window.location.replace("/questions/" + response.question_id);
+      // var play_state = $.map(response, function(value, index) {
+      //   return [value];
+      // });
+
+      // $(this.view_sel).html(play_state[0][0])
+
+      // play_state.forEach(function(step){
+
+      //   setTimeout(function(){
+      //     $(this.view_sel).html(step[0]);
+      //   },step[1]);
+
+      // });
+
+    }.bind(this),"JSON");
+  }.bind(this));
+};
+
+
