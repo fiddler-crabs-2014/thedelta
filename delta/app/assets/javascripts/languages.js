@@ -1,7 +1,9 @@
 $(document).ready(function(){
   // dynamically load end language drop down
-  start_languages = $('#start_language').text().split("\n")
-  end_languages   = $('#end_language').text().split("\n")
+  start_languages         = $('#start_language').text().split("\n")
+  end_languages           = $('#end_language').text().split("\n")
+  start_language_selected = 'SELECT LANGUAGE'
+  end_language_selected   = 'SELECT LANGUAGE'
 
   $('#start_language').on('change', function(){
     start_language_selected = $('#start_language option:selected').text()
@@ -25,15 +27,18 @@ $(document).ready(function(){
     end_language_selected = $('#end_language option:selected').text()
   });
 
-  // $('#start_language').on('click', function(event) {
-  //   return false;
-  // })
-
   // get request to the categories controller
 
-  // $('a').on('click', function(){
-  //   console.log(start_language_selected)
-  //   console.log(end_language_selected)
-  //   $.get('categories/show', {languages: {start_language: start_language_selected, end_language: end_language_selected}})
-  // });
+  $('.go_link').on('click', function(){
+    if (start_language_selected === 'SELECT LANGUAGE' || end_language_selected === 'SELECT LANGUAGE') {
+      // eventually fix this to be more responsive
+      alert('Please select two programming languages');
+      return false;
+    }
+    else {
+      ahref = $(this).find('a')
+      $(ahref).data('end-language', end_language_selected)
+      $(ahref).data('start_language', start_language_selected)
+    }
+  });
 });
