@@ -9,7 +9,7 @@ $(function(){
   var time_from_start = 0;
   var stop_time = 0;
 
-  $("#start").on("click", function(){
+  $("#Record").on("click", function(){
     if(!start){
       state[state.length-1] = [$("form textarea").val(), 0];
     };
@@ -18,17 +18,21 @@ $(function(){
     start_time = Date.now();
   });
 
-  $("#stop").on("click", function(){
+  $("#Stop").on("click", function(){
     start = false;
     stop_time = time_from_start;
   });
 
-  $("#save").on("click", function(){
-    start = true;
-    start_time = Date.now();
+  $("#Clear").on("click", function(){
+    $("#view").empty();
+    state = [0];
+    start = false;
+    stop_time = 0;
+    start_time = 0;
+    time_from_start = 0;
   });
 
-  $("#play").on("click", function(){
+  $("#Play").on("click", function(){
     $("#view").html(state[0][0])
     state.forEach(function(step){
       setTimeout(function(){
@@ -36,8 +40,6 @@ $(function(){
       },step[1]);
     });
   });
-
-
 
 
   $("form textarea").on("input", function(){
