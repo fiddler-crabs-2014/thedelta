@@ -12,15 +12,12 @@
       question_id   = question_link.match(/\d+/).join("")
       question_id_array.push(question_id)
     }
-    debugger;
 
     question_id_array.forEach(function(questionId) {
       $.get('get_answer/', {question_id: questionId}, function(response) {
           var play_state = $.map(response, function(value, index) {
             return [value];
           });
-
-          debugger;
 
           $("#preview_"+questionId).html(play_state[0][0])
 
