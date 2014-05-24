@@ -1,0 +1,35 @@
+<h2><%= @category.name %>: </h2>
+
+<%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
+
+<script>
+  $(document).ready(function(){
+    var questions = $('.question_index')
+    question_id_array = []
+
+    for (var i=0;i<questions.length;i++) {
+      question_link = $(questions[i]).find('a').attr('href')
+      question_id   = question_link.match(/\d+/).join("")
+      question_id_array.push(question_id)
+    }
+
+    question_id_array.forEach(function(questionId) {
+      $.get('get_answer/', {question_id: questionId}, function(response) {
+          var play_state = $.map(response, function(value, index) {
+            return [value];
+          });
+
+          $("#preview_"+questionId).html(play_state[0][0])
+
+          play_state.forEach(function(step){
+
+            setTimeout(function(){
+              $("#preview_"+questionId).html(step[0]);
+            },step[1]);
+
+          });
+      })
+    })
+
+  });
+</script>
