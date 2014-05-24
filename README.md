@@ -1,6 +1,8 @@
 thedelta
 ========
 
+ [![Build Status](https://travis-ci.org/fiddler-crabs-2014/thedelta.svg?branch=master)](https://travis-ci.org/fiddler-crabs-2014/thedelta)
+
 a social tool for programmers learning a second language
 
 git workflow
