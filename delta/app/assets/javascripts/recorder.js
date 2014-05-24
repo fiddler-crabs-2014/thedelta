@@ -1,8 +1,3 @@
-
- $.fn.refresh = function() {
-    return $(this.selector);
-  };
-
 $(function(){
 
   (function($) {
@@ -86,6 +81,7 @@ $(function(){
   var stop_time = 0;
 
   $("#Record").on("click", function(){
+
     if(!start){
       state[state.length-1] = [$("form textarea").val(), stop_time];
     };
@@ -125,10 +121,9 @@ $(function(){
       add_string = $("form textarea").val();
       add_string = add_string.replace(/</g,"&lt;");
       add_string = add_string.replace(/>/g,"&gt;");
+
       state.push([add_string, time_from_start]);
-      state.forEach(function(stat){
-        console.log(stat[0] + " " + stat[1]);
-      });
+
     };
   });
 
@@ -141,8 +136,6 @@ $(function(){
       var play_state = $.map(response, function(value, index) {
         return [value];
       });
-
-      debugger;
 
       $("#view").html(play_state[0][0])
 
@@ -159,28 +152,31 @@ $(function(){
 
 
   $("textarea").keydown(function(e) {
-    if(e.keyCode === 9) { // tab was pressed
-      e.preventDefault();
-      var $this = $(this);
-      var start = $this.caret();
-      var value = $this.val();
 
-      $this.val(value.substring(0, start)
-                  + '\t'
-                  + value.substring(start));
-      $this.caret(start+1);
-    }
+    var tabKey = 9;
+    var enterKey = 13;
 
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      var $this = $(this);
-      var start = $this.caret();
-      var value = $this.val();
-      $this.val(value.substring(0, start)
-          + '\n'
-          + value.substring(start));
+    formattingKeyPress(tabKey, "\t", e, this);
+    formattingKeyPress(enterKey, "\n", e, this);
 
-      $this.caret(start+1);
-    };
   });
+
 });
+
+
+
+function formattingKeyPress(key, substitute, event, myObj){
+
+  if(event.keyCode === key) { // tab was pressed
+    event.preventDefault();
+    
+    var $myObj = $(myObj);
+    var start = $myObj.caret();
+    var value = $myObj.val();
+
+    $myObj.val(value.substring(0, start)
+                + substitute
+                + value.substring(start));
+    $myObj.caret(start+1);
+  }
+};
