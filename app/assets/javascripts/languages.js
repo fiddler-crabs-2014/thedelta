@@ -6,10 +6,9 @@ $(document).ready(function(){
   end_language_selected   = 'SELECT LANGUAGE'
 
   $('#start_language').on('change', function(){
-    console.log('hello')
     start_language_selected = $('#start_language option:selected').text()
-    $('#end_language').empty();
     end_languages           = $('#start_language').text().split("\n")
+    $('#end_language').empty();
 
     end_languages.forEach(function(language) {
       if (start_language_selected === language) {
