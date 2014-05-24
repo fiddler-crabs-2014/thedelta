@@ -142,8 +142,6 @@ $(function(){
         return [value];
       });
 
-      debugger;
-
       $("#view").html(play_state[0][0])
 
       play_state.forEach(function(step){
