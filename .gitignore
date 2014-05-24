@@ -10,11 +10,11 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+db/test.sqlite3
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/tmp/*
 
 
 # Ignore the test coverage results
@@ -28,4 +28,3 @@ coverage/index.html
 # Ignore the database yml file
 /config/database.yml
 
-/delta/
