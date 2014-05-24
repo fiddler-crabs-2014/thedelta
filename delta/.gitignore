@@ -18,6 +18,10 @@
 
 # Ignore the test coverage results
 /coverage/*
+coverage/.last_run.json
+coverage/.resultset.json
+coverage/assets/0.8.0/application.css
+coverage/index.html
 
 # Ignore the database yml file
 /config/database.yml
