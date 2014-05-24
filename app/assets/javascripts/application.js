@@ -16,5 +16,4 @@
 //= require jquery.caret
 //= require languages
 //= require recorder
-//= require_self
 //= require_tree .

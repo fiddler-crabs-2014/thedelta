@@ -23,13 +23,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">The Delta</a>
+      <%= link_to 'The Delta', root_path, class:"navbar-brand reload" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Pick Your Language</a></li>
+        <li class="active reload"><a href="/">Pick Your Language</a></li>
         <li><a href="#"><% signed_in? %></a></li>
         
       </ul>
@@ -68,6 +68,12 @@
   <footer>
     Designed and Developed by Adrian Pask, Johnathan Weisner, Phil London, and Shaun McGeever <br>
   </footer>
-</div
+</div>
+<script>
+  $('.reload').on('click', function(e) {
+    e.preventDefault();
+    window.location.assign('/')
+  });
+</script>
 </body>
 </html>
