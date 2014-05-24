@@ -2,6 +2,7 @@
 
 <div id='login' style="width:480px;margin:60px auto;border:1px solid black;">
   <%= form_tag attempt_login_path, class: 'form-signin', method:'POST'  do %>
+  
   <h2 class="form-signin-heading" style='background-color:grey;color:white; padding:15px;margin-top:0px'>Please Sign In</h2>
     <div class="form-group">
     <%= text_field_tag :email_username, "", class: 'form-control input-lg',
