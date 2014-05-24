@@ -5,4 +5,4 @@
 
 
 
-<%= render partial: 'shared/question', collection: @questions %>
+<%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
