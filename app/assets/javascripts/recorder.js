@@ -135,7 +135,6 @@ $(document).on('page:load',function(){
 
   $("form[name=recorder]").submit(function(e){
     e.preventDefault();
- 
     $.post("/answers/create.json", {delta: state}, function(response){
 
       window.location.replace("/questions/" + response );
