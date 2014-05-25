@@ -3,3 +3,37 @@
 <h3><%= @start_language.name %> to <%= @end_language.name %> </h3>
 
 <%= link_to "Add Answer", new_answer_path(question: @question) %>
+
+<%= render partial: 'shared/answer', collection: @answers %>
+
+<script>
+  $(document).ready(function(){
+    var answers = $('pre')
+    answer_id_array = []
+
+    for (var i=0;i<answers.length;i++) {
+    	answer_id = $(answers[i]).attr('value')
+      answer_id_array.push(answer_id)
+    }
+
+    answer_id_array.forEach(function(answerId) {
+      $.get('/get_answer_by_id/', {answer_id: answerId}, function(response) {
+          var play_state = $.map(response, function(value, index) {
+            return [value];
+          });
+
+          $("#preview_"+answerId).html(play_state[0][0])
+
+          play_state.forEach(function(step){
+
+            setTimeout(function(){
+              $("#preview_"+answerId).html(step[0]);
+            },step[1]);
+
+          });
+      })
+    })
+
+  });
+</script>
+
