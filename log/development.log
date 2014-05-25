@@ -1,0 +1,1480 @@
+
+
+Started GET "/answers/new" for 127.0.0.1 at 2014-05-25 01:34:01 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AnswersController#new as HTML
+Completed 404 Not Found in 67ms
+
+ActiveRecord::RecordNotFound (Couldn't find Question without an ID):
+  app/controllers/answers_controller.rb:5:in `new'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+Processing by LanguagesController#index as HTML
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT "languages".* FROM "languages"
+  Rendered languages/index.html.erb within layouts/application (13.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 166ms (Views: 162.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 01:34:12 -0400
+
+
+Started GET "/categories?end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-25 01:34:16 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered shared/_category.html.erb (5.9ms)
+  Rendered categories/index.html.erb within layouts/application (71.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 88ms (Views: 82.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/questions?category=1&end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-25 01:34:17 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1[0m
+  [1m[35mLanguage Load (0.7ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 1 AND "questions"."end_language" = 2[0m
+  Rendered shared/_question.html.erb (10.8ms)
+  Rendered questions/index.html.erb within layouts/application (16.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 42ms (Views: 29.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/get_answer/?question_id=1" for 127.0.0.1 at 2014-05-25 01:34:17 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 1]]
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_answer/?question_id=2" for 127.0.0.1 at 2014-05-25 01:34:17 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"2"}
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 2]]
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (23.6ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-05-25 01:34:22 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mLanguage Load (0.1ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = ?[0m  [["question_id", 1]]
+  Rendered shared/_answer.html.erb (0.9ms)
+  Rendered questions/show.html.erb within layouts/application (5.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 22ms (Views: 16.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=4" for 127.0.0.1 at 2014-05-25 01:34:22 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"4"}
+  [1m[35mAnswer Load (0.3ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1  [["id", 4]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 01:34:25 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 05:34:25.234514"], ["question_id", 1], ["updated_at", "2014-05-25 05:34:25.234514"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (5.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 25ms (Views: 14.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-05-25 05:58:21.500388"], ["question_id", 1], ["updated_at", "2014-05-25 05:58:21.500388"], ["user_id", 2]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  Rendered answers/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 01:58:21 -0400
+
+
+Started POST "/answers/create.json" for 127.0.0.1 at 2014-05-25 02:01:15 -0400
+Processing by AnswersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xDt4PpddcXo07zP7AK1ekdPTDMK/oNNdKDyC/M/yiDo=", "answer"=>{"question_id"=>"1"}, "box"=>"dsfasdf\r\nasdfsdfsdhjgjh", "commit"=>"Save"}
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" DESC LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+JSON::ParserError (757: unexpected token at 'null'):
+  app/controllers/answers_controller.rb:21:in `create'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.9ms)
+
+
+Started POST "/answers/create.json" for 127.0.0.1 at 2014-05-25 02:01:27 -0400
+Processing by AnswersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xDt4PpddcXo07zP7AK1ekdPTDMK/oNNdKDyC/M/yiDo=", "answer"=>{"question_id"=>"1"}, "box"=>"dsfasdf\r\nasdfsdfsdhjgjh", "commit"=>"Save"}
+  [1m[35mAnswer Load (0.3ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" DESC LIMIT 1
+Completed 500 Internal Server Error in 3ms
+
+JSON::ParserError (757: unexpected token at 'null'):
+  app/controllers/answers_controller.rb:21:in `create'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 06:01:29.114239"], ["question_id", 1], ["updated_at", "2014-05-25 06:01:29.114239"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 75ms (Views: 68.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:29 -0400
+
+
+Started POST "/answers/create.json" for 127.0.0.1 at 2014-05-25 02:01:31 -0400
+Processing by AnswersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xDt4PpddcXo07zP7AK1ekdPTDMK/oNNdKDyC/M/yiDo=", "answer"=>{"question_id"=>"1"}, "box"=>"sadfdsf", "commit"=>"Save"}
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" DESC LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+JSON::ParserError (757: unexpected token at 'null'):
+  app/controllers/answers_controller.rb:21:in `create'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.7ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 06:01:42.160121"], ["question_id", 1], ["updated_at", "2014-05-25 06:01:42.160121"], ["user_id", 2]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:42 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-05-25 06:01:45.361930"], ["question_id", 1], ["updated_at", "2014-05-25 06:01:45.361930"], ["user_id", 2]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  Rendered answers/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 18ms (Views: 10.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:45 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 06:01:46.714292"], ["question_id", 1], ["updated_at", "2014-05-25 06:01:46.714292"], ["user_id", 2]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 73ms (Views: 65.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:01:46 -0400
+
+
+Started POST "/answers/create.json" for 127.0.0.1 at 2014-05-25 02:01:49 -0400
+Processing by AnswersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xDt4PpddcXo07zP7AK1ekdPTDMK/oNNdKDyC/M/yiDo=", "answer"=>{"question_id"=>"1"}, "box"=>"", "commit"=>"Save"}
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" DESC LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+JSON::ParserError (757: unexpected token at 'null'):
+  app/controllers/answers_controller.rb:21:in `create'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.0ms)
+
+
+Started POST "/answers/create.json" for 127.0.0.1 at 2014-05-25 02:01:57 -0400
+Processing by AnswersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xDt4PpddcXo07zP7AK1ekdPTDMK/oNNdKDyC/M/yiDo=", "answer"=>{"question_id"=>"1"}, "box"=>"hello world\r\n", "commit"=>"Save"}
+  [1m[36mAnswer Load (0.7ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" DESC LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+JSON::ParserError (757: unexpected token at 'null'):
+  app/controllers/answers_controller.rb:21:in `create'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.3ms)
+
+
+Started POST "/answers/create.json" for 127.0.0.1 at 2014-05-25 02:02:13 -0400
+Processing by AnswersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xDt4PpddcXo07zP7AK1ekdPTDMK/oNNdKDyC/M/yiDo=", "answer"=>{"question_id"=>"1"}, "box"=>"hello world\r\n", "commit"=>"Save"}
+  [1m[35mAnswer Load (0.3ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" DESC LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+JSON::ParserError (757: unexpected token at 'null'):
+  app/controllers/answers_controller.rb:21:in `create'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.7ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 06:02:33.011074"], ["question_id", 1], ["updated_at", "2014-05-25 06:02:33.011074"], ["user_id", 2]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:02:33 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:05:01 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-05-25 06:05:01.999117"], ["question_id", 1], ["updated_at", "2014-05-25 06:05:01.999117"], ["user_id", 2]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  Rendered answers/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 27ms (Views: 17.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:02 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+Processing by LanguagesController#index as HTML
+  [1m[36mLanguage Load (2.6ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  Rendered languages/index.html.erb within layouts/application (4.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:09 -0400
+
+
+Started GET "/categories?end_language=Ruby&start_language=JavaScript" for 127.0.0.1 at 2014-05-25 02:05:14 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"end_language"=>"Ruby", "start_language"=>"JavaScript"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered shared/_category.html.erb (1.5ms)
+  Rendered categories/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questions?category=1&end_language=Ruby&start_language=JavaScript" for 127.0.0.1 at 2014-05-25 02:05:14 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"Ruby", "start_language"=>"JavaScript"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mLanguage Load (0.6ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1[0m
+  [1m[35mQuestion Load (0.6ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 2 AND "questions"."end_language" = 1
+  Rendered shared/_question.html.erb (0.6ms)
+  Rendered questions/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/get_answer/?question_id=7" for 127.0.0.1 at 2014-05-25 02:05:15 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"7"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 7]]
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (21.3ms)
+
+
+Started GET "/get_answer/?question_id=8" for 127.0.0.1 at 2014-05-25 02:05:15 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"8"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 8]]
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (16.4ms)
+
+
+Started GET "/questions/7" for 127.0.0.1 at 2014-05-25 02:05:16 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mLanguage Load (0.1ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  [["question_id", 7]]
+  Rendered shared/_answer.html.erb (0.0ms)
+  Rendered questions/show.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 23ms (Views: 14.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/answers/new?question=7" for 127.0.0.1 at 2014-05-25 02:05:18 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"7"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 06:05:18.927262"], ["question_id", 7], ["updated_at", "2014-05-25 06:05:18.927262"], ["user_id", 2]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 24ms (Views: 13.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:05:24 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-05-25 06:05:25.000282"], ["question_id", 1], ["updated_at", "2014-05-25 06:05:25.000282"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  Rendered answers/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:25 -0400
+
+
+Started GET "/questions/7" for 127.0.0.1 at 2014-05-25 02:05:35 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mLanguage Load (0.1ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mLanguage Load (0.1ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  [["question_id", 7]]
+  Rendered shared/_answer.html.erb (0.2ms)
+  Rendered questions/show.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=14" for 127.0.0.1 at 2014-05-25 02:05:35 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"14"}
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1[0m  [["id", 14]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/questions?category=1&end_language=Ruby&start_language=JavaScript" for 127.0.0.1 at 2014-05-25 02:05:35 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"Ruby", "start_language"=>"JavaScript"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1[0m
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 2 AND "questions"."end_language" = 1[0m
+  Rendered shared/_question.html.erb (0.4ms)
+  Rendered questions/index.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 18ms (Views: 13.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_answer/?question_id=7" for 127.0.0.1 at 2014-05-25 02:05:36 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"7"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 7]]
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/get_answer/?question_id=8" for 127.0.0.1 at 2014-05-25 02:05:36 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"8"}
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 8]]
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (19.3ms)
+
+
+Started GET "/categories?end_language=Ruby&start_language=JavaScript" for 127.0.0.1 at 2014-05-25 02:05:36 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"end_language"=>"Ruby", "start_language"=>"JavaScript"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered shared/_category.html.erb (1.6ms)
+  Rendered categories/index.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-25 02:05:38 -0400
+Processing by LanguagesController#index as HTML
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  Rendered languages/index.html.erb within layouts/application (3.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 71ms (Views: 70.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2014-05-25 02:05:42 -0400
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-25 02:05:42 -0400
+Processing by LanguagesController#index as HTML
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT "languages".* FROM "languages"
+  Rendered languages/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+Processing by LanguagesController#index as HTML
+  [1m[36mLanguage Load (0.1ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  Rendered languages/index.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:05:45 -0400
+
+
+Started GET "/categories?end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-25 02:05:48 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered shared/_category.html.erb (2.0ms)
+  Rendered categories/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questions?category=1&end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-25 02:05:49 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1[0m
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 1 AND "questions"."end_language" = 2
+  Rendered shared/_question.html.erb (0.7ms)
+  Rendered questions/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/get_answer/?question_id=1" for 127.0.0.1 at 2014-05-25 02:05:49 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 1]]
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/get_answer/?question_id=2" for 127.0.0.1 at 2014-05-25 02:05:49 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"2"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 2]]
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (18.7ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-05-25 02:05:50 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.1ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  [["question_id", 1]]
+  Rendered shared/_answer.html.erb (1.1ms)
+  Rendered questions/show.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=4" for 127.0.0.1 at 2014-05-25 02:05:50 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"4"}
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=6" for 127.0.0.1 at 2014-05-25 02:05:50 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"6"}
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1  [["id", 6]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=10" for 127.0.0.1 at 2014-05-25 02:05:50 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"10"}
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1[0m  [["id", 10]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=7" for 127.0.0.1 at 2014-05-25 02:05:50 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"7"}
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1  [["id", 7]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=8" for 127.0.0.1 at 2014-05-25 02:05:50 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"8"}
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=9" for 127.0.0.1 at 2014-05-25 02:05:51 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"9"}
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1  [["id", 9]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=11" for 127.0.0.1 at 2014-05-25 02:05:51 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"11"}
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1[0m  [["id", 11]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=12" for 127.0.0.1 at 2014-05-25 02:05:51 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"12"}
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1  [["id", 12]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=13" for 127.0.0.1 at 2014-05-25 02:05:51 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"13"}
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1[0m  [["id", 13]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/get_answer_by_id/?answer_id=15" for 127.0.0.1 at 2014-05-25 02:05:51 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"15"}
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1  [["id", 15]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:05:52 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 06:05:52.312747"], ["question_id", 1], ["updated_at", "2014-05-25 06:05:52.312747"], ["user_id", 2]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 21ms (Views: 12.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-05-25 06:06:12.056866"], ["question_id", 1], ["updated_at", "2014-05-25 06:06:12.056866"], ["user_id", 2]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  Rendered answers/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:06:12 -0400
+
+
+Started GET "/answers/new?question=7" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"7"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2014-05-25 06:19:04.156782"], ["question_id", 7], ["updated_at", "2014-05-25 06:19:04.156782"], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  Rendered answers/new.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:19:04 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+Processing by LanguagesController#index as HTML
+  [1m[35mLanguage Load (0.4ms)[0m  SELECT "languages".* FROM "languages"
+  Rendered languages/index.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:35:35 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:35:36 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:35:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:35:36 -0400
+
+
+Started GET "/categories?end_language=Python&start_language=Ruby" for 127.0.0.1 at 2014-05-25 02:35:40 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"end_language"=>"Python", "start_language"=>"Ruby"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered shared/_category.html.erb (12.2ms)
+  Rendered categories/index.html.erb within layouts/application (16.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 36ms (Views: 28.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/questions?category=1&end_language=Python&start_language=Ruby" for 127.0.0.1 at 2014-05-25 02:35:41 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"Python", "start_language"=>"Ruby"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1[0m
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Python' LIMIT 1
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 1 AND "questions"."end_language" = 3[0m
+  Rendered shared/_question.html.erb (5.8ms)
+  Rendered questions/index.html.erb within layouts/application (8.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 91ms (Views: 79.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/get_answer/?question_id=3" for 127.0.0.1 at 2014-05-25 02:35:41 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"3"}
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 3]]
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (21.9ms)
+
+
+Started GET "/get_answer/?question_id=4" for 127.0.0.1 at 2014-05-25 02:35:41 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"4"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 4]]
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (18.9ms)
+
+
+Started GET "/questions?category=1&end_language=Python&start_language=Ruby" for 127.0.0.1 at 2014-05-25 02:35:52 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"Python", "start_language"=>"Ruby"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1[0m
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Python' LIMIT 1
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 1 AND "questions"."end_language" = 3[0m
+  Rendered shared/_question.html.erb (0.9ms)
+  Rendered questions/index.html.erb within layouts/application (3.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 20ms (Views: 15.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/get_answer/?question_id=4" for 127.0.0.1 at 2014-05-25 02:35:52 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"4"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 4]]
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (18.3ms)
+
+
+Started GET "/get_answer/?question_id=3" for 127.0.0.1 at 2014-05-25 02:35:52 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"3"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 3]]
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `delta' for nil:NilClass):
+  app/controllers/questions_controller.rb:23:in `get_answer'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (18.5ms)
+
+
+Started GET "/questions/3" for 127.0.0.1 at 2014-05-25 02:35:58 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mLanguage Load (0.1ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = ?[0m  [["question_id", 3]]
+  Rendered shared/_answer.html.erb (0.0ms)
+  Rendered questions/show.html.erb within layouts/application (6.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 23ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/answers/new?question=3" for 127.0.0.1 at 2014-05-25 02:36:00 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"3"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "answers" ("created_at", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-05-25 06:36:00.171795"], ["question_id", 3], ["updated_at", "2014-05-25 06:36:00.171795"], ["user_id", 2]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered answers/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 34ms (Views: 19.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/answers/create.json" for 127.0.0.1 at 2014-05-25 02:36:18 -0400
+Processing by AnswersController#create as JSON
+  Parameters: {"delta"=>{"0"=>["this is a cool site", "0"], "1"=>["this is a cool sit", "2488"], "2"=>["this is a cool si", "2689"], "3"=>["this is a cool s", "2720"], "4"=>["this is a cool ", "2750"], "5"=>["this is a cool", "2781"], "6"=>["this is a coo", "2812"], "7"=>["this is a co", "2843"], "8"=>["this is a c", "2874"], "9"=>["this is a ", "2906"], "10"=>["this is a", "2937"], "11"=>["this is ", "2967"], "12"=>["this is", "2997"], "13"=>["this i", "3029"], "14"=>["this ", "3059"], "15"=>["this", "3089"], "16"=>["thi", "3121"], "17"=>["th", "3150"], "18"=>["t", "3182"], "19"=>["", "3213"], "20"=>["w", "3472"], "21"=>["we", "3536"], "22"=>["we ", "3681"], "23"=>["we l", "3809"], "24"=>["we li", "3953"], "25"=>["we lik", "4128"], "26"=>["we like", "4168"], "27"=>["we like ", "4321"], "28"=>["we like t", "4448"], "29"=>["we like to", "4504"], "30"=>["we like to ", "4615"], "31"=>["we like to p", "4793"], "32"=>["we like to pa", "4840"], "33"=>["we like to par", "4920"], "34"=>["we like to part", "5073"], "35"=>["we like to party", "5480"]}}
+Can't verify CSRF token authenticity
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "answers" SET "delta" = ?, "updated_at" = ? WHERE "answers"."id" = 19[0m  [["delta", "{\"0\":[\"this is a cool site\",\"0\"],\"1\":[\"this is a cool sit\",\"2488\"],\"2\":[\"this is a cool si\",\"2689\"],\"3\":[\"this is a cool s\",\"2720\"],\"4\":[\"this is a cool \",\"2750\"],\"5\":[\"this is a cool\",\"2781\"],\"6\":[\"this is a coo\",\"2812\"],\"7\":[\"this is a co\",\"2843\"],\"8\":[\"this is a c\",\"2874\"],\"9\":[\"this is a \",\"2906\"],\"10\":[\"this is a\",\"2937\"],\"11\":[\"this is \",\"2967\"],\"12\":[\"this is\",\"2997\"],\"13\":[\"this i\",\"3029\"],\"14\":[\"this \",\"3059\"],\"15\":[\"this\",\"3089\"],\"16\":[\"thi\",\"3121\"],\"17\":[\"th\",\"3150\"],\"18\":[\"t\",\"3182\"],\"19\":[\"\",\"3213\"],\"20\":[\"w\",\"3472\"],\"21\":[\"we\",\"3536\"],\"22\":[\"we \",\"3681\"],\"23\":[\"we l\",\"3809\"],\"24\":[\"we li\",\"3953\"],\"25\":[\"we lik\",\"4128\"],\"26\":[\"we like\",\"4168\"],\"27\":[\"we like \",\"4321\"],\"28\":[\"we like t\",\"4448\"],\"29\":[\"we like to\",\"4504\"],\"30\":[\"we like to \",\"4615\"],\"31\":[\"we like to p\",\"4793\"],\"32\":[\"we like to pa\",\"4840\"],\"33\":[\"we like to par\",\"4920\"],\"34\":[\"we like to part\",\"5073\"],\"35\":[\"we like to party\",\"5480\"]}"], ["updated_at", "2014-05-25 06:36:19.042290"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+Completed 200 OK in 63ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/questions/3" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mLanguage Load (0.1ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.1ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  [["question_id", 3]]
+  Rendered shared/_answer.html.erb (0.6ms)
+  Rendered questions/show.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+
+
+Started GET "/get_answer_by_id/?answer_id=19" for 127.0.0.1 at 2014-05-25 02:36:19 -0400
+Processing by QuestionsController#get_answer_by_id as */*
+  Parameters: {"answer_id"=>"19"}
+  [1m[36mAnswer Load (0.5ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = ? LIMIT 1[0m  [["id", 19]]
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 0.5ms)

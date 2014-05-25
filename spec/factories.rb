@@ -33,4 +33,8 @@ FactoryGirl.define do
     end_language "JavaScript"
   end  
 
+  factory :category do 
+    name "Enumerable"
+  end  
+
 end

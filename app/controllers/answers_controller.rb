@@ -15,11 +15,12 @@ class AnswersController < ApplicationController
     ## without authentication, it clears the session.  
       
     @answer = Answer.last
-    if params[:delta]
+    if !params[:delta].nil? && params[:delta].length >1
       @answer.update_attributes(delta: params[:delta].to_json)#,
       render json: @answer.question_id
-    elsif JSON.parse(params[:delta].to_json) == ["0"]
+    else
       @answer.destroy
+      render json: @answer.question_id
     end                  
 
   end
