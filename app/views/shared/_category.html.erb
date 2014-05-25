@@ -1,1 +1,5 @@
-<h3 class="category_index"> <%= link_to category.name, questions_path(category: category, start_language: start_language, end_language: end_language) %> </h3>
+<li class="list-group-item custom">
+  <h3 class="category_index"> <%= link_to category.name, questions_path(category: category, start_language: start_language, end_language: end_language) %>
+    <span class="icon"></span>
+  </h3>
+</li>

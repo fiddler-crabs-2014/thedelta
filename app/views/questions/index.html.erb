@@ -1,6 +1,8 @@
-<h2><%= @category.name %>: </h2>
+<h2 class="jimbo_header"><%= @category.name %>: </h2>
 
-<%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
+<div class="answers">
+  <%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
+</div>
 
 <script>
   $(document).ready(function(){
