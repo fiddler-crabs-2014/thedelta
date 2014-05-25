@@ -34,7 +34,7 @@ FactoryGirl.define do
   end  
 
   factory :category do 
-    name "Ruby"
+    name "Enumerable"
   end  
 
 end
