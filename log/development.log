@@ -24891,6 +24891,7 @@ Processing by QuestionsController#get_answer as */*
   [1m[35mQuestion Load (0.1ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1  [["id", 2]]
   [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = ?  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 2]]
 Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+<<<<<<< HEAD
   [1m[36m (1.1ms)[0m  [1mCREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer, "user_id" integer, "vote_count" integer, "created_at" datetime, "updated_at" datetime, "delta" varchar(255)) [0m
   [1m[35m (0.9ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
   [1m[36m (0.8ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "answer_id" integer, "text" text, "created_at" datetime, "updated_at" datetime) [0m
@@ -31134,3 +31135,10 @@ ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=get_answers):
   Rendered /Users/johnathan/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
   Rendered /Users/johnathan/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.9ms)
   Rendered /Users/johnathan/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (21.7ms)
+=======
+  [1m[36mAnswer Load (1.5ms)[0m  [1mSELECT "answers".* FROM "answers"[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"   ORDER BY "answers"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "answers" ("created_at", "delta", "question_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-05-24 22:33:46.378191"], ["delta", "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}"], ["question_id", 1], ["updated_at", "2014-05-24 22:33:46.378191"], ["user_id", 1]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+>>>>>>> f8a3fcea440815b057bdbb7182a78d778a0b5227

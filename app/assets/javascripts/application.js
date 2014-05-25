@@ -16,7 +16,5 @@
 //= require caret
 //= require languages
 //= require recorder
-//= require questions_view
-
 //= require_self
 //= require_tree .
