@@ -42,6 +42,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'simple_form'
 
+gem 'rails_12factor', group: :production
+
 
 group :development, :test do
 	gem 'rspec-rails'
