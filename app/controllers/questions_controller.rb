@@ -20,8 +20,12 @@ class QuestionsController < ApplicationController
 
   def get_answer
     @question = Question.find(params[:question_id])
-    @answer  = @question.answers.first.delta
-    render json: @answer
+    if !@question.answers.empty?
+      @answer  = @question.answers.first.delta
+      render json: @answer
+    else
+      render text: 'This question needs an answer'
+    end
   end
 
   def get_answer_by_id
