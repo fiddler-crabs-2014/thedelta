@@ -15,7 +15,7 @@
  *= require login_signup
  *= require questions_show
  *= require recorder
- *= require_tree .
+ * require_tree .
  *= require_self
  */
 
