@@ -4,14 +4,27 @@
   text-align: center;
 }
 
-#categories h2 {
-  margin-bottom: 20px;
+#categories h1 {
+  margin-bottom: 40px;
 }
 
 .category_index {
   width: 90%;
   margin-left: 5%;
   padding: 15px;
-  margin-top: 10px;
-  
+  margin-top: 10px; 
 }
+
+.list-group-item.custom {
+  margin-top: 20px;
+  background-color: #e7e7e7;
+  color: white;
+}
+
+.list-group-item.custom:hover {
+  background-color: #7ED0D6;
+}
+
+/*.glyphicon-ok-sign {
+  font-size: 30px;
+}*/

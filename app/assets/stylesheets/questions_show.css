@@ -8,19 +8,39 @@
   height: auto;
 }
 
-.question_header {
+.jimbo_header {
   margin-top: 40px;
   margin-bottom: 30px;
   text-align: center
 }
 
 .add_answer {
-  float: right;
+  position: absolute;
   color: white;
+  background-color: #4E9689;
   margin-bottom: 40px;
+  right: 32px;
+  top: 110px;
+  padding: 50px;
+  font-size: 2em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
 }
 
 .add_answer:hover {
   color: white;
   text-decoration: underline;
+}
+
+@media all and (max-width: 1190px) {
+  .add_answer {
+    padding: 20px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .add_answer {
+    padding: 10px;
+    font-size: 1em;
+  }
 }
