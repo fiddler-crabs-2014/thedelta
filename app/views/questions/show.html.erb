@@ -1,10 +1,12 @@
-<h1><%= @question.query %> </h1>
+<h1 class="jimbo_header"><%= @question.query %> </h1>
 
-<h3><%= @start_language.name %> to <%= @end_language.name %> </h3>
+<h3 class="jimbo_header"><%= @start_language.name %> to <%= @end_language.name %> Answers</h3>
 
-<%= link_to "Add Answer", new_answer_path(question: @question) %>
+<%= link_to "Add Answer", new_answer_path(question: @question), {:class => 'add_answer'} %>
 
-<%= render partial: 'shared/answer', collection: @answers %>
+<div class="answers">
+  <%= render partial: 'shared/answer', collection: @answers %>
+</div>
 
 <script>
   $(document).ready(function(){

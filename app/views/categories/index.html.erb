@@ -1,9 +1,18 @@
 <div id="categories">
-  <h1><%= @start_language %> to <%= @end_language %></h1>
-  <h2> Categories: </h2>
+  <h1><%= @start_language %> to <%= @end_language %> Categories</h1>
 
-
-
-
-  <%= render partial: 'shared/category', collection: @categories, :locals => {start_language: @start_language, end_language: @end_language } %>
+  <ul class="list-group">
+    <%= render partial: 'shared/category', collection: @categories, :locals => {start_language: @start_language, end_language: @end_language } %>
+  </ul>
 </div>
+
+<script>
+  $('.list-group-item').on('mouseover', function() {
+    $(this).find('a').css('color', 'white');
+    $(this).find('.icon').append('<span class="glyphicon glyphicon-circle-arrow-right"></span>')
+  })
+  $('.list-group-item').on('mouseout', function() {
+    $(this).find('a').css('color', '#428bca');
+    $(this).find('.icon').empty()
+  })
+</script>
