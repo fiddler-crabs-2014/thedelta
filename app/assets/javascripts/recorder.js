@@ -3,7 +3,7 @@
     return $(this.selector);
   };
 
-$(function(){
+$(document).on('page:load',function(){
 
   (function($) {
     $.fn.caret = function(pos) {
