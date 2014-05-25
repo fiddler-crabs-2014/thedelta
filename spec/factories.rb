@@ -37,4 +37,8 @@ FactoryGirl.define do
     name "Enumerable"
   end  
 
+  factory :language do 
+    name "Ruby"#, "JavaScript", "Java", "Python"].sample
+  end  
+
 end
