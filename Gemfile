@@ -44,6 +44,7 @@ gem 'simple_form'
 
 gem 'rails_12factor'
 
+gem 'haml-rails'
 
 group :development, :test do
 	gem 'rspec-rails'
