@@ -17,8 +17,7 @@
 
 .list-group-item.custom {
   margin-top: 20px;
-  /*background-color: #e7e7e7;*/
-  background-color: red;
+  background-color: #e7e7e7;
   color: white;
 }
 
