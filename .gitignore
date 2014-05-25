@@ -16,7 +16,7 @@ db/test.sqlite3
 log/*.log
 tmp
 tmp/*
-log*
+
 
 # Ignore the test coverage results
 /coverage/*
