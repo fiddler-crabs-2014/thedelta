@@ -2,19 +2,26 @@ require 'json'
 
 class AnswersController < ApplicationController
   def new
-    @answer = Answer.new
+    @question = Question.find(params[:question])
+    @answer = Answer.create(question_id: @question.id, user_id: current_user.id)
   end
 
   def create
-    @answer = Answer.create(delta: params[:delta].to_json)#,
-                        #user_id: params[:user_id], 
-                        #question_id: params[:question_id])
 
-    #if @answer.save
-      render json: @answer.delta
-    #else
-    #  redirect_to new_answer_path
-    #end
+    ## This logic needs to be fixed.
+    ## Figure out how to validate saving an answer in one operation.
+    ## The user id and question id is being saved in #new but the delta is saved below
+    ## this is a problem with the "post" from the form:
+    ## without authentication, it clears the session.  
+      
+    @answer = Answer.last
+    if params[:delta]
+      @answer.update_attributes(delta: params[:delta].to_json)#,
+      render json: @answer.question_id
+    elsif JSON.parse(params[:delta].to_json) == ["0"]
+      @answer.destroy
+    end                  
+
   end
 
   private

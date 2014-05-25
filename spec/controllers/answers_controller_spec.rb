@@ -8,12 +8,12 @@ describe AnswersController do
 
 	describe "#new" do
 	  it "should render the new answer template" do
-	    get :new
+	    get :new, question: question.id, user_id: user.id
 	    expect(response).to render_template(:new)
 	  end
 
 	  it "should assigns @answer to Answer.new" do
-	    get :new
+	    get :new, question: question.id, user_id: user.id
 	    expect(assigns(:answer)).to be_a_new Answer
 	  end
 	end

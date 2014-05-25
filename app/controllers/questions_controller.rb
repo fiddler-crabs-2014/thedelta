@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def show
   	@question = Question.find(params[:id])
+    @answers = @question.answers
   	@start_language = Language.find(@question.start_language)
   	@end_language = Language.find(@question.end_language)
   end
@@ -21,6 +22,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer  = @question.answers.first.delta
     render json: @answer
+  end
+
+  def get_answer_by_id
+    @answer = Answer.find(params[:answer_id])
+    render json: @answer.delta
   end
 
 end
