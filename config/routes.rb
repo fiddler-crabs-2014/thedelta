@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'profile'
   post '/attempt_login', to: 'sessions#attempt_login'
   get '/get_answer/', to: 'questions#get_answer', as: :get_answer
+  get '/get_answer_by_id/', to: 'questions#get_answer_by_id', as: :get_answer_by_id
   resources :users
   resources :answers
   resources :categories, only: [:index]

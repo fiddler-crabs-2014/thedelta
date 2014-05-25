@@ -1,4 +1,4 @@
-
+<!-- 
     <div id="recorder">
       <form method="post" action="/answers/create.json" name="recorder">
         <textarea name="box" placeholder="Type code example here. Then hit record to start recording your demo."  cols="50" rows="7"></textarea>
@@ -10,4 +10,23 @@
       <button id="Clear" class="btn btn-warning btn-lg">Clear</button>
 
       <pre id="view"></pre>
+    </div> -->
+
+
+
+    <div id="recorder">
+      <%= form_for @answer, url: '/answers/create.json', method:'post', html: { name:"recorder" } do |f| %>
+        <%= f.hidden_field :question_id, value: @question.id %>
+        <%= f.text_area(:delta, size: '50x7', name:'box', placeholder: "Type code example here. Then hit record to start recording your demo.") %>
+        <%= f.submit "Save" , :class => "btn btn-warning btn-lg", :id => "Save" %>
+      <% end %>
+      <button id="Record" class="btn btn-danger btn-lg">Record</button>
+      <button id="Stop" class="btn btn-primary btn-lg">Stop</button>
+      <button id="Play" class="btn btn-primary btn-lg">Play</button>
+      <button id="Clear" class="btn btn-warning btn-lg">Clear</button>
+
+      <pre id="view"></pre>
     </div>
+
+
+

@@ -138,19 +138,20 @@ $(document).on('page:load',function(){
  
     $.post("/answers/create.json", {delta: state}, function(response){
 
-      var play_state = $.map(response, function(value, index) {
-        return [value];
-      });
+      window.location.replace("/questions/" + response );
+      // var play_state = $.map(response, function(value, index) {
+      //   return [value];
+      // });
 
-      $("#view").html(play_state[0][0])
+      // $("#view").html(play_state[0][0])
 
-      play_state.forEach(function(step){
+      // play_state.forEach(function(step){
 
-        setTimeout(function(){
-          $("#view").html(step[0]);
-        },step[1]);
+      //   setTimeout(function(){
+      //     $("#view").html(step[0]);
+      //   },step[1]);
 
-      });
+      // });
 
     },"JSON");
   });
