@@ -1,4 +1,26 @@
-<h1><%= @question.query %> </h1>
+<h1 id="<%= @question.id %>"><%= @question.query %> </h1>
 
 <h3><%= @start_language.name %> to <%= @end_language.name %> </h3>
 
+<%= render partial: 'shared/answer', collection: @answers %>
+
+<script>
+  $(document).ready(function() {
+
+    var players = {};
+    questionId = $("h1").attr("id");
+    
+    $.get('get_answers/', { question_id: questionId }, function(response) {
+        response.forEach(function(answer) {
+
+            players[answer.id] = new Player({
+                play_sel: "#Play" + answer.id,
+                view_sel: "#preview_" + answer.id
+            });
+
+            players[answer.id].play(answer.delta);
+        });
+    });
+    
+  });
+</script>
