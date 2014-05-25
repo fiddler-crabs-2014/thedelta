@@ -1,6 +1,6 @@
 class Answer < ActiveRecord::Base
-  validates :question_id, presence: true
-  validates :user_id, presence: true
+  #validates :question_id, presence: true
+  #validates :user_id, presence: true
   validates :delta, presence: true
   
   belongs_to :question
