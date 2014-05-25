@@ -16,8 +16,8 @@ class QuestionsController < ApplicationController
   def show
   	@question = Question.find(params[:id])
     @answers = @question.answers
-  	@start_language = Language.find(@question.start_language)
-  	@end_language = Language.find(@question.end_language)
+  	@start_language = Language.find_by_name(@question.start_language)
+  	@end_language = Language.find_by_name(@question.end_language)
   end
 
   def get_answer
