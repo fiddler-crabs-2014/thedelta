@@ -3,7 +3,7 @@
     return $(this.selector);
   };
 
-$(document).on('page:load',function(){
+$( document ).ready(function() {
 
   (function($) {
     $.fn.caret = function(pos) {
@@ -58,127 +58,170 @@ $(document).on('page:load',function(){
           target.focus();
           window.getSelection().collapse(target.firstChild, pos);
         }
-        //textarea
-        else
-          target.setSelectionRange(pos, pos);
       }
-      //IE<9
-      else if (document.body.createTextRange) {
-        var range = document.body.createTextRange();
-        range.moveToElementText(target);
-        range.moveStart('character', pos);
-        range.collapse(true);
-        range.select();
-      }
-      if (!isContentEditable)
-        target.focus();
-      return pos;
     }
   })(jQuery)
 
 
 
-
-  var state = [0];
-  var start = false;
-  var start_time = 0;
-  var time_from_start = 0;
-  var stop_time = 0;
-
-  $("#Record").on("click", function(){
-    if(!start){
-      state[state.length-1] = [$("form textarea").val(), stop_time];
-    };
-
-    start = true;
-    start_time = Date.now();
-  });
-
-  $("#Stop").on("click", function(){
-    start = false;
-    stop_time = time_from_start;
-  });
-
-  $("#Clear").on("click", function(){
-    $("#view").empty();
-    state = [0];
-    start = false;
-    stop_time = 0;
-    start_time = 0;
-    time_from_start = 0;
-  });
-
-  $("#Play").on("click", function(){
-    $("#view").html(state[0][0])
-    state.forEach(function(step){
-      setTimeout(function(){
-        $("#view").html(step[0]);
-      },step[1]);
+    var recorder = new Recorder({
+        textarea_sel: "#recorder textarea",
+        record_sel: "#Record",
+        stop_sel: "#Stop",
+        view_sel: "#view",
+        clear_sel: "#Clear",
     });
-  });
 
 
-  $("form textarea").on("input", function(){
-    if(start){
-      time_from_start = Date.now() - start_time + stop_time;
+    recorder.record();
+    recorder.stop();
+    recorder.clear();
 
-      add_string = $("form textarea").val();
-      add_string = add_string.replace(/</g,"&lt;");
-      add_string = add_string.replace(/>/g,"&gt;");
-      state.push([add_string, time_from_start]);
-      state.forEach(function(stat){
-        console.log(stat[0] + " " + stat[1]);
-      });
-    };
-  });
+    var player  = new Player({
+        play_sel: "#Play",
+        view_sel: "#view"
+    });
 
+    player.play(recorder.state);
+    recorder.save();
 
-  $("form[name=recorder]").submit(function(e){
-    e.preventDefault();
-    $.post("/answers/create.json", {delta: state}, function(response){
+    $("textarea").keydown(function(e) {
 
-      window.location.replace("/questions/" + response );
-      // var play_state = $.map(response, function(value, index) {
-      //   return [value];
-      // });
+        var tabKey = 9;
+        var enterKey = 13;
 
-      // $("#view").html(play_state[0][0])
+        formattingKeyPress(tabKey, "\t", e, this);
+        formattingKeyPress(enterKey, "\n", e, this);
 
-      // play_state.forEach(function(step){
+    });
 
-      //   setTimeout(function(){
-      //     $("#view").html(step[0]);
-      //   },step[1]);
-
-      // });
-
-    },"JSON");
-  });
-
-
-  $("textarea").keydown(function(e) {
-    if(e.keyCode === 9) { // tab was pressed
-      e.preventDefault();
-      var $this = $(this);
-      var start = $this.caret();
-      var value = $this.val();
-
-      $this.val(value.substring(0, start)
-                  + '\t'
-                  + value.substring(start));
-      $this.caret(start+1);
-    }
-
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      var $this = $(this);
-      var start = $this.caret();
-      var value = $this.val();
-      $this.val(value.substring(0, start)
-          + '\n'
-          + value.substring(start));
-
-      $this.caret(start+1);
-    };
-  });
 });
+
+
+
+function formattingKeyPress(key, substitute, event, myObj) {
+
+    if (event.keyCode === key) { // tab was pressed
+        event.preventDefault();
+
+        var $myObj = $(myObj);
+        var start = $myObj.caret();
+        var value = $myObj.val();
+
+        $myObj.val(value.substring(0, start) + substitute + value.substring(start));
+        $myObj.caret(start + 1);
+    }
+};
+
+function Player(args) {
+    this.play_sel = args.play_sel;
+    this.view_sel = args.view_sel;
+};
+
+Player.prototype.play = function(states) {
+    $(this.view_sel).html(states[0][0]);
+    $(document).on("click", this.play_sel, function() {
+      var view_sel = this.view_sel
+
+        if (!(states instanceof Array)) {
+            states = $.map(states, function(value, index) {
+                return [value];
+            });
+        };
+
+        states.forEach(function(step) {
+
+            setTimeout(function() {
+                
+          console.log(view_sel);
+                $(view_sel).html(step[0]);
+            }, step[1]);
+
+        }.bind(this));
+
+    }.bind(this));
+}
+
+function Recorder(args) {
+  console.log("Function starts: Recorder");
+    this.textarea_sel = args.textarea_sel;
+    this.record_sel = args.record_sel;
+    this.stop_sel = args.stop_sel;
+    this.clear_sel = args.clear_sel;
+    this.view_sel = args.view_sel;
+
+    this.state = [0];
+    this.start = false;
+    this.start_time = 0;
+    this.time_from_start = 0;
+    this.stop_time = 0;
+
+};
+
+Recorder.prototype.record = function() {
+
+    $(this.record_sel).on("click", function() {
+      console.log("Function starts: Record click");
+
+        if (!this.start) {
+            this.state[this.state.length - 1] = [$(this.textarea_sel).val(), this.stop_time];
+        };
+
+        this.start = true;
+        this.start_time = Date.now();
+        $(this.textarea_sel).caret(0);
+    }.bind(this));
+
+    $(this.textarea_sel).on("input", function() {
+        if (this.start) {
+            this.time_from_start = Date.now() - this.start_time + this.stop_time;
+
+            var add_string = $(this.textarea_sel).val();
+            add_string = add_string.replace(/</g, "&lt;");
+            add_string = add_string.replace(/>/g, "&gt;");
+
+            this.state.push([add_string, this.time_from_start]);
+
+        };
+    }.bind(this));
+};
+
+
+Recorder.prototype.stop = function() {
+
+    $(this.stop_sel).on("click", function() {
+        console.log("Stop Click");
+        this.start = false;
+        this.stop_time = this.time_from_start;
+    }.bind(this));
+
+};
+
+
+Recorder.prototype.clear = function() {
+    $(this.clear_sel).on("click", function() {
+        $(this.view_sel).empty();
+
+        this.state = [0];
+        this.start = false;
+        this.stop_time = 0;
+        this.start_time = 0;
+        this.time_from_start = 0;
+    }.bind(this));
+};
+
+
+Recorder.prototype.save = function() {
+    $("form[name=recorder]").submit(function(e) {
+        e.preventDefault();
+        $("#loader").removeClass("hidden");
+        $("#loader").addClass("show");
+
+        $.post("/answers/create.json", {
+            delta: this.state
+        }, function(response) {
+            window.location.replace("/questions/" + response.question_id);
+
+        }.bind(this), "JSON");
+    }.bind(this));
+};
