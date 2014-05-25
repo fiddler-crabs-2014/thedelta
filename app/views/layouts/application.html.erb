@@ -11,7 +11,7 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300|Raleway:800' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="custom">
 
 <nav class="navbar navbar-default nav" role="navigation">
   <div class="container-fluid">
@@ -65,10 +65,10 @@
 
 <div class="container wrapper">
   <%= yield %>
-  <footer id="footer">
-    Designed and Developed by Adrian Pask, Johnathan Weisner, Phil London, and Shaun McGeever <br>
-  </footer>
 </div>
+<footer id="footer">
+  Designed and Developed by Adrian Pask, Johnathan Weisner, Phil London, and Shaun McGeever <br>
+</footer>
 <script>
   $('.reload').on('click', function(e) {
     e.preventDefault();
