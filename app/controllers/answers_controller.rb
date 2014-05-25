@@ -6,15 +6,15 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(delta: params[:delta].to_json,
-                        user_id: params[:user_id], 
-                        question_id: params[:question_id])
+    @answer = Answer.create(delta: params[:delta].to_json)#,
+                        #user_id: params[:user_id], 
+                        #question_id: params[:question_id])
 
-    if @answer.save
+    #if @answer.save
       render json: @answer.delta
-    else
-      redirect_to new_answer_path
-    end
+    #else
+    #  redirect_to new_answer_path
+    #end
   end
 
   private
