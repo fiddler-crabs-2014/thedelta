@@ -2,10 +2,10 @@
 
 <% if !question.answers.empty? %>
   <pre class="show_answer" id="Preview_Question_<%=question.id %>">
-    
+
   </pre>
   <p>Submitted by <%= question.answers.first.user.username %></p>
-  <button id="Play_Question_<%= question.id %>">Play</button>
+  <button id="Play_Question_<%= question.id %>" class="btn btn-primary btn-sm">Play</button>
 <% else %>
   <p><%= link_to 'Submit an answer', question_path(question)%></p>
 <% end %>

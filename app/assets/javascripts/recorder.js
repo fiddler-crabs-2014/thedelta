@@ -80,7 +80,8 @@ $( document ).ready(function() {
 
     var player  = new Player({
         play_sel: "#Play",
-        view_sel: "#view"
+        view_sel: "#view",
+        load_sel: ""
     });
 
     player.play(recorder.state);
@@ -114,36 +115,6 @@ function formattingKeyPress(key, substitute, event, myObj) {
     }
 };
 
-function Player(args) {
-    this.play_sel = args.play_sel;
-    this.view_sel = args.view_sel;
-};
-
-Player.prototype.play = function(states) {
-    $(this.view_sel).html(states[0][0]);
-    var view_sel = this.view_sel;
-
-    if (!(states instanceof Array)) {
-        states = $.map(states, function(value, index) {
-            return [value];
-        });
-    };
-
-    $(document).on("click", this.play_sel, function() {
-        console.log(states);
-
-        states.forEach(function(step) {
-
-            setTimeout(function() {
-                
-          console.log(view_sel);
-                $(view_sel).html(step[0]);
-            }, step[1]);
-
-        }.bind(this));
-
-    }.bind(this));
-}
 
 function Recorder(args) {
   console.log("Function starts: Recorder");
