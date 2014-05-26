@@ -6,9 +6,9 @@ class VotesController < ApplicationController
     puts '*' * 50
 
     @answer = Answer.find(params[:answer_id])
-    record_vote = Vote.first_or_create(answer_id: params[:answer_id], user_id: params[:user_id])
-    record_vote.vote_value =  params[:vote_value]
-    record_vote.save
+    record_vote = Vote.record_vote(params[:user_id], 
+      params[:answer_id], params[:vote_value])
+
 
     redirect_to question_path(@answer.question)
   end
