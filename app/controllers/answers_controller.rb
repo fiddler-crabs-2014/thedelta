@@ -17,10 +17,10 @@ class AnswersController < ApplicationController
     @answer = Answer.last
     if !params[:delta].nil? && params[:delta].length >1
       @answer.update_attributes(delta: params[:delta].to_json)#,
-      render json: @answer.question_id
+      render json: { question_id: @answer.question_id }.to_json
     else
       @answer.destroy
-      render json: @answer.question_id
+      render json: { question_id: @answer.question_id }.to_json
     end                  
 
   end

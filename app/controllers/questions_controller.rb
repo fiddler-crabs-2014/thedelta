@@ -30,9 +30,10 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def get_answer_by_id
-    @answer = Answer.find(params[:answer_id])
-    render json: @answer.delta
+  def get_answers
+    @question = Question.find(params[:question_id])
+    @answers = @question.answers
+    render json: @answers
   end
 
 end

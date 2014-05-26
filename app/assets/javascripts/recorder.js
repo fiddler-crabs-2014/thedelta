@@ -5,6 +5,7 @@
 
 $( document ).ready(function() {
 
+
   (function($) {
     $.fn.caret = function(pos) {
       var target = this[0];
@@ -161,7 +162,7 @@ function Recorder(args) {
 Recorder.prototype.record = function() {
 
     $(this.record_sel).on("click", function() {
-      console.log("Function starts: Record click");
+        console.log("Function starts: Record click");
 
         if (!this.start) {
             this.state[this.state.length - 1] = [$(this.textarea_sel).val(), this.stop_time];
@@ -169,13 +170,14 @@ Recorder.prototype.record = function() {
 
         this.start = true;
         this.start_time = Date.now();
-        $(this.textarea_sel).caret(0);
+        $("#answer_delta").focus();
+        // $("#answer_delta").caret(0);
     }.bind(this));
 
     $(this.textarea_sel).on("input", function() {
         if (this.start) {
             this.time_from_start = Date.now() - this.start_time + this.stop_time;
-
+            // this.time_from_start = ((this.time_from_start > 1500) ? 1500 : this.time_from_start);
             var add_string = $(this.textarea_sel).val();
             add_string = add_string.replace(/</g, "&lt;");
             add_string = add_string.replace(/>/g, "&gt;");
@@ -214,11 +216,14 @@ Recorder.prototype.clear = function() {
 Recorder.prototype.save = function() {
     $("form[name=recorder]").submit(function(e) {
         e.preventDefault();
+        // var question_id = $("form[name=recorder] input[name=question_id]").val();
         $("#loader").removeClass("hidden");
         $("#loader").addClass("show");
 
+
         $.post("/answers/create.json", {
             delta: this.state
+            // id: question_id
         }, function(response) {
             window.location.replace("/questions/" + response.question_id);
 
