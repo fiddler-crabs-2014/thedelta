@@ -4,6 +4,11 @@
       "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/helpers/application_helper.rb": [
         1,
         null
+<<<<<<< HEAD
+      ]
+    },
+    "timestamp": 1401137918
+=======
       ],
       "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/answers_controller.rb": [
         1,
@@ -338,5 +343,6 @@
 =======
     "timestamp": 1401133270
 >>>>>>> master
+>>>>>>> cc63f96ca9fe65157ccf4319e0e8982f0aa8fc9e
   }
 }
