@@ -1,7 +1,6 @@
 <h4 class="answers_index">Answer: <%= answer.upvote_count %> Up / <%= answer.downvote_count %> Down </h4>
 
 <pre class="show_answer" id="preview_answer_<%= answer.id %>" value="<%=answer.id%>" >
-
 </pre>
 
 <button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button>
@@ -18,3 +17,4 @@
   <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm"  %>
 <% end %> 
 <div id="loading-bar<%= answer.id %>" class="loading-bar-wait"></div>
+
