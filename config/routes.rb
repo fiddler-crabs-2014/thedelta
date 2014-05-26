@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   post '/attempt_login', to: 'sessions#attempt_login'
   get '/get_answer/', to: 'questions#get_answer', as: :get_answer
   get '/get_answers/', to: 'questions#get_answers', as: :get_answers
-  post 'vote-up', to: 'votes#upvote', as: :vote_up
+  post 'vote', to: 'votes#record', as: :vote_record
   post 'vote-down', to: 'votes#downvote', as: :vote_down
   resources :users
   resources :answers
