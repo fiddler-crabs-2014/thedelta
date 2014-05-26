@@ -1,4 +1,5 @@
 <h4 class="answers_index"> </h4>
+
 <h3 class="answers_index">Answer: <%= answer.id %>  <%= answer.upvote_count %> Up / <%= answer.downvote_count %> Down </h3>
 <%= form_tag '/vote' do %>
   <%= hidden_field_tag 'answer_id', answer.id %>
