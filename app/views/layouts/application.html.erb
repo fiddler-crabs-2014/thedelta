@@ -11,8 +11,12 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400,300' rel='stylesheet' type='text/css'>
 </head>
-<body class="custom">
-
+<% if @splash %>
+  <body class="custom splash">
+<% else %>
+  <body class="custom">
+<% end %>
+<nav class="background-nav"></nav>
 <nav class="navbar navbar-default nav" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
