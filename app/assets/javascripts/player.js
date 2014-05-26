@@ -6,6 +6,14 @@ function Player(args) {
     this.states = [0];
 };
 
+Player.prototype.disable_btn = function(){
+    $(this.play_sel).attr('disabled','disabled');
+};
+
+Player.prototype.enable_btn = function(){
+    $(this.play_sel).removeAttr('disabled');
+};
+
 Player.prototype.play = function(states) {
     this.states = states;
     $(this.view_sel).html(this.states[0][0]);
@@ -40,11 +48,11 @@ Player.prototype.play = function(states) {
             }, step[1]);
 
         }.bind(this));
-        $(this.play_sel).attr('disabled','disabled');
+        this.disable_btn();
         console.log(animation_length_ms);
         setTimeout(function() {
             console.log(this.play_sel);
-            $(this.play_sel).removeAttr('disabled');
+            this.enable_btn();
         }.bind(this), animation_length_ms);
 
         // $(this.load_sel).removeClass();
@@ -59,3 +67,4 @@ Player.prototype.play = function(states) {
 Player.prototype.update_state = function(states) {
     this.states = states;
 };
+

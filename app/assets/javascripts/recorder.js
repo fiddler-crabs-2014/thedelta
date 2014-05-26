@@ -75,6 +75,7 @@ $( document ).ready(function() {
         record_sel: "#Record",
         view_sel: "#view",
         reset_sel: "#reset",
+        save_sel: "#Save",
         player: player
     });
 
@@ -121,7 +122,9 @@ function Recorder(args) {
     this.record_sel = args.record_sel;
     this.reset_sel = args.reset_sel;
     this.view_sel = args.view_sel;
+    this.save_sel = args.save_sel;
     this.player = args.player;
+    this.player.disable_btn();
 
 
     this.state = [0];
@@ -132,6 +135,14 @@ function Recorder(args) {
 
 };
 
+Recorder.prototype.enable_save = function() {
+  $(this.save_sel).removeAttr('disabled');
+};
+
+Recorder.prototype.disable_save = function() {
+  $(this.save_sel).attr('disabled','disabled');
+};
+
 Recorder.prototype.record = function() {
 
     $(this.record_sel).on("click", function() {
@@ -140,10 +151,16 @@ Recorder.prototype.record = function() {
         if (!this.start) {
             console.log(this.start);
             this.start = true;
+
+            this.player.disable_btn();
             this.state[this.state.length - 1] = [$(this.textarea_sel).val(), this.stop_time];
             $("#record-btn").removeClass("record-off");
             $("#record-btn").addClass("record-on");
         } else {
+            if(this.state.length > 1) {
+              this.player.enable_btn();
+              this.enable_save();
+            }
             console.log(this.start);
             console.log("Stop Click");
             this.start = false;
@@ -177,10 +194,14 @@ Recorder.prototype.record = function() {
 
 Recorder.prototype.reset = function() {
     $(this.reset_sel).on("click", function() {
+        this.player.disable_btn();
+        this.disable_save();
+
         $(this.view_sel).empty();
         $(this.textarea_sel).val(this.state[0][0]);
 
         console.log("reset");
+
         this.state = [0];
         this.start = false;
         this.stop_time = 0;
@@ -192,6 +213,8 @@ Recorder.prototype.reset = function() {
 
 
 Recorder.prototype.save = function() {
+    this.disable_save();
+
     $("form[name=recorder]").submit(function(e) {
         e.preventDefault();
         // var question_id = $("form[name=recorder] input[name=question_id]").val();
@@ -208,3 +231,4 @@ Recorder.prototype.save = function() {
         }.bind(this), "JSON");
     }.bind(this));
 };
+
