@@ -1,7 +1,9 @@
 <h4 class="answers_index"> </h4>
 
 <pre class="show_answer" id="preview_answer_<%= answer.id %>" value="<%=answer.id%>" >
-
 </pre>
 
-<button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button><div id="loading-bar<%= answer.id %>" class="loading-bar-wait"></div>
+<button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button> <%= link_to 'See Answer', answer_path(answer) %>
+
+<div id="loading-bar<%= answer.id %>" class="loading-bar-wait">
+</div>

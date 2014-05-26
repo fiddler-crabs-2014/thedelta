@@ -10,6 +10,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def show
+    @answer = Answer.find(params[:id])
+  end
+
   def create
 
     ## This logic needs to be fixed.
