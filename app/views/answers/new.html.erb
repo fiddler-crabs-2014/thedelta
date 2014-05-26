@@ -1,46 +1,32 @@
-<!-- 
-    <div id="recorder">
-      <form method="post" action="/answers/create.json" name="recorder">
-        <textarea name="box" placeholder="Type code example here. Then hit record to start recording your demo."  cols="50" rows="7"></textarea>
-        <input id="Save" type="submit" value="Save" class="btn btn-warning btn-lg"/>
-      </form>
-      <button id="Record" class="btn btn-danger btn-lg">Record</button>
-      <button id="Stop" class="btn btn-primary btn-lg">Stop</button>
-      <button id="Play" class="btn btn-primary btn-lg">Play</button>
-      <button id="reset" class="btn btn-warning btn-lg">reset</button>
+<h1 class="jimbo_header"><%= @question.query %></h1>
 
-      <pre id="view"></pre>
-    </div> -->
-    
+<h3 class="jimbo_header" id="language_delta"><%= @question.start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @question.end_language %></h3>
 
-    <h1 class="jimbo_header"><%= @question.query %></h1>
+<div class="instructions">
+  <h3>Instructions</h3>
+  <ol>
+    <li>Type out or copy and paste the <%= @question.start_language %> solution</li>
+    <li>When ready, press <button id="preview_record" class="btn btn-danger btn-small">Record</button></li>
+    <li>Morph the code into the <%= @question.end_language %> solution</li>
+    <li>Press <button id="preview_stop" class="btn btn-danger btn-small">Record</button> again to stop.</li>
+    <li>Preview with <button id="preview_play" class="btn btn-primary btn-small">Play</button></li>
+    <li>Save and submit with <button id="preview_save" class='btn btn-warning btn-small'>Save</button></li>
+  </ol>
+</div>
 
-    <h3 class="jimbo_header" id="language_delta"><%= @question.start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @question.end_language %></h3>
+<div id="recorder">
+  <%= form_for @answer, url: '/answers/create.json', method:'post', html: { name:"recorder" } do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :question_id, :value => @question.id %>
+    <%= f.text_area(:delta, size: '50x7', name:'box', placeholder: "Type code example here. Then hit record to start recording your demo.") %>
+    <%= f.submit "Save" , :class => "btn btn-warning btn-lg", :id => "Save" %>
+  <% end %>
+  <button id="Record" class="btn btn-danger btn-lg"><div id="record-btn" class="record-off"></div>Record</button>
+  <button id="Play" class="btn btn-primary btn-lg">Play</button>
+  <button id="reset" class="btn btn-warning btn-lg">reset</button>
 
-    <div class="instructions">
-      <h3>Instructions</h3>
-      <ol>
-        <li>Type out or copy and paste the <%= @question.start_language %> solution</li>
-        <li>When ready, press <button id="preview_record" class="btn btn-danger btn-small">Record</button></li>
-        <li>Morph the code into the <%= @question.end_language %> solution</li>
-        <li>Press <button id="preview_stop" class="btn btn-danger btn-small">Record</button> again to stop.</li>
-        <li>Preview with <button id="preview_play" class="btn btn-primary btn-small">Play</button></li>
-        <li>Save and submit with <button id="preview_save" class='btn btn-warning btn-small'>Save</button></li>
-      </ol>
-    </div>
-
-    <div id="recorder">
-      <%= form_for @answer, url: '/answers/create.json', method:'post', html: { name:"recorder" } do |f| %>
-        <%= f.hidden_field :question_id, value: @question.id %>
-        <%= f.text_area(:delta, size: '50x7', name:'box', placeholder: "Type code example here. Then hit record to start recording your demo.") %>
-        <%= f.submit "Save" , :class => "btn btn-warning btn-lg", :id => "Save" %>
-      <% end %>
-      <button id="Record" class="btn btn-danger btn-lg"><div id="record-btn" class="record-off"></div>Record</button>
-      <button id="Play" class="btn btn-primary btn-lg">Play</button>
-      <button id="reset" class="btn btn-warning btn-lg">reset</button>
-
-      <pre id="view"></pre>
-    </div>
+  <pre id="view"></pre>
+</div>
 
 
-
+<input type="hidden" name="Language" value="English">

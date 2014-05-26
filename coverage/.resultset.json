@@ -157,9 +157,9 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
         null,
         null,
         null
@@ -333,6 +333,10 @@
         null
       ]
     },
+<<<<<<< HEAD
+    "timestamp": 1401109665
+=======
     "timestamp": 1401133270
+>>>>>>> master
   }
 }
