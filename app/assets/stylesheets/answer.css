@@ -1,0 +1,40 @@
+.instructions {
+  position: absolute;
+  top: 109px;
+  left: 67px;
+  width: 20%;
+  height: auto;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.instructions h3 {
+  margin: 0;
+}
+
+.instructions ol {
+  padding-left: 19px;
+  margin-top: 10px;
+}
+
+.instructions li {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+#preview_record {
+  padding: 2px 4px;
+}
+
+#preview_stop {
+  padding: 2px 4px;
+}
+
+#preview_play {
+  padding: 2px 4px;
+}
+
+#preview_save {
+  padding: 2px 4px;
+}
