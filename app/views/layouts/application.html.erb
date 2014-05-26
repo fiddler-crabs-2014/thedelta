@@ -64,7 +64,19 @@
 </nav>
 
 <div class="container wrapper">
+
+  
+    <div id='flash_box'>
+      <% flash.each do |type, message| %>
+      <div class="flash_<%=type%>">
+        <%= message %>
+      </div>
+      <% end %>
+    </div>
+  
+
   <%= yield %>
+
 </div>
 <footer id="footer">
   Designed and Developed by Adrian Pask, Johnathan Weisner, Phil London, and Shaun McGeever <br>
