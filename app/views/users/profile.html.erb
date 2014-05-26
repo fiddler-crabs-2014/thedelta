@@ -1,2 +1,8 @@
 <div class="username_header"><%= "Welcome, #{@user.name}!" %></div>
+<h2>Answers:</h2>
+<ul>
+  <% @user.answers.each do |answer| %>
+    <li><%= link_to "#{answer.question.query} #{answer.question.start_language} -> #{answer.question.end_language}", question_path(answer.question) %></li>
+  <% end %>
+</ul>
 
