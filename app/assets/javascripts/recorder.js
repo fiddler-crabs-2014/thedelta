@@ -217,14 +217,15 @@ Recorder.prototype.save = function() {
 
     $("form[name=recorder]").submit(function(e) {
         e.preventDefault();
-        // var question_id = $("form[name=recorder] input[name=question_id]").val();
+        var question_id = parseInt($('#answer_question_id').attr('value'));
+        var user_id = parseInt($('#answer_user_id').attr('value'));
         $("#loader").removeClass("hidden");
         $("#loader").addClass("show");
 
-
         $.post("/answers/create.json", {
-            delta: this.state
-            // id: question_id
+            delta: this.state,
+            question_id: question_id,
+            user_id: user_id
         }, function(response) {
             window.location.replace("/questions/" + response.question_id);
 
