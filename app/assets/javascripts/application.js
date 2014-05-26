@@ -16,5 +16,6 @@
 // require turbolinks
 //= require jquery.caret
 //= require languages
+//= require player
 //= require recorder
 // require_tree .

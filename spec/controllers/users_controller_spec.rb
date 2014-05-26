@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe UsersController do
   
-  let!(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   render_views
   
@@ -19,41 +19,85 @@ describe UsersController do
   end
 
   describe "#create" do
+    subject {post :create, user: FactoryGirl.attributes_for(:user)}
+
     it "should create user valid attributes" do
-      expect {
-        post :create, user: FactoryGirl.attributes_for(:user)
-        expect(response).to be_redirect
-        }.to change { User.count }.by(1)
+      expect{post :create, user: FactoryGirl.attributes_for(:user)}.to change { User.count }.by(1)
     end
 
-    it "should not create user with invalid attributes" do
+    xit "should redirect to profile page after creating user" do
+      expect{ post :create, user: FactoryGirl.attributes_for(:user)
+        }.to redirect_to(profile_path) 
+    end
+
+    xit "should not create user with invalid email" do
       expect {
-        post :create, user: {username: "bob", email: "", password: "", password: ""}
-        expect(response).to_not be_redirect
-        }.to_not change { User.count }.by(1)
+        post :create, user: {username: user.username, email: '123@', password: 'password', password_confirmation: 'password'}
+        
+        }.to change { User.count }.by(0)
     end
   end
 
-  describe "#edit" do
-    before { session[:user_id] = user.id }
-    it "is successful" do
-      get :edit, id: user.id
-      expect {
-        put :edit, user: FactoryGirl.attributes_for(:user)
-        expect(response).to be_success
-        }
+  describe "#profile" do
+
+    it "should render profile page when logged in" do
+      session[:user_id] = user.id 
+      get :profile
+      expect(response).to render_template(:profile)
     end
 
-    it "is unsuccessful" do
-      get :edit, id: user.id
-      expect {
-        put :edit, user: {email: "bob@bob"}
-        expect(response).to_not be_success
-        }
+    it "should redirect to login if logged out" do
+      session[:user_id] = nil
+      get :profile
+      expect(response).to redirect_to(:login)
     end
-    # it "is unsuccessful" do
-    #   get :edit, id: user.id
-    #   expect(response).to render_template('edit')
-    # end
+  end
+
+
+  describe "#edit" do
+    before { session[:user_id] = user.id }
+
+    it "renders the edit template" do
+      get :edit, id: user.id
+      expect(response).to render_template(:edit)
+    end
+
+    it "redirect to login if not logged in" do
+      session[:user_id] = nil
+      get :edit, id: user.id
+      expect(response).to redirect_to login_path
+    end
+  end
+
+  describe "#update" do
+    xit "it changes the records if valid" do
+      put :update, user: {email: "bob@bob"}
+      expect(response).to_not be_success
+    end
+
+    xit "is unsuccessful if invalid email" do
+      put :update, user: {email: "bob@bob"}
+      expect(response).to_not be_success
+    end
+
+    xit "is unsuccessful if invalid username" do
+      put :update, user: {email: "bob@bob"}
+      expect(response).to_not be_success
+    end
+
+    xit "is unsuccessful if duplicate email" do
+      put :update, user: {email: "bob@bob"}
+      expect(response).to_not be_success
+    end
+
+    xit "is unsuccessful if duplicate username" do
+      put :update, user: {email: "bob@bob"}
+      expect(response).to_not be_success
+    end
+
+    xit "is unsuccessful if passwords do not match" do
+      put :update, user: {email: "bob@bob"}
+      expect(response).to_not be_success
+    end
   end
 end

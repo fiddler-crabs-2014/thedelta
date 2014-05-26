@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :confirm_logged_in, only: :profile
+  before_action :confirm_logged_in, only: [:profile, :edit, :update]
 
 
   def new
