@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
       @answer  = @question.answers.first.delta
       render json: @answer
     else
-      render text: 'This question needs an answer'
+      # render text: 'This question needs an answer'
     end
   end
 
