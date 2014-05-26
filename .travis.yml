@@ -12,4 +12,4 @@ rvm:
 script: bundle exec rspec spec
 
 before_script:
-  - psql -c 'create database test-postgres_test;' -U postgres
+  - psql -c 'create database thedelta_test;' -U postgres
