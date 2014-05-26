@@ -1,41 +1,59 @@
 textarea {
-  resize: none;
-  width:100%;
-  height:150px;
-
+    resize: none;
+    width:100%;
+    height:150px;
 }
-
 #recorder {
-  width: 400px;
-  margin: 0 auto;
-  tab-size: 3;
-  -moz-tab-size: 3;
-  -o-tab-size: 3;
-  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
-  font-size: 90%;
+    width: 400px;
+    margin: 0 auto;
+    tab-size: 3;
+    -moz-tab-size: 3;
+    -o-tab-size: 3;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 90%;
+}
+button#Record, button#Stop, button#Play, button#reset, input#Save {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 95%;
+}
+.record-off,.record-on {
+    width:13px;
+    height:13px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border:1px solid #FFFFFF;
+    background-color:#000000;
+    float:left;
+    margin: 0 8px 0 0;
+    position: relative;
+    top: 0;
 }
 
-button#Record,button#Stop,
-button#Play,button#Clear,
-input#Save {
-  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
-  font-size: 95%;
+#Record{
+  padding-left: 8px;
+}
+
+
+.record-off {
+    background-color:#000000;
+}
+.record-on {
+    background-color:red;
 }
 form {
-  margin: 0;
+    margin: 0;
     background-color: transparent;
     text-align: center;
 }
-
 form input {
-  float: right;
+    float: right;
 }
-
 pre {
-  height: 150px;
-  margin: 20px 0 0 10px;
-  tab-size: 2;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  /*white-space: pre-wrap;*/
+    height: 150px;
+    margin: 20px 0 0 10px;
+    tab-size: 2;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    /*white-space: pre-wrap;*/
 }

@@ -3,33 +3,43 @@ function Player(args) {
     this.play_sel = args.play_sel;
     this.view_sel = args.view_sel;
     this.load_sel = args.load_sel;
+    this.states = [0];
+};
+
+Player.prototype.disable_btn = function(){
+    $(this.play_sel).attr('disabled','disabled');
+};
+
+Player.prototype.enable_btn = function(){
+    $(this.play_sel).removeAttr('disabled');
 };
 
 Player.prototype.play = function(states) {
-    $(this.view_sel).html(states[0][0]);
+    this.states = states;
+    $(this.view_sel).html(this.states[0][0]);
     var view_sel = this.view_sel;
 
-    if (!(states instanceof Array)) {
-        states = $.map(states, function(value, index) {
+    if (!(this.states instanceof Array)) {
+        this.states = $.map(this.states, function(value, index) {
             return [value];
         });
     };
 
 
-    console.log(states);
+    console.log(this.states);
     console.log("^--Last state time.");
     $(document).on("click", this.play_sel, function() {
-        console.log(states);
-        var animation_length_ms = states[states.length-1][1];
-        var animation_length_s = Math.ceil(states[states.length-1][1] * 10)/10000;
+        console.log(this.states);
+        var animation_length_ms = this.states[this.states.length-1][1];
+        var animation_length_s = Math.ceil(this.states[this.states.length-1][1] * 10)/10000;
         if (animation_length_ms === undefined || animation_length_s === undefined){
             console.log(animation_length_ms + " and " + animation_length_s);
             animation_length_ms = 10;
-            animation_length_s = .2;
+            animation_length_s = 0.2;
         };
 
 
-        states.forEach(function(step) {
+        this.states.forEach(function(step) {
 
             setTimeout(function() {
 
@@ -38,11 +48,11 @@ Player.prototype.play = function(states) {
             }, step[1]);
 
         }.bind(this));
-        $(this.play_sel).attr('disabled','disabled');
+        this.disable_btn();
         console.log(animation_length_ms);
         setTimeout(function() {
             console.log(this.play_sel);
-            $(this.play_sel).removeAttr('disabled');
+            this.enable_btn();
         }.bind(this), animation_length_ms);
 
         // $(this.load_sel).removeClass();
@@ -53,3 +63,8 @@ Player.prototype.play = function(states) {
 
     }.bind(this));
 };
+
+Player.prototype.update_state = function(states) {
+    this.states = states;
+};
+
