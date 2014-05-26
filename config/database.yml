@@ -26,7 +26,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: test-postgres_test
+  database: thedelta_test
   pool: 5
   template: template0
 
