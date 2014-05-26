@@ -4,12 +4,15 @@ class QuestionsController < ApplicationController
 
 
   def index
-    @category = Category.find(params[:category])
-  	@category_id = Category.find(params[:category]).id
-  	@start_language = Language.find_by_name(params[:start_language]).name
-  	@end_language = Language.find_by_name(params[:end_language]).name
-
-  	@questions = Question.where(category_id: @category_id, start_language: @start_language, end_language: @end_language)
+    if params[:start_language] && params[:end_language] && params[:category]
+      @category = Category.find(params[:category])
+    	@category_id = Category.find(params[:category]).id
+    	@start_language = Language.find_by_name(params[:start_language]).name
+    	@end_language = Language.find_by_name(params[:end_language]).name
+    	@questions = Question.where(category_id: @category_id, start_language: @start_language, end_language: @end_language)
+    else
+      redirect_to root_path
+    end
   end
 
 
@@ -22,12 +25,8 @@ class QuestionsController < ApplicationController
 
   def get_answer
     @question = Question.find(params[:question_id])
-    if !@question.answers.empty?
-      @answer  = @question.answers.first.delta
-      render json: @answer
-    else
-      # render text: 'This question needs an answer'
-    end
+    @answer  = @question.answers.first.delta
+    render json: @answer
   end
 
   def get_answers
