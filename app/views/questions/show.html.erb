@@ -1,4 +1,4 @@
-<h1 class="jimbo_header"><%= @question.query %> </h1>
+<h1 class="jimbo_header" id="<%=@question.id%>"><%= @question.query %> </h1>
 
 <h3 class="jimbo_header"><%= @start_language.name %> to <%= @end_language.name %> Answers</h3>
 
@@ -10,32 +10,18 @@
 
 <script>
   $(document).ready(function(){
-    var answers = $('pre')
-    answer_id_array = []
+    var questionId = $("h1").attr("id");
+    var players = {};
 
-    for (var i=0;i<answers.length;i++) {
-    	answer_id = $(answers[i]).attr('value')
-      answer_id_array.push(answer_id)
-    }
-
-    answer_id_array.forEach(function(answerId) {
-      $.get('/get_answer_by_id/', {answer_id: answerId}, function(response) {
-          var play_state = $.map(response, function(value, index) {
-            return [value];
+    $.get('/get_answers/', { question_id: questionId }, function(response) {
+      response.forEach(function(answer){
+          players[answer.id] = new Player({
+              play_sel: "#play_answer_" + answer.id,
+              view_sel: "#preview_answer_" + answer.id
           });
-
-          $("#preview_"+answerId).html(play_state[0][0])
-
-          play_state.forEach(function(step){
-
-            setTimeout(function(){
-              $("#preview_"+answerId).html(step[0]);
-            },step[1]);
-
-          });
-      })
-    })
-
+          players[answer.id].play(JSON.parse(answer.delta));
+      });  
+    });
   });
 </script>
 
