@@ -17563,3 +17563,185 @@ Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 00:28:52 -0
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 00:28:52 -0400
 >>>>>>> 62a5ade46f2c404ee29f58cd3affa4c74c902eea
+
+
+Started GET "/questions?category=1&end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mLanguage Load (1.5ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1
+  [1m[36mLanguage Load (0.4ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1[0m
+  [1m[35mQuestion Load (0.7ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 'Ruby' AND "questions"."end_language" = 'JavaScript'
+  [1m[36mAnswer Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1[0m  [["question_id", 1]]
+  [1m[35mAnswer Load (0.4ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Exists (0.3ms)[0m  SELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1  [["question_id", 2]]
+  [1m[36mAnswer Load (0.6ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_question.html.erb (135.7ms)
+  Rendered questions/index.html.erb within layouts/application (149.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 317ms (Views: 269.2ms | ActiveRecord: 21.1ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 01:12:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 01:12:22 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 01:12:22 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 01:12:22 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 01:12:22 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 01:12:22 -0400
+
+
+Started GET "/get_answer/?question_id=1" for 127.0.0.1 at 2014-05-26 01:12:22 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.6ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 1]]
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/get_answer/?question_id=2" for 127.0.0.1 at 2014-05-26 01:12:22 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"2"}
+  [1m[36mQuestion Load (0.9ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 2]]
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/questions?category=1&end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-26 01:12:48 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1[0m
+  [1m[35mLanguage Load (0.3ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1
+  Rendered questions/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `start_language' for nil:NilClass):
+    1: <h2 class="jimbo_header"><%= @category.name %>: </h2>
+    2: 
+    3: <h3 class="jimbo_header" id="language_delta"><%= @question.start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @question.end_language %></h3>
+    4: 
+    5: <div class="answers">
+    6:   <%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
+  app/views/questions/index.html.erb:3:in `_app_views_questions_index_html_erb__1832029739517699999_70209933231780'
+
+
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/philiplondon/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.0ms)
+
+
+Started GET "/questions?category=1&end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLanguage Load (0.7ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1[0m
+  [1m[35mLanguage Load (0.3ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 'Ruby' AND "questions"."end_language" = 'JavaScript'[0m
+  [1m[35mAnswer Exists (0.6ms)[0m  SELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1  [["question_id", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1[0m  [["question_id", 2]]
+  [1m[35mAnswer Load (0.4ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_question.html.erb (7.4ms)
+  Rendered questions/index.html.erb within layouts/application (10.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 26ms (Views: 18.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+
+
+Started GET "/get_answer/?question_id=1" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[35mQuestion Load (0.8ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 1]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/get_answer/?question_id=2" for 127.0.0.1 at 2014-05-26 01:14:08 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"2"}
+  [1m[35mQuestion Load (0.7ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 2]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms)

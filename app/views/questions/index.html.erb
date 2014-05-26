@@ -1,5 +1,7 @@
 <h2 class="jimbo_header"><%= @category.name %>: </h2>
 
+<h3 class="jimbo_header" id="language_delta"><%= @start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @end_language %></h3>
+
 <div class="answers">
   <%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
 </div>
