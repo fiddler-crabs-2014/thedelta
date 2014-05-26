@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+// require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require jquery.caret
 //= require languages
 //= require recorder
-//= require_tree .
+// require_tree .
