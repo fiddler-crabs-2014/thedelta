@@ -2,8 +2,12 @@ require 'json'
 
 class AnswersController < ApplicationController
   def new
-    @question = Question.find(params[:question])
-    @answer = Answer.create(question_id: @question.id, user_id: current_user.id)
+    if current_user && params[:question]
+      @question = Question.find(params[:question])
+      @answer = Answer.create(question_id: @question.id, user_id: current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   def create
