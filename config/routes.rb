@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get '/get_answers/', to: 'questions#get_answers', as: :get_answers
   post 'vote-up', to: 'votes#upvote', as: :vote_up
   post 'vote-down', to: 'votes#downvote', as: :vote_down
+  post 'vote', to: 'votes#record', as: :vote_record
   resources :users
   resources :answers
   resources :categories, only: [:index]

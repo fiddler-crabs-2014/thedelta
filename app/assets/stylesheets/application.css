@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require answer
+ *= require answer_show
  *= require category
  *= require language
  *= require login_signup

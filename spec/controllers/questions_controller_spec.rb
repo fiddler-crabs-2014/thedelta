@@ -54,8 +54,8 @@ describe QuestionsController do
 
 
 	describe "#get_answer_by_id" do
-		it "should retrieve the answer with a valid answer id" do
-			get :get_answer_by_id, {answer_id: answer.id}
+		it "should retrieve the answers with a valid question id" do
+			get :get_answers, {question_id: question.id}
 			expect(response).to be_success
 		end
 

@@ -1,7 +1,24 @@
 <h4 class="answers_index"> </h4>
 
+<h3 class="answers_index">Answer: <%= answer.id %>  <%= answer.upvote_count %> Up / <%= answer.downvote_count %> Down </h3>
+<%= form_tag '/vote' do %>
+  <%= hidden_field_tag 'answer_id', answer.id %>
+  <%= hidden_field_tag 'user_id', answer.user.id %>
+  <%= hidden_field_tag 'vote_value', '1' %>
+  <%= submit_tag "Up Vote", class: "btn btn-primary btn-sm"  %>
+<% end %>
+<%= form_tag '/vote' do %>
+  <%= hidden_field_tag 'answer_id', answer.id %>
+  <%= hidden_field_tag 'user_id', answer.user.id %>
+  <%= hidden_field_tag 'vote_value', '-1' %>
+  <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm"  %>
+<% end %> 
 <pre class="show_answer" id="preview_answer_<%= answer.id %>" value="<%=answer.id%>" >
-
 </pre>
 
-<button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button><!-- <div id="loading-bar<%= answer.id %>" class="loading-bar-wait"></div> -->
+<button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button> <%= link_to 'See Answer', answer_path(answer) %>
+
+<div id="loading-bar<%= answer.id %>" class="loading-bar-wait">
+</div>
+
+
