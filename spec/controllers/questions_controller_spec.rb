@@ -4,8 +4,8 @@ describe QuestionsController do
 
 	render_views
 
-	let(:answer) { FactoryGirl.create(:answer) }
 	let!(:question) { FactoryGirl.create(:question) }
+	let!(:answer) { FactoryGirl.create(:answer) }
 	let(:user) { FactoryGirl.create(:user) }
 	let(:category) { FactoryGirl.create(:category) }
 	let!(:start_language) { Language.create(name:"Ruby") }
@@ -39,8 +39,9 @@ describe QuestionsController do
 
 
 	describe "#get_answer" do
-		it "should render the first answer for that question, with a valid question id" do
-			get :get_answer, {question_id: question.id}
+		it "should retrieve the first answer for that question, with a valid question id" do
+			get :get_answer, { question_id: question.id }
+			expect(response).to be_success
 		end
 
 		xit "should not respond to anything but a valid question id" do
@@ -55,6 +56,7 @@ describe QuestionsController do
 	describe "#get_answer_by_id" do
 		it "should retrieve the answer with a valid answer id" do
 			get :get_answer_by_id, {answer_id: answer.id}
+			expect(response).to be_success
 		end
 
 		xit "should not respond to anything but a valid answer id" do

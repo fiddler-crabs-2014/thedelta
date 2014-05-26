@@ -18,20 +18,26 @@ FactoryGirl.define do
     # end
   end
 
-
-  factory :answer do 
-    sequence(:question_id) { |n| n}
-    user_id {rand(1..20)}
-    delta "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}"
-    vote_count {rand(1..10)}
-  end
-
   factory :question do 
     category_id {rand(1..6)}
     sequence(:query) { |n| "This is question #{n}" }
     start_language "Ruby"
     end_language "JavaScript"
-  end  
+
+    # factory :question_with_answer do
+    #   after_create do |question|
+    #     create(:answer, question: question)
+    #   end
+    # end
+  end
+
+  factory :answer do 
+    question_id 1
+    user_id {rand(1..20)}
+    delta "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}"
+    vote_count {rand(1..10)}
+  end
+
 
   factory :category do 
     name "Enumerable"

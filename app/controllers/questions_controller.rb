@@ -17,20 +17,16 @@ class QuestionsController < ApplicationController
 
 
   def show
-    	@question = Question.find(params[:id])
-      @answers = @question.answers
-    	@start_language = Language.find_by_name(@question.start_language)
-    	@end_language = Language.find_by_name(@question.end_language)
+  	@question = Question.find(params[:id])
+    @answers = @question.answers
+  	@start_language = Language.find_by_name(@question.start_language)
+  	@end_language = Language.find_by_name(@question.end_language)
   end
 
   def get_answer
     @question = Question.find(params[:question_id])
-    if !@question.answers.empty?
-      @answer  = @question.answers.first.delta
-      render json: @answer
-    else
-      render text: 'This question needs an answer'
-    end
+    @answer  = @question.answers.first.delta
+    render json: @answer
   end
 
   def get_answer_by_id
