@@ -10,18 +10,16 @@
 
 <script>
   $(document).ready(function(){
-    var question_id = $("h1").attr("id");
+    var questionId = $("h1").attr("id");
     var players = {};
 
-    $.get('/get_answers/', {question_id: question_id}, function(response) {
-      console.log(response);
+    $.get('/get_answers/', { question_id: questionId }, function(response) {
       response.forEach(function(answer){
           players[answer.id] = new Player({
               play_sel: "#play_answer_" + answer.id,
               view_sel: "#preview_answer_" + answer.id
           });
-          console.log(answer.delta);
-          players[answer.id].play(answer.delta);
+          players[answer.id].play(JSON.parse(answer.delta));
       });  
     });
   });

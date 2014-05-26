@@ -121,14 +121,16 @@ function Player(args) {
 
 Player.prototype.play = function(states) {
     $(this.view_sel).html(states[0][0]);
-    $(document).on("click", this.play_sel, function() {
-      var view_sel = this.view_sel
+    var view_sel = this.view_sel;
 
-        if (!(states instanceof Array)) {
-            states = $.map(states, function(value, index) {
-                return [value];
-            });
-        };
+    if (!(states instanceof Array)) {
+        states = $.map(states, function(value, index) {
+            return [value];
+        });
+    };
+
+    $(document).on("click", this.play_sel, function() {
+        console.log(states);
 
         states.forEach(function(step) {
 
