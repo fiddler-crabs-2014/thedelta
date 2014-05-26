@@ -1,0 +1,20 @@
+.show_answer_container {
+  float: left;
+  width: 30%;
+}
+
+.answer_box {
+  display: inline-block;
+  width: 100%;
+}
+
+.answer_header {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800; 
+}
+
+#delta {
+  margin-right: 4.5%;
+  margin-left: 4.5%;
+}

@@ -1,0 +1,47 @@
+<h1 class="jimbo_header"><%= @answer.question.query %> </h1>
+
+<h3 class="jimbo_header" id="language_delta"><%= @answer.question.start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @answer.question.end_language %></h3>
+
+<h3 class="jimbo_header">Answer submitted by <%= @answer.user.username %></h3>
+
+  <div class="show_answer_container">
+    
+    <h4 class="answer_header"><%= @answer.question.start_language %> Solution</h4>
+    <pre class="show_original answer_box">
+      
+    </pre>
+  </div>
+
+  <div class="show_answer_container" id="delta">
+    <h4 class="answer_header">Delta</h4>
+    <pre class="show_delta answer_box" id="preview_answer" value="<%= @answer.id%>" >
+      <%= @answer.delta %>
+    </pre> 
+    <button id="play_answer" class="btn btn-primary btn-sm">Play</button>
+  </div>
+    
+  <div class="show_answer_container">
+    <h4 class="answer_header"><%= @answer.question.end_language %> Solution</h4>
+    <pre class="show_final answer_box">
+      
+    </pre>
+  </div>
+
+<script>
+  $(document).ready(function(){
+    start = JSON.parse($('.show_delta').text())[0][0]
+    delta = JSON.parse($('.show_delta').text())
+    end   = JSON.parse($('.show_delta').text())[Object.keys(delta).length-1][0]
+
+    $('.show_original').html(start)
+    $('.show_final').html(end)
+
+    player = new Player({
+      play_sel: "#play_answer",
+      view_sel: "#preview_answer"
+    })
+
+    player.play(delta)
+
+  });
+</script>
