@@ -1,12 +1,14 @@
 .instructions {
   position: absolute;
-  top: 109px;
-  left: 67px;
-  width: 20%;
+  top: 120px;
+  left: 42px;
+  width: 280px;
   height: auto;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  font-size: 1.3em;
+  font-size: 1.2em;
+  padding: 25px;
+  background-color: #F4FCE8;
 }
 
 .instructions h3 {
@@ -37,4 +39,21 @@
 
 #preview_save {
   padding: 2px 4px;
+}
+
+@media all and (max-width: 1150px) {
+  .instructions {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 335px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    height: auto;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    padding: 8px;
+    background-color: #F4FCE8;
+  }
 }
