@@ -64,27 +64,27 @@ $( document ).ready(function() {
   })(jQuery)
 
 
-
-    var recorder = new Recorder({
-        textarea_sel: "#recorder textarea",
-        record_sel: "#Record",
-        stop_sel: "#Stop",
-        view_sel: "#view",
-        clear_sel: "#Clear",
-    });
-
-
-    recorder.record();
-    recorder.stop();
-    recorder.clear();
-
     var player  = new Player({
         play_sel: "#Play",
         view_sel: "#view",
         load_sel: ""
     });
 
-    player.play(recorder.state);
+    var recorder = new Recorder({
+        textarea_sel: "#recorder textarea",
+        record_sel: "#Record",
+        view_sel: "#view",
+        reset_sel: "#reset",
+        save_sel: "#Save",
+        player: player
+    });
+
+
+    recorder.record();
+    recorder.reset();
+
+
+
     recorder.save();
 
     $("textarea").keydown(function(e) {
@@ -120,9 +120,12 @@ function Recorder(args) {
   console.log("Function starts: Recorder");
     this.textarea_sel = args.textarea_sel;
     this.record_sel = args.record_sel;
-    this.stop_sel = args.stop_sel;
-    this.clear_sel = args.clear_sel;
+    this.reset_sel = args.reset_sel;
     this.view_sel = args.view_sel;
+    this.save_sel = args.save_sel;
+    this.player = args.player;
+    this.player.disable_btn();
+
 
     this.state = [0];
     this.start = false;
@@ -132,20 +135,47 @@ function Recorder(args) {
 
 };
 
+Recorder.prototype.enable_save = function() {
+  $(this.save_sel).removeAttr('disabled');
+};
+
+Recorder.prototype.disable_save = function() {
+  $(this.save_sel).attr('disabled','disabled');
+};
+
 Recorder.prototype.record = function() {
 
     $(this.record_sel).on("click", function() {
         console.log("Function starts: Record click");
 
         if (!this.start) {
+            console.log(this.start);
+            this.start = true;
+
+            this.player.disable_btn();
             this.state[this.state.length - 1] = [$(this.textarea_sel).val(), this.stop_time];
+            $("#record-btn").removeClass("record-off");
+            $("#record-btn").addClass("record-on");
+        } else {
+            if(this.state.length > 1) {
+              this.player.enable_btn();
+              this.enable_save();
+            }
+            console.log(this.start);
+            console.log("Stop Click");
+            this.start = false;
+            this.stop_time = this.time_from_start;
+            $("#record-btn").removeClass("record-on");
+            $("#record-btn").addClass("record-off");
+            this.player.update_state(this.state);
         };
 
-        this.start = true;
         this.start_time = Date.now();
         $("#answer_delta").focus();
         // $("#answer_delta").caret(0);
     }.bind(this));
+    
+    this.player.play(this.state);
 
     $(this.textarea_sel).on("input", function() {
         if (this.start) {
@@ -154,39 +184,37 @@ Recorder.prototype.record = function() {
             var add_string = $(this.textarea_sel).val();
             add_string = add_string.replace(/</g, "&lt;");
             add_string = add_string.replace(/>/g, "&gt;");
+            this.player.update_state(this.state);
 
             this.state.push([add_string, this.time_from_start]);
-
         };
     }.bind(this));
 };
 
 
-Recorder.prototype.stop = function() {
+Recorder.prototype.reset = function() {
+    $(this.reset_sel).on("click", function() {
+        this.player.disable_btn();
+        this.disable_save();
 
-    $(this.stop_sel).on("click", function() {
-        console.log("Stop Click");
-        this.start = false;
-        this.stop_time = this.time_from_start;
-    }.bind(this));
-
-};
-
-
-Recorder.prototype.clear = function() {
-    $(this.clear_sel).on("click", function() {
         $(this.view_sel).empty();
+        $(this.textarea_sel).val(this.state[0][0]);
+
+        console.log("reset");
 
         this.state = [0];
         this.start = false;
         this.stop_time = 0;
         this.start_time = 0;
         this.time_from_start = 0;
+        this.player.update_state(this.state);
     }.bind(this));
 };
 
 
 Recorder.prototype.save = function() {
+    this.disable_save();
+
     $("form[name=recorder]").submit(function(e) {
         e.preventDefault();
         // var question_id = $("form[name=recorder] input[name=question_id]").val();
@@ -203,3 +231,4 @@ Recorder.prototype.save = function() {
         }.bind(this), "JSON");
     }.bind(this));
 };
+
