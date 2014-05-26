@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe UsersController do
   
-  let!(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   render_views
   
@@ -19,23 +19,29 @@ describe UsersController do
   end
 
   describe "#create" do
+    subject {post :create, user: FactoryGirl.attributes_for(:user)}
+
     it "should create user valid attributes" do
-      expect {
-        post :create, user: FactoryGirl.attributes_for(:user)
-        expect(response).to be_redirect
-        }.to change { User.count }.by(1)
+      expect{post :create, user: FactoryGirl.attributes_for(:user)}.to change { User.count }.by(1)
     end
 
-    it "should not create user with invalid attributes" do
+    xit "should redirect to profile page after creating user" do
+      expect{ post :create, user: FactoryGirl.attributes_for(:user)
+        }.to redirect_to(profile_path) 
+    end
+
+    xit "should not create user with invalid email" do
       expect {
-        post :create, user: {username: "bob", email: "", password: "", password: ""}
-        expect(response).to_not be_redirect
-        }.to_not change { User.count }.by(1)
+        post :create, user: {username: user.username, email: '123@', password: 'password', password_confirmation: 'password'}
+        
+        }.to change { User.count }.by(0)
     end
   end
 
+
   describe "#edit" do
     before { session[:user_id] = user.id }
+
     it "is successful" do
       get :edit, id: user.id
       expect {
@@ -51,9 +57,6 @@ describe UsersController do
         expect(response).to_not be_success
         }
     end
-    # it "is unsuccessful" do
-    #   get :edit, id: user.id
-    #   expect(response).to render_template('edit')
-    # end
+
   end
 end
