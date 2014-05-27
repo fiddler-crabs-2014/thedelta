@@ -23,7 +23,6 @@ Player.prototype.play = function(states) {
         });
     };
 
-
     $(document).on("click", this.play_sel, function() {
 
         var animation_length_ms = this.states[this.states.length - 1][1];
