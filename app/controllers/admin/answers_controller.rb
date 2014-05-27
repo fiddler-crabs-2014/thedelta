@@ -1,7 +1,7 @@
 require 'json'
 
 class Admin::AnswersController < ApplicationController
-
+  before_filter :confirm_admin
   def index
     @answers = Answer.all
   end
