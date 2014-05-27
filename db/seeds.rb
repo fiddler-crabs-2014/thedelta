@@ -170,7 +170,7 @@ categories.each { |method| method.save }
 	##
 
 User.delete_all
-phil = User.create(:name => 'phil', :username => 'philipe', :email => 'phil@london.com', :password_digest => 'hello', :password => 'hello')
+phil = User.create(:name => 'phil', :username => 'philipe', :email => 'phil@london.com', :password_digest => 'hello', :password => 'hello', admin: true)
 shawn = User.create(:name => 'shaun', :username => 'shauny', :email => 'shuan@geever.com', :password_digest => 'world', :password => 'world')
 
 # Answer.create(delta:"{\"0\":[\"\",\"0\"],\"1\":[\"E\",\"831\"],\"2\":[\"EV\",\"1039\"],\"3\":[\"EVE\",\"1094\"],\"4\":[\"EVER\",\"1287\"],\"5\":[\"EVERY\",\"1558\"],\"6\":[\"EVERYO\",\"2008\"],\"7\":[\"EVERYON\",\"2216\"],\"8\":[\"EVERYONE\",\"2303\"],\"9\":[\"EVERYONE \",\"2486\"],\"10\":[\"EVERYONE W\",\"2646\"],\"11\":[\"EVERYONE WI\",\"2759\"],\"12\":[\"EVERYONE WIN\",\"2934\"],\"13\":[\"EVERYONE WINS\",\"3071\"],\"14\":[\"EVERYONE WINS!\",\"3383\"]}",

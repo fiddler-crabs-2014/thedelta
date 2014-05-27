@@ -6,8 +6,28 @@ FactoryGirl.define do
     sequence(:email) { |n| "user-#{n}@example.com" }
     password "password"
     password_confirmation "password"
+    admin false
 
-    # factory :user_with_questions do
+    factory :user_with_answers do
+      ignore do
+        answers_count 10
+      end
+
+      after(:build) do |user, evaluator|
+        user.answers = build_list(:answer_dynamic, evaluator.answers_count, user: user)
+      end
+    end
+  end
+
+  factory :admin do
+    sequence(:name) { |n| "Duke Farnsworth The {n}"}
+    sequence(:username) { |n| "user-#{n}" }
+    sequence(:email) { |n| "user-#{n}@example.com" }
+    password "password"
+    password_confirmation "password"
+    admin true
+
+    # factory :admin_with_answers do
     #   ignore do
     #     questions_count 5
     #   end
@@ -37,7 +57,6 @@ FactoryGirl.define do
     delta "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}"
     vote_count {rand(1..10)}
   end
-
 
   factory :category do 
     name "Enumerable"
