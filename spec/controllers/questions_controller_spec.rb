@@ -45,16 +45,9 @@ describe QuestionsController do
 
 	describe "#get_answer" do
 		it "should retrieve the first answer for that question, with a valid question id" do
-			get :get_answer, { question_id: question.id }
+			get :get_answer, { question_id: answer.question.id }
 			expect(response).to be_success
 		end
-
-		xit "should not respond to anything but a valid question id" do
-			expect{
-				get :get_answer, { question_id: "hello" }
-				}.to_not be_success
-		end
-
 	end
 
 
@@ -63,14 +56,6 @@ describe QuestionsController do
 			get :get_answers, {question_id: question.id}
 			expect(response).to be_success
 		end
-
-		xit "should not respond to anything but a valid answer id" do
-			expect{
-				get :get_answers
-				}.to_not be_success
-		end
-
-
 	end
 	
 end

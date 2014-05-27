@@ -47,6 +47,8 @@ gem 'rails_12factor', group: :production
 gem 'haml-rails'
 
 group :development, :test do
+	gem 'jasmine'
+	gem 'jasmine-jquery-rails'
 	gem 'rspec-rails'
 	gem 'shoulda-matchers'
 	gem 'pry-debugger'
