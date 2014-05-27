@@ -1,5 +1,5 @@
 #categories {
-  width: 700px;
+  width: 1200px;
   margin: 50px auto;
   text-align: center;
 }
@@ -8,23 +8,87 @@
   margin-bottom: 40px;
 }
 
-.category_index {
-  width: 90%;
-  margin-left: 5%;
-  padding: 15px;
-  margin-top: 10px; 
+.list-group-item.custom {
+  float: left;
+  width: 193px;
+  height: 420px;
+  margin-top: 20px;
+  color: #404040;
+  font-size: 1.2em;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
-.list-group-item.custom {
-  margin-top: 20px;
-  background-color: #e7e7e7;
-  color: white;
+.list-group-item.custom p {
+  margin-top: 180px;
+}
+
+.list0.custom {
+  background-color: #e0e4e5;
+}
+
+.list1.custom {
+  background-color: #d4d8d9;
+}
+
+.list2.custom {
+  background-color: #c8cbcc;
+}
+
+.list3.custom {
+  background-color: #bbbebf;
+}
+
+.list4.custom {
+  background-color: #afb2b3;
+}
+
+.list5.custom {
+  background-color: #959798;
+}
+
+.list-group-item.custom:first-child {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.list-group-item.custom:last-child {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .list-group-item.custom:hover {
-  background-color: #7ED0D6;
+  background-color: #4E9689;
+  color: white;
+  font-size: 1.6em;
 }
 
-/*.glyphicon-ok-sign {
-  font-size: 30px;
-}*/
+@media all and (max-width: 1240px) {
+  #categories {
+    width: 960px;
+  }
+  .list-group-item.custom {
+    width: 158px;
+    height: 474px;
+  }
+}
+
+@media all and (max-width: 1010px) {
+  #categories {
+    width: 90%;
+  }
+
+  .list-group-item.custom {
+    float: none;
+    width: 100%;
+    height: 100px;
+    margin-top: 0px;
+  }
+  .list-group-item.custom p {
+    margin-top: 27px;
+  }
+  a.custom {
+    text-decoration: none !important;
+  }
+}

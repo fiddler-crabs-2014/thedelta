@@ -16,6 +16,10 @@ button#Record, button#Stop, button#Play, button#reset, input#Save {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 95%;
 }
+
+.cursor{
+  background-color:red;
+}
 .record-off,.record-on {
     width:13px;
     height:13px;
