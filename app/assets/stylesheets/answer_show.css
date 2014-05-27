@@ -1,3 +1,22 @@
+#answer_show_wrap {
+  background-color: rgba(229,242,247,0.9);
+  margin-top: 70px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.jimbo_header.show_answer {
+  margin-top: 15px;
+}
+
+#start_to_end {
+  position: relative;
+  margin-top: 50px;
+  height: 300px;
+}
+
 .show_answer_container {
   float: left;
   width: 30%;
@@ -6,15 +25,40 @@
 .answer_box {
   display: inline-block;
   width: 100%;
+  height: auto;
 }
 
 .answer_header {
   text-align: center;
   font-family: 'Raleway', sans-serif;
   font-weight: 800; 
+  color: black;
 }
 
 #delta {
   margin-right: 4.5%;
   margin-left: 4.5%;
+  margin-top: -11px;
+}
+
+/* buttons */
+
+.do_vote {
+  float: left;
+}
+
+/* media query */
+
+@media all and (max-width: 1020px) {
+  #start_to_end {
+    height: auto;
+  }
+  .show_answer_container {
+    float: none;
+    margin: 0 auto;
+    width: 80%;
+  }
+  #delta {
+    margin: 0 auto;
+  }
 }
