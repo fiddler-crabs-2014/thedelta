@@ -131,3 +131,9 @@ body.custom {
     margin-top: -32px;
   }
 }
+
+@media all and (max-width: 490px) {
+  .styled-select {
+    padding-left: 20px;
+  }
+}
