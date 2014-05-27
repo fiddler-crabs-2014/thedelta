@@ -10,8 +10,8 @@ describe "User Navigation" do
 
 		xit "Go learn will redirect them to categories page" do
 			visit root_path
-			click Ruby
-			click JavaScript
+			# click Ruby
+			# click JavaScript
 			find_link("Go learn!")
 			expect(current_path).to eq(categories_path(start_language:"Ruby", end_language: "JavaScript"))
 		end
