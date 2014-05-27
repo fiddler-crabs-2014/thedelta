@@ -4,7 +4,7 @@ describe Answer do
 
 	it { should validate_presence_of(:user_id) }
 	it { should validate_presence_of(:question_id) }
-	xit { should validate_presence_of(:delta) }
+	it { should validate_presence_of(:delta) }
 
 	it { should belong_to(:question) }
 	it { should belong_to(:user) }

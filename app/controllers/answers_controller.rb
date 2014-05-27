@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
 
   def create
     if !params[:delta].nil? && params[:delta].length >1
-      @answer = Answer.new(delta: params[:delta].to_json, user_id: params[:user_id], question_id: params[:question_id])            
+      @answer = Answer.new(delta: params[:delta].to_json, user_id: params[:user_id], question_id: params[:question_id]) 
       if @answer.valid?
         @answer.save
         render json: { question_id: @answer.question_id }.to_json

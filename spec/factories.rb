@@ -33,7 +33,7 @@ FactoryGirl.define do
 
   factory :answer do 
     question_id 1
-    user_id {rand(1..20)}
+    user_id 1
     delta "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}"
     vote_count {rand(1..10)}
   end

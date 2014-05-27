@@ -6,7 +6,7 @@ describe QuestionsController do
 
 	let!(:question) { FactoryGirl.create(:question) }
 	let!(:answer) { FactoryGirl.create(:answer) }
-	let(:user) { FactoryGirl.create(:user) }
+	let!(:user) { FactoryGirl.create(:user) }
 	let(:category) { FactoryGirl.create(:category) }
 	let!(:start_language) { Language.create(name:"Ruby") }
 	let!(:end_language) { Language.create(name:"JavaScript") }
@@ -22,8 +22,13 @@ describe QuestionsController do
 	    expect(response).to redirect_to('/')
 	  end
 
+	  it "should not render the question index without a category" do
+	    get :index, { start_language: start_language.name, end_language: end_language.name }
+	    expect(response).to redirect_to('/')
+	  end
+
 	  it "should not render the question index without any parameters" do
-	    get :index, { category: category }
+	    get :index
 	    expect(response).to redirect_to('/')
 	  end
 
@@ -46,7 +51,7 @@ describe QuestionsController do
 
 		xit "should not respond to anything but a valid question id" do
 			expect{
-				get :get_answer, {question_id: "failure"}
+				get :get_answer, { question_id: "hello" }
 				}.to_not be_success
 		end
 
@@ -61,7 +66,7 @@ describe QuestionsController do
 
 		xit "should not respond to anything but a valid answer id" do
 			expect{
-				get :get_answer, {answer_id: "failure"}
+				get :get_answers
 				}.to_not be_success
 		end
 
