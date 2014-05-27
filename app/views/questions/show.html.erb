@@ -13,6 +13,8 @@
     var questionId = $("h1").attr("id");
     var players = {};
 
+    
+
     $.get('/get_answers/', { question_id: questionId }, function(response) {
       response.forEach(function(answer){
           players[answer.id] = new Player({
