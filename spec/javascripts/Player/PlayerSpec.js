@@ -27,7 +27,6 @@ describe("Player", function() {
     it("should enable the play button", function(){
 
       player.disable_btn();
-      expect($(player.play_sel).attr("disabled")).toEqual("disabled");
       player.enable_btn();
       expect($(player.play_sel).attr("disabled")).not.toBeDefined();
     
@@ -39,7 +38,6 @@ describe("Player", function() {
 
     it("should update the state property of player", function(){
     
-      expect(player.states).toEqual([0]);
       player.update_state(states);
       expect(player.states).toEqual(states);
     
@@ -57,10 +55,6 @@ describe("Player", function() {
     });
 
     describe("when states are playing", function() {
-
-      beforeEach(function() {
-        loadFixtures('play_view.html');
-      });
 
       it("button should be disabled", function() {
      
