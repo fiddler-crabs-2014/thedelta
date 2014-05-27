@@ -15,39 +15,31 @@
   background-color: #F4FCE8;
   margin: 20px 0 0 0;
 }
-
 .instructions h3 {
-  margin: 0;
+    margin: 0;
 }
-
 .instructions ol {
-  padding-left: 19px;
-  margin-top: 10px;
+    padding-left: 19px;
+    margin-top: 10px;
 }
-
 .instructions li {
-  font-size: 0.9em;
-  margin-bottom: 5px;
+    font-size: 0.9em;
+    margin-bottom: 5px;
 }
-
 .jimbo_header {
-  color:white;
+    color:white;
 }
-
 #preview_record {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
-
 #preview_stop {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
-
 #preview_play {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
-
 #preview_save {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
 
 @media all and (max-width: 1230px) {

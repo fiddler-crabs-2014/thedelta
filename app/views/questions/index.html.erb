@@ -8,6 +8,7 @@
 
 <script>
   $(document).ready(function(){
+ 
     var questions = $('.question_index');
     var question_id_array = [];
     var players = {};
@@ -19,7 +20,9 @@
     };
 
     question_id_array.forEach(function(questionId) {
+ 
       $.get('get_answer/', {question_id: questionId}, function(response) {
+ 
             players[questionId] = new Player({
                 play_sel: "#Play_Question_"+questionId,
                 view_sel: "#Preview_Question_"+questionId
