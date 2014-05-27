@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :confirm_logged_in, only: [:profile, :edit, :update]
+  before_action :confirm_admin
 
   def index
     @users = User.all
