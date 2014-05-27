@@ -146,33 +146,32 @@ Recorder.prototype.disable_save = function() {
 Recorder.prototype.record = function() {
 
     $(this.record_sel).on("click", function() {
-        console.log("Function starts: Record click");
 
         if (!this.start) {
-            console.log(this.start);
             this.start = true;
 
             this.player.disable_btn();
             this.state[this.state.length - 1] = [$(this.textarea_sel).val(), this.stop_time];
             $("#record-btn").removeClass("record-off");
             $("#record-btn").addClass("record-on");
+            this.player.update_state(this.state);
         } else {
             if(this.state.length > 1) {
               this.player.enable_btn();
               this.enable_save();
-            }
-            console.log(this.start);
-            console.log("Stop Click");
+            };
             this.start = false;
             this.stop_time = this.time_from_start;
+
             $("#record-btn").removeClass("record-on");
             $("#record-btn").addClass("record-off");
             this.player.update_state(this.state);
+
         };
 
         this.start_time = Date.now();
         $("#answer_delta").focus();
-        // $("#answer_delta").caret(0);
+        
     }.bind(this));
     
     this.player.play(this.state);
@@ -180,13 +179,13 @@ Recorder.prototype.record = function() {
     $(this.textarea_sel).on("input", function() {
         if (this.start) {
             this.time_from_start = Date.now() - this.start_time + this.stop_time;
-            // this.time_from_start = ((this.time_from_start > 1500) ? 1500 : this.time_from_start);
             var add_string = $(this.textarea_sel).val();
+
             add_string = add_string.replace(/</g, "&lt;");
             add_string = add_string.replace(/>/g, "&gt;");
-            this.player.update_state(this.state);
 
             this.state.push([add_string, this.time_from_start]);
+            this.player.update_state(this.state);
         };
     }.bind(this));
 };
@@ -199,8 +198,6 @@ Recorder.prototype.reset = function() {
 
         $(this.view_sel).empty();
         $(this.textarea_sel).val(this.state[0][0]);
-
-        console.log("reset");
 
         this.state = [0];
         this.start = false;
@@ -217,8 +214,10 @@ Recorder.prototype.save = function() {
 
     $("form[name=recorder]").submit(function(e) {
         e.preventDefault();
+
         var question_id = parseInt($('#answer_question_id').attr('value'));
         var user_id = parseInt($('#answer_user_id').attr('value'));
+
         $("#loader").removeClass("hidden");
         $("#loader").addClass("show");
 
