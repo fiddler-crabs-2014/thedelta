@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'admin/users_controller'
 
 describe Admin::AnswersController do 
 
