@@ -49,6 +49,10 @@ body.custom {
   margin: 0;
   display: inline-block;
   color: white;
+<<<<<<< HEAD
+=======
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+>>>>>>> a9f6a257736e0b323040634af56a8aa3a3f496e9
 }
 
 /* list of languages */
