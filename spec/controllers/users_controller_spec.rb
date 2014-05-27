@@ -1,10 +1,8 @@
 require "spec_helper"
 
 describe UsersController do
-  
-  let(:user) { FactoryGirl.create(:user) }
 
-  render_views
+  let(:user) { FactoryGirl.create(:user) }
   
   describe "#new" do
     it "should render the signup template" do
@@ -25,16 +23,23 @@ describe UsersController do
       expect{post :create, user: FactoryGirl.attributes_for(:user)}.to change { User.count }.by(1)
     end
 
-    xit "should redirect to profile page after creating user" do
-      expect{ post :create, user: FactoryGirl.attributes_for(:user)
-        }.to redirect_to(profile_path) 
+    it "should redirect to profile page after creating user" do
+      post :create, user: FactoryGirl.attributes_for(:user)
+      expect(response).to redirect_to(profile_path) 
     end
 
     xit "should not create user with invalid email" do
       expect {
-        post :create, user: {username: user.username, email: '123@', password: 'password', password_confirmation: 'password'}
+        post :create, user: {username: user.username, email: '', password: 'password', password_confirmation: 'password'}
         
         }.to change { User.count }.by(0)
+    end
+
+    it "invalid email should render new template" do
+      
+      post :create, user: {username: user.username, email: '123@', password: 'password', password_confirmation: 'password'}
+        
+      expect(response).to render_template :new
     end
   end
 

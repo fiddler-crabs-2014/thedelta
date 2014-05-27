@@ -3,8 +3,6 @@ require "spec_helper"
 describe SessionsController do
   
   let(:user) { FactoryGirl.create(:user) }
-
-  render_views
   
   describe "#login" do
     it "should render the login template" do
