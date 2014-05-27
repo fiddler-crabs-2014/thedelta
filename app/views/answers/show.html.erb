@@ -11,18 +11,20 @@
       
     </pre>
   
-  <%= form_tag '/vote' do %>
-    <%= hidden_field_tag 'answer_id', @answer.id %>
-    <%= hidden_field_tag 'user_id', @answer.user.id %>
-    <%= hidden_field_tag 'vote_value', '1' %>
-    <%= submit_tag "Up Vote", class: "btn btn-primary btn-sm do_vote"  %>
+  <% if current_user %>
+    <%= form_tag '/vote' do %>
+      <%= hidden_field_tag 'answer_id', @answer.id %>
+      <%= hidden_field_tag 'user_id', @answer.user.id %>
+      <%= hidden_field_tag 'vote_value', '1' %>
+      <%= submit_tag "Up Vote", class: "btn btn-primary btn-sm do_vote"  %>
+    <% end %>
+    <%= form_tag '/vote' do %>
+      <%= hidden_field_tag 'answer_id', @answer.id %>
+      <%= hidden_field_tag 'user_id', @answer.user.id %>
+      <%= hidden_field_tag 'vote_value', '-1' %>
+      <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm do_vote"  %>
+    <% end %> 
   <% end %>
-  <%= form_tag '/vote' do %>
-    <%= hidden_field_tag 'answer_id', @answer.id %>
-    <%= hidden_field_tag 'user_id', @answer.user.id %>
-    <%= hidden_field_tag 'vote_value', '-1' %>
-    <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm do_vote"  %>
-  <% end %> 
 
 </div>
   <div class="show_answer_container" id="delta">
