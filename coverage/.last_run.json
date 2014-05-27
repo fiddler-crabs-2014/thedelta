@@ -1,9 +1,13 @@
 {
   "result": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "covered_percent": 87.2
 =======
     "covered_percent": 89.86
+>>>>>>> master
+=======
+    "covered_percent": 90.24
 >>>>>>> master
   }
 }

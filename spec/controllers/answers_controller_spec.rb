@@ -24,7 +24,7 @@ describe AnswersController do
 
 		  it "should not render the new answer template without a question" do
 		    get :new
-		    expect(response).to redirect_to('/')
+		    expect(response).to redirect_to('/login')
 		  end
 
 		  it "should assign @answer to be a new Answer" do
@@ -43,12 +43,12 @@ describe AnswersController do
 
 		  it "should not render the new answer template without a current user" do
 		    get :new, question: question.id
-		    expect(response).to redirect_to('/')
+		    expect(response).to redirect_to('/login')
 		  end
 
 		  it "should not render the new answer template without a question" do
 		    get :new
-		    expect(response).to redirect_to('/')
+		    expect(response).to redirect_to('/login')
 		  end
 		end
 
