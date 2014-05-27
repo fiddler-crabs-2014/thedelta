@@ -50,6 +50,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :questions, only: [:index, :show]
 
+  namespace :admin do
+    resources :answers
+    resources :users
+  end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do

@@ -1,0 +1,28 @@
+<h1 style='color:white;'><%= link_to 'User', admin_users_path %> = <%= @user.username %></h1>
+<h2 style='color:white;'>User Information</h2>
+<table class='table' style='color:white; width:50%'>
+  <tr>
+    <th>Name</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>User Name</th>
+    <td><%= @user.username %></td>
+  </tr>
+    <tr>
+    <th>Email</th>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+<h2 style='color:white;'><%= link_to 'Submitted Answers', admin_answers_path %></h2>
+<table class='table' style='color:white;'>
+  <% @user.answers.each do |answer| %>
+    <tr>
+      <td><%= answer.question.category.name %></td>
+      <td><%= answer.question.query %></td>
+      <td><%= answer.user.username %></td>
+      <td><%= link_to 'show', answer_path(answer) %></td>
+      <td><%= link_to "delete", admin_answer_path(answer), :confirm => "Are you sure?", :method=>:delete %></td>
+    </tr>
+  <% end %>
+</table>
