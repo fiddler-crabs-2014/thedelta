@@ -2,7 +2,7 @@
 
 <h3 class="jimbo_header" id="language_delta"><%= @answer.question.start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @answer.question.end_language %></h3>
 
-<h3 class="jimbo_header">Answer submitted by <%= @answer.user.username %></h3>
+<h3 class="jimbo_header">Answer submitted by <%= @answer.user.username %>  <span id='vote-result-<%= @answer.id %>'><%= @answer.upvote_count %> Up / <%= @answer.downvote_count %> Down</span></h3>
 
   <div class="show_answer_container">
     
@@ -10,8 +10,21 @@
     <pre class="show_original answer_box">
       
     </pre>
-  </div>
+  
+  <%= form_tag '/vote' do %>
+    <%= hidden_field_tag 'answer_id', @answer.id %>
+    <%= hidden_field_tag 'user_id', @answer.user.id %>
+    <%= hidden_field_tag 'vote_value', '1' %>
+    <%= submit_tag "Up Vote", class: "btn btn-primary btn-sm do_vote"  %>
+  <% end %>
+  <%= form_tag '/vote' do %>
+    <%= hidden_field_tag 'answer_id', @answer.id %>
+    <%= hidden_field_tag 'user_id', @answer.user.id %>
+    <%= hidden_field_tag 'vote_value', '-1' %>
+    <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm do_vote"  %>
+  <% end %> 
 
+</div>
   <div class="show_answer_container" id="delta">
     <h4 class="answer_header">Delta</h4>
     <pre class="show_delta answer_box" id="preview_answer" value="<%= @answer.id%>" >
@@ -33,6 +46,18 @@
     delta = JSON.parse($('.show_delta').text())
     end   = JSON.parse($('.show_delta').text())[Object.keys(delta).length-1][0]
 
+    $('.do_vote').click(function(e){
+      e.preventDefault();
+      var data = $(this).parent().serialize();
+      console.log("vote clicked: " + data);
+      $.post('/vote.json', data)
+      .success(function(response){
+        console.log("AJAX success" + response.text);
+        $(response.id).html(response.text);
+      });
+
+    });
+    
     $('.show_original').html(start)
     $('.show_final').html(end)
 
