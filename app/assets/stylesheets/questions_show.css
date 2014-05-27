@@ -1,7 +1,22 @@
 .answers {
   position: relative;
   margin: 0 auto;
-  width: 50%;
+  padding: 40px;
+  width: 60%;
+  border-radius: 10px;
+  background-color: rgba(229,242,247,0.9);
+}
+
+.answer-block {
+  margin-bottom: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.question_index {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
 }
 
 .show_answer {
@@ -35,6 +50,12 @@
 @media all and (max-width: 1190px) {
   .add_answer {
     padding: 20px;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .answers {
+    width: 100%;
   }
 }
 
