@@ -100,6 +100,7 @@ body.custom {
     color: white;
     text-decoration: none;
 }
+
 /* media query */
 
 @media all and (max-width: 760px) {
