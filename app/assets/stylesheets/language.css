@@ -101,21 +101,6 @@ body.custom {
     text-decoration: none;
 }
 /* media query */
-<<<<<<< HEAD
- @media all and (max-width: 760px) {
-    .pick_languages h1 {
-        font-size: 3em;
-    }
-    #start_language {
-        margin-left: 137px;
-        margin-top: -31px
-    }
-    #end_language {
-        margin-left: 194px;
-        margin-top: -32px;
-    }
-}
-=======
 
 @media all and (max-width: 760px) {
   .pick_languages h1 {
@@ -136,4 +121,3 @@ body.custom {
     padding-left: 20px;
   }
 }
->>>>>>> master
