@@ -1,5 +1,5 @@
 <div id="categories">
-  <h1><%= @start_language %> to <%= @end_language %> Categories</h1>
+  <h1 class="jimbo_header"><%= @start_language %> to <%= @end_language %> Categories</h1>
 
   <ul class="list-group">
     <%= render partial: 'shared/category', collection: @categories, :locals => {start_language: @start_language, end_language: @end_language } %>

@@ -31,12 +31,13 @@ footer {
   top: 10px;
   bottom: 0;
   width: 100%;
-  height: 100px;
-  border-top: 1px solid #f8f8f8;
-  font-weight: 300;
-  padding-top: 20px;
-  padding-left: 20px;
-  background-image: url('congruent_pentagon.png');
+  height: 200px;
+  padding-top: 33px;
+  padding-left: 10%;
+  font-size: 1.2em;
+  background-image: url('dark_geometric.png');
+  font-weight: 100;
+  color: white;
 }
 
 
@@ -57,6 +58,9 @@ footer {
 
 }
 
+h1 {
+  color: white;
+}
 
 .flash_notice {
 	display: inline-block;
@@ -86,7 +90,6 @@ footer {
 	padding-left: 125px;
 
 }
-
 
 .username_header{
 	font-family: 'Open Sans', sans-serif;

@@ -17,12 +17,8 @@
 
 .list-group-item.custom {
   margin-top: 20px;
-  background-color: #e7e7e7;
+  background-color: #4E9689;
   color: white;
-}
-
-.list-group-item.custom:hover {
-  background-color: #7ED0D6;
 }
 
 /*.glyphicon-ok-sign {
