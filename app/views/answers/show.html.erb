@@ -48,10 +48,6 @@
     delta = JSON.parse($('.show_delta').text());
     end   = JSON.parse($('.show_delta').text())[Object.keys(delta).length-1][0];
 
-<<<<<<< HEAD
-    $('.show_original').html(start);
-    $('.show_final').html(end);
-=======
     $('.do_vote').click(function(e){
       e.preventDefault();
       var data = $(this).parent().serialize();
@@ -66,7 +62,6 @@
     
     $('.show_original').html(start)
     $('.show_final').html(end)
->>>>>>> 9cf7bd1c792a8302ea928a1bc3549495eed975a8
 
     player = new Player({
       play_sel: "#play_answer",
