@@ -33,6 +33,9 @@ body.custom {
 .styled-select {
   background-image: url('dark_geometric.png');
   padding: 100px;
+  box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
+  -webkit-box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
+  -moz-box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
 }
 
 .pick_languages {
