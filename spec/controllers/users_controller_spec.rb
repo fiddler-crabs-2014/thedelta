@@ -70,34 +70,37 @@ describe UsersController do
   end
 
   describe "#update" do
-    xit "it changes the records if valid" do
-      put :update, user: {email: "bob@bob"}
-      expect(response).to_not be_success
+    before { session[:user_id] = user.id }
+    let(:user_2) { FactoryGirl.create(:user) }
+    it "it changes the records if valid" do
+      put :update, id: user.id, user: {email: "bob@bob.com"}
+      user.reload
+      expect(user.email).to eq "bob@bob.com"
     end
 
-    xit "is unsuccessful if invalid email" do
-      put :update, user: {email: "bob@bob"}
-      expect(response).to_not be_success
+    it "it redirects to profile page if updates the record" do
+      put :update, id: user.id, user: {email: "bob@bob.com"}
+      expect(user.email).to redirect_to(:profile)
     end
 
-    xit "is unsuccessful if invalid username" do
-      put :update, user: {email: "bob@bob"}
-      expect(response).to_not be_success
+    it "if invalid email renders the edit template" do
+      put :edit, id: user.id, user: {email: "bob@bob"}
+      expect(response).to render_template(:edit)
     end
 
-    xit "is unsuccessful if duplicate email" do
-      put :update, user: {email: "bob@bob"}
-      expect(response).to_not be_success
+    it "if duplicate email -> unsuccessful -> render :edit template" do
+      put :edit, id: user.id, user: {email: user_2.email}
+      expect(response).to render_template(:edit)
     end
 
-    xit "is unsuccessful if duplicate username" do
-      put :update, user: {email: "bob@bob"}
-      expect(response).to_not be_success
+    it "if duplicate username -> unsuccessful -> render :edit template" do
+      put :update, id: user.id, user: {username: user_2.username}
+      expect(response).to render_template(:edit)
     end
 
-    xit "is unsuccessful if passwords do not match" do
-      put :update, user: {email: "bob@bob"}
-      expect(response).to_not be_success
+    it "is unsuccessful if passwords do not match" do
+      put :update, id: user.id, user: {password: "password1", password_confirmation: "password2"}
+      expect(response).to render_template(:edit)
     end
   end
 end
