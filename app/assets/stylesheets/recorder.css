@@ -59,7 +59,6 @@ pre {
     tab-size: 2;
     -moz-tab-size: 2;
     -o-tab-size: 2;
-    /*white-space: pre-wrap;*/
 }
 
 @media all and (max-width: 600px) {
