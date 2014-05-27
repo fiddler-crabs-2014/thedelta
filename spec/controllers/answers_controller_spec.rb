@@ -6,10 +6,6 @@ describe AnswersController do
 	let!(:question) { FactoryGirl.create(:question) }
 	let!(:user) { FactoryGirl.create(:user) }
 
-
-
-	render_views
-
 	describe "#new" do
 		context "with current_user" do
 
@@ -98,11 +94,5 @@ describe AnswersController do
   		get :create, delta: [0]
   		expect(response).to redirect_to('/answers/new')
   	end
-
-
-	  
 	end
-
-
-	
 end

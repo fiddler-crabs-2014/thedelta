@@ -69,13 +69,10 @@
 
     if curr_user.admin == true
       return true
-    end
-
-    if curr_user
+    else
       flash[:notice] = 'You must be an admin to view this page'
       redirect_to profile_path
       return false
-    else
     end
   end
 end

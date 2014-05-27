@@ -1,10 +1,8 @@
 require "spec_helper"
 
 describe UsersController do
-  
-  let(:user) { FactoryGirl.create(:user) }
 
-  render_views
+  let(:user) { FactoryGirl.create(:user) }
   
   describe "#new" do
     it "should render the signup template" do
@@ -32,10 +30,11 @@ describe UsersController do
 
     xit "should not create user with invalid email" do
       expect {
-        post :create, user: {username: user.username, email: '123@', password: 'password', password_confirmation: 'password'}
+        post :create, user: {username: user.username, email: '', password: 'password', password_confirmation: 'password'}
         
         }.to change { User.count }.by(0)
     end
+
     it "invalid email should render new template" do
       
       post :create, user: {username: user.username, email: '123@', password: 'password', password_confirmation: 'password'}

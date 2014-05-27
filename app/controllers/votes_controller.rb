@@ -8,7 +8,7 @@ class VotesController < ApplicationController
 
     
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { redirect_to answer_path(@answer) }
       #format.xml  { render :xml => @post }
       format.json {render json: {text: "#{@answer.upvote_count} Up / #{@answer.downvote_count} Down", id: "#vote-result-" + params[:answer_id] } }
 
