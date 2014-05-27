@@ -3,12 +3,13 @@
   top: 120px;
   left: 42px;
   width: 280px;
-  height: auto;
+  height: 344px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 1.2em;
   padding: 25px;
   background-color: #F4FCE8;
+  margin: 56px 0 0 0;
 }
 
 .instructions h3 {
@@ -23,6 +24,10 @@
 .instructions li {
   font-size: 0.9em;
   margin-bottom: 5px;
+}
+
+.jimbo_header {
+  color:white;
 }
 
 #preview_record {

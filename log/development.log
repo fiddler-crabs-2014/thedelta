@@ -23192,3 +23192,1257 @@ Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
   [1m[36mVote Load (0.5ms)[0m  [1mSELECT "votes".* FROM "votes"[0m
   [1m[35mVote Load (0.8ms)[0m  SELECT  "votes".* FROM "votes"   ORDER BY "votes"."id" ASC LIMIT 1
   [1m[36mVote Load (0.4ms)[0m  [1mSELECT  "votes".* FROM "votes"  WHERE "votes"."answer_id" = 5 AND "votes"."user_id" = 4  ORDER BY "votes"."id" ASC LIMIT 1[0m
+  [1m[36m (16.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (5.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLanguages (20140523014923)
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36m (20.3ms)[0m  [1mCREATE TABLE "languages" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523014923"]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20140523015128)
+  [1m[35m (6.2ms)[0m  BEGIN
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523015128"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateQuestions (20140523015213)
+  [1m[35m (6.2ms)[0m  BEGIN
+  [1m[36m (15.0ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "category_id" integer, "query" character varying(255), "start_language" character varying(255), "end_language" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523015213"]]
+  [1m[36m (4.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAnswers (20140523015619)
+  [1m[35m (6.2ms)[0m  BEGIN
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "question_id" integer, "user_id" integer, "vote_count" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523015619"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140523015811)
+  [1m[35m (6.2ms)[0m  BEGIN
+  [1m[36m (15.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "user_id" integer, "answer_id" integer, "text" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523015811"]]
+  [1m[36m (4.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140523020200)
+  [1m[35m (6.4ms)[0m  BEGIN
+  [1m[36m (14.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523020200"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVotes (20140523020240)
+  [1m[35m (6.0ms)[0m  BEGIN
+  [1m[36m (7.7ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "user_id" integer, "answer_id" integer, "vote_value" integer DEFAULT 0, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523020240"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddDeltaToAnswersTable (20140523022339)
+  [1m[35m (6.4ms)[0m  BEGIN
+  [1m[36m (7.4ms)[0m  [1mALTER TABLE "answers" ADD COLUMN "delta" text[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140523022339"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "languages" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.344178"], ["name", "Ruby"], ["updated_at", "2014-05-26 23:59:44.344178"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "languages" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.348307"], ["name", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.348307"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "languages" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.349547"], ["name", "Python"], ["updated_at", "2014-05-26 23:59:44.349547"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "languages" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.350612"], ["name", "Java"], ["updated_at", "2014-05-26 23:59:44.350612"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.361251"], ["name", "Enumerables"], ["updated_at", "2014-05-26 23:59:44.361251"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.375307"], ["name", "Logic Flow"], ["updated_at", "2014-05-26 23:59:44.375307"]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.382009"], ["name", "Classes"], ["updated_at", "2014-05-26 23:59:44.382009"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.383951"], ["name", "Methods"], ["updated_at", "2014-05-26 23:59:44.383951"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.385247"], ["name", "Regular Expressions"], ["updated_at", "2014-05-26 23:59:44.385247"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.386438"], ["name", "Inheritance"], ["updated_at", "2014-05-26 23:59:44.386438"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.396185"], ["end_language", "JavaScript"], ["query", "How do I make an each method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.396185"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.410433"], ["end_language", "JavaScript"], ["query", "How do I make a map method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.410433"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.417862"], ["end_language", "Python"], ["query", "How do I make an each method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.417862"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.420080"], ["end_language", "Python"], ["query", "How do I make a map method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.420080"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.421640"], ["end_language", "Java"], ["query", "How do I make an each method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.421640"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.423073"], ["end_language", "Java"], ["query", "How do I make a map method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.423073"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.424389"], ["end_language", "Ruby"], ["query", "How do I make a forEach method?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.424389"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.425696"], ["end_language", "Ruby"], ["query", "How do I make a map method?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.425696"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.426988"], ["end_language", "Python"], ["query", "How do I make a forEach method?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.426988"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.428273"], ["end_language", "Python"], ["query", "How do I make a map method?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.428273"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.429585"], ["end_language", "Java"], ["query", "How do I make a forEach method?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.429585"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 1], ["created_at", "2014-05-26 23:59:44.431050"], ["end_language", "Java"], ["query", "How do I make a map method?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.431050"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-26 23:59:44.432374"], ["end_language", "JavaScript"], ["query", "How do I make an if else statement?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.432374"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-26 23:59:44.433723"], ["end_language", "Python"], ["query", "How do I make an if else statement?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.433723"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-26 23:59:44.435188"], ["end_language", "Java"], ["query", "How do I make an if else statement?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.435188"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-26 23:59:44.436527"], ["end_language", "Ruby"], ["query", "How do I make an if else statement?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.436527"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-26 23:59:44.437813"], ["end_language", "Python"], ["query", "How do I make an if else statement?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.437813"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-26 23:59:44.439105"], ["end_language", "Java"], ["query", "How do I make an if else statement?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.439105"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 3], ["created_at", "2014-05-26 23:59:44.440395"], ["end_language", "JavaScript"], ["query", "How do I make a class like object?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.440395"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 3], ["created_at", "2014-05-26 23:59:44.442097"], ["end_language", "Python"], ["query", "How do I make a class like object?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.442097"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 3], ["created_at", "2014-05-26 23:59:44.443905"], ["end_language", "Java"], ["query", "How do I make a class like object?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.443905"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 3], ["created_at", "2014-05-26 23:59:44.445650"], ["end_language", "Ruby"], ["query", "How do I make a constructor function?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.445650"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 3], ["created_at", "2014-05-26 23:59:44.447529"], ["end_language", "Python"], ["query", "How do I make a constructor function?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.447529"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 3], ["created_at", "2014-05-26 23:59:44.448920"], ["end_language", "Java"], ["query", "How do I make a constructor function?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.448920"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 4], ["created_at", "2014-05-26 23:59:44.450220"], ["end_language", "JavaScript"], ["query", "How do I make a method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.450220"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 4], ["created_at", "2014-05-26 23:59:44.451479"], ["end_language", "Python"], ["query", "How do I make a method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.451479"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 4], ["created_at", "2014-05-26 23:59:44.452793"], ["end_language", "Java"], ["query", "How do I make a method?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.452793"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 4], ["created_at", "2014-05-26 23:59:44.454093"], ["end_language", "Ruby"], ["query", "How do I make a function?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.454093"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 4], ["created_at", "2014-05-26 23:59:44.455394"], ["end_language", "Python"], ["query", "How do I make a function?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.455394"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 4], ["created_at", "2014-05-26 23:59:44.456678"], ["end_language", "Java"], ["query", "How do I make a function?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.456678"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 5], ["created_at", "2014-05-26 23:59:44.457955"], ["end_language", "JavaScript"], ["query", "How do I find a match using regular expressions?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.457955"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 5], ["created_at", "2014-05-26 23:59:44.459349"], ["end_language", "Python"], ["query", "How do I find a match using regular expressions?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.459349"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 5], ["created_at", "2014-05-26 23:59:44.460675"], ["end_language", "Java"], ["query", "How do I find a match using regular expressions?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.460675"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 5], ["created_at", "2014-05-26 23:59:44.462002"], ["end_language", "Ruby"], ["query", "How do I find a match using regular expressions?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.462002"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 5], ["created_at", "2014-05-26 23:59:44.463295"], ["end_language", "Python"], ["query", "How do I find a match using regular expressions?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.463295"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 5], ["created_at", "2014-05-26 23:59:44.464792"], ["end_language", "Java"], ["query", "How do I find a match using regular expressions?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.464792"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 6], ["created_at", "2014-05-26 23:59:44.466133"], ["end_language", "JavaScript"], ["query", "How does inheritance work?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.466133"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 6], ["created_at", "2014-05-26 23:59:44.467439"], ["end_language", "Python"], ["query", "How does inheritance work?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.467439"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 6], ["created_at", "2014-05-26 23:59:44.468930"], ["end_language", "Java"], ["query", "How does inheritance work?"], ["start_language", "Ruby"], ["updated_at", "2014-05-26 23:59:44.468930"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 6], ["created_at", "2014-05-26 23:59:44.470298"], ["end_language", "Ruby"], ["query", "How does inheritance work?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.470298"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 6], ["created_at", "2014-05-26 23:59:44.471716"], ["end_language", "Python"], ["query", "How does inheritance work?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.471716"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 6], ["created_at", "2014-05-26 23:59:44.473050"], ["end_language", "Java"], ["query", "How does inheritance work?"], ["start_language", "JavaScript"], ["updated_at", "2014-05-26 23:59:44.473050"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'philipe' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'phil@london.com' LIMIT 1[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.568080"], ["email", "phil@london.com"], ["name", "phil"], ["password_digest", "$2a$10$jdU5joeGxsjOYZzf8v1FKeXDuzqPn/P2g41gkmhZJbRK2q1QZv1TS"], ["updated_at", "2014-05-26 23:59:44.568080"], ["username", "philipe"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'shauny' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'shuan@geever.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.657791"], ["email", "shuan@geever.com"], ["name", "shaun"], ["password_digest", "$2a$10$oRCKau8jVfc1D5kf8JLmFeujXjMbnbeWR7JK.yQzOjoKmsMoEkyo6"], ["updated_at", "2014-05-26 23:59:44.657791"], ["username", "shauny"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "answers"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO "answers" ("created_at", "delta", "question_id", "updated_at", "user_id", "vote_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.673319"], ["delta", "{\"0\":[\"[1,2,3].each do |number|\\n\\tputs number\\nend\",\"0\"],\"1\":[\"[1,2,3].feach do |number|\\n\\tputs number\\nend\",\"3103\"],\"2\":[\"[1,2,3].foeach do |number|\\n\\tputs number\\nend\",\"3299\"],\"3\":[\"[1,2,3].foreach do |number|\\n\\tputs number\\nend\",\"3411\"],\"4\":[\"[1,2,3].forach do |number|\\n\\tputs number\\nend\",\"4475\"],\"5\":[\"[1,2,3].forEach do |number|\\n\\tputs number\\nend\",\"4797\"],\"6\":[\"[1,2,3].forEach d |number|\\n\\tputs number\\nend\",\"6627\"],\"7\":[\"[1,2,3].forEach  |number|\\n\\tputs number\\nend\",\"6797\"],\"8\":[\"[1,2,3].forEach |number|\\n\\tputs number\\nend\",\"6987\"],\"9\":[\"[1,2,3].forEach( |number|\\n\\tputs number\\nend\",\"8436\"],\"10\":[\"[1,2,3].forEach(f |number|\\n\\tputs number\\nend\",\"9691\"],\"11\":[\"[1,2,3].forEach(fu |number|\\n\\tputs number\\nend\",\"10347\"],\"12\":[\"[1,2,3].forEach(fun |number|\\n\\tputs number\\nend\",\"10523\"],\"13\":[\"[1,2,3].forEach(func |number|\\n\\tputs number\\nend\",\"10643\"],\"14\":[\"[1,2,3].forEach(funct |number|\\n\\tputs number\\nend\",\"10853\"],\"15\":[\"[1,2,3].forEach(functi |number|\\n\\tputs number\\nend\",\"11077\"],\"16\":[\"[1,2,3].forEach(functio |number|\\n\\tputs number\\nend\",\"11213\"],\"17\":[\"[1,2,3].forEach(function |number|\\n\\tputs number\\nend\",\"11363\"],\"18\":[\"[1,2,3].forEach(function( |number|\\n\\tputs number\\nend\",\"12243\"],\"19\":[\"[1,2,3].forEach(function( number|\\n\\tputs number\\nend\",\"14469\"],\"20\":[\"[1,2,3].forEach(function( number\\n\\tputs number\\nend\",\"17251\"],\"21\":[\"[1,2,3].forEach(function( number \\n\\tputs number\\nend\",\"17603\"],\"22\":[\"[1,2,3].forEach(function( number )\\n\\tputs number\\nend\",\"18187\"],\"23\":[\"[1,2,3].forEach(function( number ){\\n\\tputs number\\nend\",\"19307\"],\"24\":[\"[1,2,3].forEach(function( number ){\\n\\tputsnumber\\nend\",\"22827\"],\"25\":[\"[1,2,3].forEach(function( number ){\\n\\tputnumber\\nend\",\"22963\"],\"26\":[\"[1,2,3].forEach(function( number ){\\n\\tpunumber\\nend\",\"23115\"],\"27\":[\"[1,2,3].forEach(function( number ){\\n\\tpnumber\\nend\",\"23276\"],\"28\":[\"[1,2,3].forEach(function( number ){\\n\\tnumber\\nend\",\"23476\"],\"29\":[\"[1,2,3].forEach(function( number ){\\n\\tcnumber\\nend\",\"23651\"],\"30\":[\"[1,2,3].forEach(function( number ){\\n\\tconumber\\nend\",\"24643\"],\"31\":[\"[1,2,3].forEach(function( number ){\\n\\tconnumber\\nend\",\"24851\"],\"32\":[\"[1,2,3].forEach(function( number ){\\n\\tconsnumber\\nend\",\"25307\"],\"33\":[\"[1,2,3].forEach(function( number ){\\n\\tconsonumber\\nend\",\"25483\"],\"34\":[\"[1,2,3].forEach(function( number ){\\n\\tconsolnumber\\nend\",\"25683\"],\"35\":[\"[1,2,3].forEach(function( number ){\\n\\tconsolenumber\\nend\",\"25734\"],\"36\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.number\\nend\",\"26340\"],\"37\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.lnumber\\nend\",\"26605\"],\"38\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.lonumber\\nend\",\"26771\"],\"39\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.lognumber\\nend\",\"26979\"],\"40\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number\\nend\",\"27716\"],\"41\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number)\\nend\",\"30083\"],\"42\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number);\\nend\",\"30899\"],\"43\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number);\\nen\",\"32294\"],\"44\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number);\\ne\",\"32483\"],\"45\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number);\\n\",\"32667\"],\"46\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number);\\n}\",\"34227\"],\"47\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number);\\n})\",\"34611\"],\"48\":[\"[1,2,3].forEach(function( number ){\\n\\tconsole.log(number);\\n});\",\"35363\"]}"], ["question_id", 1], ["updated_at", "2014-05-26 23:59:44.673319"], ["user_id", 1], ["vote_count", 50]]
+  [1m[35m (5.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("created_at", "delta", "question_id", "updated_at", "user_id", "vote_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.687837"], ["delta", "{\"0\":[\"numbers = [2,5,14,62,77,183]\\n\\ndef multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"0\"],\"1\":[\"vnumbers = [2,5,14,62,77,183]\\n\\ndef multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"2164\"],\"2\":[\"vanumbers = [2,5,14,62,77,183]\\n\\ndef multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"2275\"],\"3\":[\"varnumbers = [2,5,14,62,77,183]\\n\\ndef multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"2389\"],\"4\":[\"var numbers = [2,5,14,62,77,183]\\n\\ndef multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"2508\"],\"5\":[\"var numbers = [2,5,14,62,77,183];\\n\\ndef multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"3820\"],\"6\":[\"var numbers = [2,5,14,62,77,183];\\n\\nde multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"9420\"],\"7\":[\"var numbers = [2,5,14,62,77,183];\\n\\nd multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"9610\"],\"8\":[\"var numbers = [2,5,14,62,77,183];\\n\\n multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"9810\"],\"9\":[\"var numbers = [2,5,14,62,77,183];\\n\\nv multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"9908\"],\"10\":[\"var numbers = [2,5,14,62,77,183];\\n\\nva multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"9987\"],\"11\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"10124\"],\"12\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two (number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"12020\"],\"13\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two =(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"12220\"],\"14\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = (number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"12348\"],\"15\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = f(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"12570\"],\"16\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = fu(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"12682\"],\"17\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = fun(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"12803\"],\"18\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = func(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"12915\"],\"19\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = funct(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"13170\"],\"20\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = functi(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"13189\"],\"21\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = functio(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"13234\"],\"22\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number)\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"13291\"],\"23\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) \\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"15868\"],\"24\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tnumber*2\\nend\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"16275\"],\"25\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tnumber*2\\nen\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"19107\"],\"26\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tnumber*2\\ne\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"19299\"],\"27\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tnumber*2\\n\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"19459\"],\"28\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tnumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"20083\"],\"29\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\trnumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"22163\"],\"30\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\trenumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"22251\"],\"31\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tretnumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"22386\"],\"32\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tretunumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"22506\"],\"33\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturnumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"22609\"],\"34\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\tretunumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"23115\"],\"35\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturnumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"23635\"],\"36\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturnnumber*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"23739\"],\"37\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nend\",\"23867\"],\"38\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\nen\",\"29067\"],\"39\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\ne\",\"29269\"],\"40\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\\n\",\"29298\"],\"41\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number)\",\"29330\"],\"42\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(number\",\"29361\"],\"43\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(numbe\",\"29392\"],\"44\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(numb\",\"29422\"],\"45\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(num\",\"29453\"],\"46\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(nu\",\"29484\"],\"47\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(n\",\"29514\"],\"48\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two(\",\"29545\"],\"49\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_two\",\"29577\"],\"50\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_tw\",\"29606\"],\"51\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_t\",\"29637\"],\"52\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by_\",\"29667\"],\"53\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_by\",\"29698\"],\"54\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_b\",\"29732\"],\"55\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply_\",\"29762\"],\"56\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultiply\",\"29791\"],\"57\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultipl\",\"29823\"],\"58\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmultip\",\"29855\"],\"59\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmulti\",\"29885\"],\"60\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmult\",\"29916\"],\"61\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmul\",\"29945\"],\"62\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tmu\",\"29976\"],\"63\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\tm\",\"30007\"],\"64\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\\t\",\"30040\"],\"65\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\\n\",\"30068\"],\"66\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number|\",\"30098\"],\"67\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |number\",\"30339\"],\"68\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |numbe\",\"30538\"],\"69\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |numb\",\"30569\"],\"70\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |num\",\"30599\"],\"71\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |nu\",\"30630\"],\"72\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |n\",\"30661\"],\"73\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do |\",\"30692\"],\"74\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do \",\"30723\"],\"75\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map do\",\"30752\"],\"76\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map d\",\"30897\"],\"77\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map \",\"31081\"],\"78\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map\",\"31241\"],\"79\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(\",\"32417\"],\"80\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map()\",\"32603\"],\"81\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(m)\",\"33209\"],\"82\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(mu)\",\"34242\"],\"83\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(mul)\",\"34570\"],\"84\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(mult)\",\"34785\"],\"85\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multi)\",\"34858\"],\"86\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multip)\",\"35019\"],\"87\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multipl)\",\"35186\"],\"88\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply)\",\"35395\"],\"89\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_)\",\"35842\"],\"90\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_b)\",\"36217\"],\"91\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_by)\",\"36442\"],\"92\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_by_)\",\"36793\"],\"93\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_by_t)\",\"37042\"],\"94\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_by_tw)\",\"37162\"],\"95\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_by_two)\",\"37233\"],\"96\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n}\\n\\nnumbers.map(multiply_by_two);\",\"40658\"],\"97\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2\\n};\\n\\nnumbers.map(multiply_by_two);\",\"42033\"],\"98\":[\"var numbers = [2,5,14,62,77,183];\\n\\nvar multiply_by_two = function(number) {\\n\\treturn number*2;\\n};\\n\\nnumbers.map(multiply_by_two);\",\"44338\"]}"], ["question_id", 2], ["updated_at", "2014-05-26 23:59:44.687837"], ["user_id", 1], ["vote_count", 50]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("created_at", "delta", "question_id", "updated_at", "user_id", "vote_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-05-26 23:59:44.696471"], ["delta", "{\"0\":[\"if today == 'Friday'\\n\\tp 'time to party!'\\nelse\\n\\tp 'get back to work!'\\nend\",\"0\"],\"1\":[\"if (today == 'Friday'\\n\\tp 'time to party!'\\nelse\\n\\tp 'get back to work!'\\nend\",\"4252\"],\"2\":[\"if (today === 'Friday'\\n\\tp 'time to party!'\\nelse\\n\\tp 'get back to work!'\\nend\",\"6524\"],\"3\":[\"if (today === 'Friday')\\n\\tp 'time to party!'\\nelse\\n\\tp 'get back to work!'\\nend\",\"8565\"],\"4\":[\"if (today === 'Friday') \\n\\tp 'time to party!'\\nelse\\n\\tp 'get back to work!'\\nend\",\"8964\"],\"5\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\nelse\\n\\tp 'get back to work!'\\nend\",\"9468\"],\"6\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n}else\\n\\tp 'get back to work!'\\nend\",\"13348\"],\"7\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n} else\\n\\tp 'get back to work!'\\nend\",\"14315\"],\"8\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n} else \\n\\tp 'get back to work!'\\nend\",\"15571\"],\"9\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n} else {\\n\\tp 'get back to work!'\\nend\",\"16338\"],\"10\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n} else {\\n\\tp 'get back to work!'\\nen\",\"17547\"],\"11\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n} else {\\n\\tp 'get back to work!'\\ne\",\"17715\"],\"12\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n\",\"17971\"],\"13\":[\"if (today === 'Friday') {\\n\\tp 'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"18347\"],\"14\":[\"if (today === 'Friday') {\\n\\tp'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"20131\"],\"15\":[\"if (today === 'Friday') {\\n\\t'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"20275\"],\"16\":[\"if (today === 'Friday') {\\n\\tc'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"20403\"],\"17\":[\"if (today === 'Friday') {\\n\\tco'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"20563\"],\"18\":[\"if (today === 'Friday') {\\n\\tcon'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"20787\"],\"19\":[\"if (today === 'Friday') {\\n\\tcons'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"20922\"],\"20\":[\"if (today === 'Friday') {\\n\\tconso'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"21018\"],\"21\":[\"if (today === 'Friday') {\\n\\tconsol'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"21203\"],\"22\":[\"if (today === 'Friday') {\\n\\tconsole'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"21299\"],\"23\":[\"if (today === 'Friday') {\\n\\tconsole.'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"21442\"],\"24\":[\"if (today === 'Friday') {\\n\\tconsole.l'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"21651\"],\"25\":[\"if (today === 'Friday') {\\n\\tconsole.lo'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"21834\"],\"26\":[\"if (today === 'Friday') {\\n\\tconsole.log'time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"21923\"],\"27\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!'\\n} else {\\n\\tp 'get back to work!'\\n}\",\"22412\"],\"28\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tp 'get back to work!'\\n}\",\"24145\"],\"29\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tp'get back to work!'\\n}\",\"27514\"],\"30\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\t'get back to work!'\\n}\",\"27651\"],\"31\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tc'get back to work!'\\n}\",\"27811\"],\"32\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tco'get back to work!'\\n}\",\"28033\"],\"33\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tcon'get back to work!'\\n}\",\"28266\"],\"34\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tcons'get back to work!'\\n}\",\"28369\"],\"35\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconso'get back to work!'\\n}\",\"28474\"],\"36\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsol'get back to work!'\\n}\",\"28658\"],\"37\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsole'get back to work!'\\n}\",\"28739\"],\"38\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsole.'get back to work!'\\n}\",\"28914\"],\"39\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsole.l'get back to work!'\\n}\",\"29186\"],\"40\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsole.lo'get back to work!'\\n}\",\"29402\"],\"41\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsole.log'get back to work!'\\n}\",\"29474\"],\"42\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsole.log('get back to work!'\\n}\",\"29994\"],\"43\":[\"if (today === 'Friday') {\\n\\tconsole.log('time to party!')\\n} else {\\n\\tconsole.log('get back to work!')\\n}\",\"30987\"]}"], ["question_id", 13], ["updated_at", "2014-05-26 23:59:44.696471"], ["user_id", 2], ["vote_count", 50]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "answers" ("created_at", "delta", "question_id", "updated_at", "user_id", "vote_count") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-05-26 23:59:44.698492"], ["delta", "{\"0\":[\"class Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"0\"],\"1\":[\"clas Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"5176\"],\"2\":[\"cla Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"5377\"],\"3\":[\"cl Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"5406\"],\"4\":[\"c Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"5544\"],\"5\":[\" Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"5729\"],\"6\":[\"v Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"5806\"],\"7\":[\"va Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"5904\"],\"8\":[\"var Person\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"6031\"],\"9\":[\"var cPerson\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"6928\"],\"10\":[\"var crPerson\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"7112\"],\"11\":[\"var crePerson\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"7208\"],\"12\":[\"var creaPerson\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"7302\"],\"13\":[\"var creatPerson\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"7494\"],\"14\":[\"var createPerson\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"7583\"],\"15\":[\"var createPerson \\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"9376\"],\"16\":[\"var createPerson =\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"9632\"],\"17\":[\"var createPerson = \\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"9742\"],\"18\":[\"var createPerson = f\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"9943\"],\"19\":[\"var createPerson = fu\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"10048\"],\"20\":[\"var createPerson = fun\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"10167\"],\"21\":[\"var createPerson = func\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"10190\"],\"22\":[\"var createPerson = funct\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"10398\"],\"23\":[\"var createPerson = functi\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"10406\"],\"24\":[\"var createPerson = functio\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"10479\"],\"25\":[\"var createPerson = function\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"10527\"],\"26\":[\"var createPerson = function(\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"11151\"],\"27\":[\"var createPerson = function()\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"11312\"],\"28\":[\"var createPerson = function(n)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"11871\"],\"29\":[\"var createPerson = function(na)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"11968\"],\"30\":[\"var createPerson = function(nam)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"12095\"],\"31\":[\"var createPerson = function(name)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"12182\"],\"32\":[\"var createPerson = function(name,)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"12382\"],\"33\":[\"var createPerson = function(name, )\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"12623\"],\"34\":[\"var createPerson = function(name, a)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"12903\"],\"35\":[\"var createPerson = function(name, ag)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"13021\"],\"36\":[\"var createPerson = function(name, age)\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"13135\"],\"37\":[\"var createPerson = function(name, age) \\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"14742\"],\"38\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name, :age\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"16231\"],\"39\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name, :age\\n\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"18822\"],\"40\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name, :age\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19023\"],\"41\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name, :ag\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19054\"],\"42\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name, :a\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19085\"],\"43\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name, :\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19116\"],\"44\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name, \\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19146\"],\"45\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name,\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19343\"],\"46\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :name\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19543\"],\"47\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :nam\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19572\"],\"48\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :na\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19603\"],\"49\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :n\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19635\"],\"50\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor :\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19666\"],\"51\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor \\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19695\"],\"52\":[\"var createPerson = function(name, age) {\\n\\tattr_accessor\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19726\"],\"53\":[\"var createPerson = function(name, age) {\\n\\tattr_accesso\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19757\"],\"54\":[\"var createPerson = function(name, age) {\\n\\tattr_access\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19788\"],\"55\":[\"var createPerson = function(name, age) {\\n\\tattr_acces\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19820\"],\"56\":[\"var createPerson = function(name, age) {\\n\\tattr_acce\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19851\"],\"57\":[\"var createPerson = function(name, age) {\\n\\tattr_acc\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19881\"],\"58\":[\"var createPerson = function(name, age) {\\n\\tattr_ac\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19912\"],\"59\":[\"var createPerson = function(name, age) {\\n\\tattr_a\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19942\"],\"60\":[\"var createPerson = function(name, age) {\\n\\tattr_\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"19974\"],\"61\":[\"var createPerson = function(name, age) {\\n\\tattr\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"20003\"],\"62\":[\"var createPerson = function(name, age) {\\n\\tatt\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"20035\"],\"63\":[\"var createPerson = function(name, age) {\\n\\tat\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"20064\"],\"64\":[\"var createPerson = function(name, age) {\\n\\ta\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"20271\"],\"65\":[\"var createPerson = function(name, age) {\\n\\t\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"20463\"],\"66\":[\"var createPerson = function(name, age) {\\n\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"20663\"],\"67\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(name, age)\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"21071\"],\"68\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(name, age\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"26653\"],\"69\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(name, ag\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"26980\"],\"70\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(name, a\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"27238\"],\"71\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(name, \\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"27637\"],\"72\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(name,\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"27869\"],\"73\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(name\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28070\"],\"74\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(nam\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28238\"],\"75\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(na\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28447\"],\"76\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(n\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28647\"],\"77\":[\"var createPerson = function(name, age) {\\n\\tdef initialize(\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28678\"],\"78\":[\"var createPerson = function(name, age) {\\n\\tdef initialize\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28708\"],\"79\":[\"var createPerson = function(name, age) {\\n\\tdef initializ\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28740\"],\"80\":[\"var createPerson = function(name, age) {\\n\\tdef initiali\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"28769\"],\"81\":[\"var createPerson = function(name, age) {\\n\\tdef initial\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29509\"],\"82\":[\"var createPerson = function(name, age) {\\n\\tdef initia\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29711\"],\"83\":[\"var createPerson = function(name, age) {\\n\\tdef initi\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29741\"],\"84\":[\"var createPerson = function(name, age) {\\n\\tdef init\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29773\"],\"85\":[\"var createPerson = function(name, age) {\\n\\tdef ini\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29801\"],\"86\":[\"var createPerson = function(name, age) {\\n\\tdef in\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29834\"],\"87\":[\"var createPerson = function(name, age) {\\n\\tdef i\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29864\"],\"88\":[\"var createPerson = function(name, age) {\\n\\tdef \\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29894\"],\"89\":[\"var createPerson = function(name, age) {\\n\\tdef\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"29925\"],\"90\":[\"var createPerson = function(name, age) {\\n\\tde\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"30086\"],\"91\":[\"var createPerson = function(name, age) {\\n\\td\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"30478\"],\"92\":[\"var createPerson = function(name, age) {\\n\\t\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"31078\"],\"93\":[\"var createPerson = function(name, age) {\\n\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"31357\"],\"94\":[\"var createPerson = function(name, age) {\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\tend\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"31574\"],\"95\":[\"var createPerson = function(name, age) {\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\ten\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"32966\"],\"96\":[\"var createPerson = function(name, age) {\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\te\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"33150\"],\"97\":[\"var createPerson = function(name, age) {\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"33334\"],\"98\":[\"var createPerson = function(name, age) {\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"33532\"],\"99\":[\"var createPerson = function(name, age) {\\n\\t\\t@name = name\\n\\t\\t@age  = age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"33782\"],\"100\":[\"var createPerson = function(name, age) {\\n\\t\\t@name  name\\n\\t\\t@age  = age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"35935\"],\"101\":[\"var createPerson = function(name, age) {\\n\\t\\t@name name\\n\\t\\t@age  = age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"36104\"],\"102\":[\"var createPerson = function(name, age) {\\n\\t\\t@name: name\\n\\t\\t@age  = age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"36372\"],\"103\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\t@age  = age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"37726\"],\"104\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage  = age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"39278\"],\"105\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage   age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"40733\"],\"106\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage  age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"40980\"],\"107\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"41278\"],\"108\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\n\\tdef say_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"42214\"],\"109\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\n\\tdefsay_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"45190\"],\"110\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\n\\tdesay_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"45429\"],\"111\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\n\\tdsay_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"45636\"],\"112\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\n\\tsay_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"45830\"],\"113\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\nsay_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"46068\"],\"114\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\nsay_hi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"46398\"],\"115\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi \\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"54614\"],\"116\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi =\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"54813\"],\"117\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = \\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"54924\"],\"118\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = f\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55125\"],\"119\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = fu\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55188\"],\"120\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = fun\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55333\"],\"121\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = func\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55420\"],\"122\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = funct\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55644\"],\"123\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = functi\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55667\"],\"124\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = functio\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55707\"],\"125\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"55756\"],\"126\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function(\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"57421\"],\"127\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function()\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"57838\"],\"128\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() \\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"58859\"],\"129\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t'Hello there!'\\n\\tend\\nend\",\"59309\"],\"130\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tc'Hello there!'\\n\\tend\\nend\",\"64597\"],\"131\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tco'Hello there!'\\n\\tend\\nend\",\"64685\"],\"132\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tcon'Hello there!'\\n\\tend\\nend\",\"64851\"],\"133\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tcons'Hello there!'\\n\\tend\\nend\",\"64988\"],\"134\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconso'Hello there!'\\n\\tend\\nend\",\"65117\"],\"135\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsol'Hello there!'\\n\\tend\\nend\",\"65293\"],\"136\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole'Hello there!'\\n\\tend\\nend\",\"65371\"],\"137\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.'Hello there!'\\n\\tend\\nend\",\"65540\"],\"138\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.l'Hello there!'\\n\\tend\\nend\",\"65740\"],\"139\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.lo'Hello there!'\\n\\tend\\nend\",\"65916\"],\"140\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log'Hello there!'\\n\\tend\\nend\",\"66020\"],\"141\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!'\\n\\tend\\nend\",\"66469\"],\"142\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\tend\\nend\",\"67516\"],\"143\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\ten\\nend\",\"68797\"],\"144\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\te\\nend\",\"68980\"],\"145\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t\\nend\",\"69332\"],\"146\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t \\t\\t\\nend\",\"71381\"],\"147\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t  \\t\\t\\nend\",\"71660\"],\"148\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t   \\t\\t\\nend\",\"71852\"],\"149\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t   }\\t\\t\\nend\",\"72821\"],\"150\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t   }\\t\\t\\nen\",\"73957\"],\"151\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t   }\\t\\t\\ne\",\"74548\"],\"152\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t   }\\t\\t\\n\",\"74821\"],\"153\":[\"var createPerson = function(name, age) {\\n\\t\\tname: name\\n\\t\\tage: age\\t\\n\\t\\tsay_hi = function() {\\n\\t\\t\\tconsole.log('Hello there!')\\n\\t   }\\t\\t\\n}\",\"75258\"]}"], ["question_id", 19], ["updated_at", "2014-05-26 23:59:44.698492"], ["user_id", 2], ["vote_count", 50]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-26 20:00:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LanguagesController#index as HTML
+  [1m[35mLanguage Load (0.4ms)[0m  SELECT "languages".* FROM "languages"
+  Rendered languages/index.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 148ms (Views: 142.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:08 -0400
+
+
+Started GET "/categories?end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered shared/_category.html.erb (5.3ms)
+  Rendered categories/index.html.erb within layouts/application (16.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 34ms (Views: 26.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:13 -0400
+
+
+Started GET "/questions?category=1&end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mLanguage Load (0.8ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1[0m
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 'Ruby' AND "questions"."end_language" = 'JavaScript'
+  [1m[36mAnswer Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1[0m  [["question_id", 1]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Exists (0.2ms)[0m  SELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1  [["question_id", 2]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_question.html.erb (35.0ms)
+  Rendered questions/index.html.erb within layouts/application (38.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 61ms (Views: 42.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+
+
+Started GET "/get_answer/?question_id=1" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.3ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 1]]
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/get_answer/?question_id=2" for 127.0.0.1 at 2014-05-26 20:00:15 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"2"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnswer Load (0.4ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 2]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLanguage Load (0.3ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1[0m
+  [1m[35mAnswer Load (0.6ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  [["question_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "votes"  WHERE "votes"."answer_id" = 1 AND (vote_value > 0)[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."answer_id" = 1 AND (vote_value < 0)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_answer.html.erb (9.7ms)
+  Rendered questions/show.html.erb within layouts/application (13.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+
+
+Started GET "/get_answers/?question_id=1" for 127.0.0.1 at 2014-05-26 20:00:24 -0400
+Processing by QuestionsController#get_answers as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/answers/1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+Processing by AnswersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered answers/show.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:27 -0400
+
+
+Started POST "/vote" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+Processing by VotesController#record as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ta0jQFNl1EW7VH8n+ejcQEywWQ19lWjirXWOcf1tIA=", "answer_id"=>"1", "user_id"=>"1", "vote_value"=>"-1", "commit"=>"Down Vote"}
+  [1m[36mAnswer Load (0.5ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mVote Load (0.3ms)[0m  SELECT  "votes".* FROM "votes"  WHERE "votes"."answer_id" = 1 AND "votes"."user_id" = 1  ORDER BY "votes"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.5ms)[0m  INSERT INTO "votes" ("answer_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["answer_id", 1], ["created_at", "2014-05-27 00:00:34.377363"], ["updated_at", "2014-05-27 00:00:34.377363"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "votes" SET "updated_at" = $1, "vote_value" = $2 WHERE "votes"."id" = 1[0m  [["updated_at", "2014-05-27 00:00:34.387272"], ["vote_value", -1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/questions/1
+Completed 302 Found in 27ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1[0m
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."answer_id" = 1 AND (vote_value > 0)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes"  WHERE "votes"."answer_id" = 1 AND (vote_value < 0)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_answer.html.erb (3.5ms)
+  Rendered questions/show.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+
+
+Started GET "/get_answers/?question_id=1" for 127.0.0.1 at 2014-05-26 20:00:34 -0400
+Processing by QuestionsController#get_answers as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (1.6ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  [["question_id", 1]]
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (4.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:00:36 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (1.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 75ms (Views: 71.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:26 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (1.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:28 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:43 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:44 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:44 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:44 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:44 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:02:44 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:03:21 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 59ms (Views: 56.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:07:57 -0400
+
+
+Started GET "/answers/new?question=1" for 127.0.0.1 at 2014-05-26 20:08:44 -0400
+Processing by AnswersController#new as HTML
+  Parameters: {"question"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (1.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:44 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:08:45 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+Processing by LanguagesController#index as HTML
+  [1m[35mLanguage Load (0.2ms)[0m  SELECT "languages".* FROM "languages"
+  Rendered languages/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:13 -0400
+
+
+Started GET "/categories?end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-26 20:11:17 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered shared/_category.html.erb (1.2ms)
+  Rendered categories/index.html.erb within layouts/application (2.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:18 -0400
+
+
+Started GET "/questions?category=1&end_language=JavaScript&start_language=Ruby" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+Processing by QuestionsController#index as HTML
+  Parameters: {"category"=>"1", "end_language"=>"JavaScript", "start_language"=>"Ruby"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mLanguage Load (0.5ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'Ruby' LIMIT 1
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."name" = 'JavaScript' LIMIT 1[0m
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."category_id" = 1 AND "questions"."start_language" = 'Ruby' AND "questions"."end_language" = 'JavaScript'
+  [1m[36mAnswer Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1[0m  [["question_id", 1]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Exists (0.3ms)[0m  SELECT  1 AS one FROM "answers"  WHERE "answers"."question_id" = $1 LIMIT 1  [["question_id", 2]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1[0m  [["question_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_question.html.erb (6.5ms)
+  Rendered questions/index.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+
+
+Started GET "/get_answer/?question_id=1" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 1]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/get_answer/?question_id=2" for 127.0.0.1 at 2014-05-26 20:11:19 -0400
+Processing by QuestionsController#get_answer as */*
+  Parameters: {"question_id"=>"2"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnswer Load (0.4ms)[0m  SELECT  "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  ORDER BY "answers"."id" ASC LIMIT 1  [["question_id", 2]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms)
