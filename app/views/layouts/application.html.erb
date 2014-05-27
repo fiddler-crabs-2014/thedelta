@@ -82,9 +82,12 @@
   <%= yield %>
 
 </div>
-<footer id="footer">
-  Designed and Developed by Adrian Pask, Johnathan Weisner, Phil London, and Shaun McGeever <br>
-</footer>
+
+<% if @splash %>
+  <footer id="footer">
+    <span style="font-size: 1.5em; font-weight: 400">Designed and Developed by</span> <br> Adrian Pask<br> Johnathan Weisner<br> Phil London<br> and Shaun McGeever <br>
+  </footer>
+<% end %>
 <script>
   $('.reload').on('click', function(e) {
     e.preventDefault();
