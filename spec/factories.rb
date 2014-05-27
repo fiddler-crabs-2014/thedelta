@@ -19,7 +19,7 @@ FactoryGirl.define do
   end
 
   factory :question do 
-    category_id {rand(1..6)}
+    category_id 1
     sequence(:query) { |n| "This is question #{n}" }
     start_language "Ruby"
     end_language "JavaScript"
@@ -40,7 +40,7 @@ FactoryGirl.define do
 
 
   factory :category do 
-    name "Enumerable"
+    name "Enumerables"
   end  
 
   factory :language do 
