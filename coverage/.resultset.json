@@ -54,17 +54,37 @@
         1,
         null,
         1,
+<<<<<<< HEAD
+        54,
+=======
         102,
+>>>>>>> 8a0970323a3d38f98d8954f388dca0bfe67b5513
         null,
+        null,
+        1,
+        74,
+        38,
         null,
         null,
         null,
         null,
         null,
         1,
+        10,
         null,
+<<<<<<< HEAD
+<<<<<<< HEAD
+        10,
+        null,
+        10,
+        0,
+=======
+        66,
+=======
         113,
+>>>>>>> 8a0970323a3d38f98d8954f388dca0bfe67b5513
         31,
+>>>>>>> cfe66b0b0c17f0295bf270d8620e4ab3f9cf9e02
         null,
         null,
         null,
@@ -93,6 +113,28 @@
         2,
         null,
         9,
+        null,
+        null,
+        null,
+        1,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
         null,
         null,
         null
@@ -220,15 +262,15 @@
         null,
         null,
         1,
-        1,
+        3,
         null,
-        1,
-        1,
-        1,
+        3,
+        3,
         2,
+        4,
         null,
         null,
-        0,
+        2,
         null,
         null,
         null,
@@ -259,7 +301,34 @@
         1,
         null,
         1,
-        5,
+        7,
+        null,
+        null,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/votes_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
         null,
         null,
         null
@@ -346,6 +415,14 @@
         null
       ]
     },
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "timestamp": 1401219818
+=======
+    "timestamp": 1401215723
+>>>>>>> cfe66b0b0c17f0295bf270d8620e4ab3f9cf9e02
+=======
     "timestamp": 1401222731
+>>>>>>> 8a0970323a3d38f98d8954f388dca0bfe67b5513
   }
 }
