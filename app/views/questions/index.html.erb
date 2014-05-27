@@ -1,4 +1,4 @@
-<h2 class="jimbo_header"><%= @category.name %>: </h2>
+<h1 class="jimbo_header">Questions for <%= @category.name %> </h1>
 
 <h3 class="jimbo_header" id="language_delta"><%= @start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @end_language %></h3>
 
@@ -8,6 +8,7 @@
 
 <script>
   $(document).ready(function(){
+ 
     var questions = $('.question_index');
     var question_id_array = [];
     var players = {};
@@ -19,7 +20,9 @@
     };
 
     question_id_array.forEach(function(questionId) {
+ 
       $.get('get_answer/', {question_id: questionId}, function(response) {
+ 
             players[questionId] = new Player({
                 play_sel: "#Play_Question_"+questionId,
                 view_sel: "#Preview_Question_"+questionId

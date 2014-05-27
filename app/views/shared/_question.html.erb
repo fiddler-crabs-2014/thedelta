@@ -1,11 +1,14 @@
-<h4 class="question_index"> <%= link_to question.query, question_path(question)%> </h4>
+<div class="answer-block">
+  <h4 class="question_index"> <%= link_to question.query, question_path(question)%> </h4>
 
-<% if !question.answers.empty? %>
-  <pre class="show_answer" id="Preview_Question_<%=question.id %>">
+  <% if !question.answers.empty? %>
+    <span style="font-family: Raleway, sans-serif">Top answer submitted by <%= question.answers.first.user.username %></span>
+    
+    <pre class="show_answer" id="Preview_Question_<%=question.id %>">
 
-  </pre>
-  <p>Submitted by <%= question.answers.first.user.username %></p>
-  <button id="Play_Question_<%= question.id %>" class="btn btn-primary btn-sm">Play</button>
-<% else %>
-  <p><%= link_to 'Submit an answer', question_path(question)%></p>
-<% end %>
+    </pre>
+    <button id="Play_Question_<%= question.id %>" class="btn btn-primary btn-sm">Play</button>
+  <% else %>
+    <p><%= link_to 'Submit an answer', question_path(question), :class => 'question_link' %></p>
+  <% end %>
+</div>

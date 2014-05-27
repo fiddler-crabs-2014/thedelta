@@ -1,13 +1,13 @@
-<h4 class="answers_index"> </h4>
+<div class="answers_list_item">
 
-<h3 class="answers_index">Answer: <span id='vote-result-<%= answer.id %>'><%= answer.id %>  <%= answer.upvote_count %> Up / <%= answer.downvote_count %> Down</span> </h3>
+  <h3 class="answers_index"><span class="answer-num">Answer: <%= answer_counter + 1 %></span></span>
+    <span class="vote_count"><%= answer.upvote_count %> Up / <%= answer.downvote_count %> Down</span> </h3>
 
-<pre class="show_answer" id="preview_answer_<%= answer.id %>" value="<%=answer.id%>" >
-</pre>
+  <pre class="show_answer" id="preview_answer_<%= answer.id %>" value="<%=answer.id%>" >
+  </pre>
 
-<button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button> <%= link_to 'See Answer', answer_path(answer) %>
+  <button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button> <%= link_to 'See Answer', answer_path(answer) %>
 
-<div id="loading-bar<%= answer.id %>" class="loading-bar-wait">
+  <div id="loading-bar<%= answer.id %>" class="loading-bar-wait">
+  </div>
 </div>
-
-

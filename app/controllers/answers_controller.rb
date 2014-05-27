@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
       @question = Question.find(params[:question])
       @answer = Answer.new     
     else
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 

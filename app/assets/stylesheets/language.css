@@ -1,118 +1,105 @@
 /*font-family: 'Open Sans', sans-serif; 400, 300*/
+
 /*font-family: 'Raleway', sans-serif; 800*/
 
 /* .navbar */
-body.custom.splash {
-  height: auto;
-  background-color: grey;
-  background-image: url('sublime_blur.png');
-  background-size: cover;
+ body.custom.splash {
+    height: auto;
+    background-color: grey;
+    background-image: url('sublime_blur.png');
+    background-size: cover;
 }
-
 body.custom {
-  background-image: url('dark_geometric.png');
+    background-image: url('dark_geometric.png');
 }
-
 .navbar.nav {
-  margin-bottom: 0;
-  font-family: 'Open Sans', sans-serif;
-  border-radius: 0;
+    margin-bottom: 0;
+    font-family:'Open Sans', sans-serif;
+    border-radius: 0;
 }
-
 /* language container */
-
-.container.wrapper {
-  position: relative;
-  /*background-color: #87D69B;*/
-  width: 90%;
-  margin-left: 5%;
-  padding: 0;
-  padding-bottom: 250px;
+ .container.wrapper {
+    position: relative;
+    /*background-color: #87D69B;*/
+    width: 90%;
+    margin-left: 5%;
+    padding: 0;
+    padding-bottom: 250px;
 }
-
 .styled-select {
   background-image: url('dark_geometric.png');
   padding: 100px;
+  box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
+  -webkit-box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
+  -moz-box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
 }
-
 .pick_languages {
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 120px;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
 }
-
 .pick_languages h1 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 6.2em;
-  font-weight: 300;
-  margin: 0;
-  display: inline-block;
-  color: white;
-  text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    font-family:'Open Sans', sans-serif;
+    font-size: 6.2em;
+    font-weight: 300;
+    margin: 0;
+    display: inline-block;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
-
 /* list of languages */
-
-#start_language {
-  margin-left: 270px;
-  margin-top: -56px;
+ #start_language {
+    margin-left: 270px;
+    margin-top: -56px;
 }
-
 #end_language {
-  margin-left: 390px;
-  margin-top: -56px;
+    margin-left: 390px;
+    margin-top: -56px;
 }
-
 .styled-select select {
-  padding:6px;
-  position: absolute;
-  margin-top: -45px;
-  font-size: 0.3em;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  border-radius:4px;
-  -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-  -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-  box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-  background: #f8f8f8;
-  color:#888;
-  border:none;
-  outline:none;
-  display: inline-block;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
-  cursor:pointer;
+    padding:6px;
+    position: absolute;
+    margin-top: -45px;
+    font-size: 0.3em;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
 }
-
 /* go button */
-
-.go_link {
-  color: white;
-  margin-left: 0px;
-  margin-top: 10px;
-  background-color: #4E9689;
-  padding: 10px;
-  width: 100px;
+ .go_link {
+    color: white;
+    margin-left: 0px;
+    margin-top: 10px;
+    background-color: #4E9689;
+    padding: 10px;
+    width: 100px;
 }
-
 .go_link a {
-  font-size: 1.2em;
-  color: white;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+    font-size: 1.2em;
+    color: white;
+    font-family:'Open Sans', sans-serif;
+    font-weight: 400;
 }
-
 .go_link span:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
-
 .go_link a:hover {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
-
 /* media query */
 
 @media all and (max-width: 760px) {
@@ -126,5 +113,11 @@ body.custom {
   #end_language {
     margin-left: 194px;
     margin-top: -32px;
+  }
+}
+
+@media all and (max-width: 490px) {
+  .styled-select {
+    padding-left: 20px;
   }
 }
