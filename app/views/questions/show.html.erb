@@ -13,6 +13,24 @@
     var questionId = $("h1").attr("id");
     var players = {};
 
+    $('.do_vote').click(function(e){
+      e.preventDefault();
+      var data = $(this).parent().serialize();
+      console.log("vote clicked: " + data);
+      $.post('/vote.json', data)
+      .success(function(response){
+        console.log("AJAX success" + response.text);
+        $(response.id).html(response.text);
+      });
+
+    });
+
+    // $('.downvote').click(function(e){
+    //   e.preventDefault();
+    //   var data = this.serialize();
+    //   console.log("downvote clicked" + data);
+    // });
+
     $.get('/get_answers/', { question_id: questionId }, function(response) {
       response.forEach(function(answer){
           players[answer.id] = new Player({
