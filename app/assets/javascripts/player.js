@@ -1,7 +1,6 @@
 function Player(args) {
     this.play_sel = args.play_sel;
     this.view_sel = args.view_sel;
-    this.load_sel = args.load_sel;
     this.states = [0];
 };
 
@@ -39,12 +38,12 @@ Player.prototype.play = function(states) {
 
         var new_states = [];
         var this_frame;
-        var frame_time;
+        var this_frame_time;
         var position;
 
         for (var i = 0; i < this.states.length; i++) {
             this_frame = this.states[i][0];
-            frame_time = this.states[i][1];
+            this_frame_time = this.states[i][1];
        
             if (i < this.states.length-1) {
                 var next_frame = this.states[i + 1][0];
@@ -72,7 +71,7 @@ Player.prototype.play = function(states) {
                 this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
             };
            
-            new_states.push([this_frame, frame_time]);
+            new_states.push([this_frame, this_frame_time]);
         };
         
         new_states.forEach(function(state){
