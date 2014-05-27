@@ -58,8 +58,15 @@ Player.prototype.play = function(states) {
 
                 };
             
+                console.log(this_frame.substr(position, 2));
+
                 if (this_frame.length === position){
                     this_frame = this_frame + " ";
+                };
+
+                if (this_frame.substr(position, 2) === "\n"){
+                    console.log("hello");
+                    this_frame = this_frame.splice(position,0," ");
                 };
         
                 this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
