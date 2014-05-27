@@ -4,7 +4,16 @@
 /* .navbar */
 body.custom {
   height: auto;
-  background-color: #87D69B;
+  background-color: #7ED0D6; 
+}
+
+.splash {
+  background-image: url('backgroundDelta.jpg');
+  background-repeat:no-repeat; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .navbar.nav {
@@ -16,7 +25,6 @@ body.custom {
 
 .container.wrapper {
   position: relative;
-  background-color: #87D69B;
   width: 90%;
   margin-left: 5%;
   padding: 0;
@@ -33,10 +41,11 @@ body.custom {
 .pick_languages h1 {
   font-family: 'Open Sans', sans-serif;
   font-size: 6.2em;
-  font-weight: 300;
+  font-weight: 400;
   margin: 0;
   display: inline-block;
   color: white;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
 }
 
 /* list of languages */
