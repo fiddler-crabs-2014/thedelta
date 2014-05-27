@@ -45,7 +45,7 @@ describe QuestionsController do
 
 	describe "#get_answer" do
 		it "should retrieve the first answer for that question, with a valid question id" do
-			get :get_answer, { question_id: question.id }
+			get :get_answer, { question_id: answer.question.id }
 			expect(response).to be_success
 		end
 	end
