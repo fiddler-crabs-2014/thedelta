@@ -49,19 +49,30 @@ Player.prototype.play = function(states) {
             if (i < this.states.length-1) {
                 var next_frame = this.states[i + 1][0];
      
-                for (var x = 0; x < this_frame.length; x++) {
-       
-                    if (!(this_frame[x] === next_frame[x])) {
+                for (var x = 0; x <= this_frame.length; x++) {
 
+                    if (!(this_frame[x] === next_frame[x])) {
                         position = x;
                         break;
                     };
+
                 };
-          
-                this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position,1)+'</span>'+this_frame.substr(position + 1);
+            
+                console.log(this_frame.substr(position, 2));
+
+                if (this_frame.length === position){
+                    this_frame = this_frame + " ";
+                };
+
+                if (this_frame.substr(position, 1) === "\n"){
+                    console.log("hello");
+                    this_frame = this_frame.substr(0, position) + " " + this_frame.substr(position);
+                };
+        
+                this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
             };
            
-            new_states.push([this_frame,frame_time]);
+            new_states.push([this_frame, frame_time]);
         };
         
         new_states.forEach(function(state){
