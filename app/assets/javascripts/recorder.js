@@ -67,7 +67,6 @@ $( document ).ready(function() {
     var player  = new Player({
         play_sel: "#Play",
         view_sel: "#view",
-        load_sel: ""
     });
 
     var recorder = new Recorder({
