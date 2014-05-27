@@ -1,6 +1,11 @@
 <h1 class="jimbo_header custom"><%= @question.query %></h1>
 
-<h3 class="jimbo_header custom" id="language_delta"><%= @question.start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @question.end_language %></h3>
+<a href="/questions/<%=@question.id%>" >
+  <h3 class="jimbo_header custom" id="language_delta">
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    <%= @question.start_language %> to <%= @question.end_language %>
+  </h3>
+</a>
 
 <div class="answers new">
   <div class="instructions">
@@ -30,4 +35,3 @@
   </div>
 
 </div>
-

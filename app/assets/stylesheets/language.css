@@ -20,7 +20,6 @@ body.custom {
 /* language container */
  .container.wrapper {
     position: relative;
-    /*background-color: #87D69B;*/
     width: 90%;
     margin-left: 5%;
     padding: 0;
@@ -100,6 +99,7 @@ body.custom {
     color: white;
     text-decoration: none;
 }
+
 /* media query */
 
 @media all and (max-width: 760px) {
