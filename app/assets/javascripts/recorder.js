@@ -154,6 +154,7 @@ Recorder.prototype.record = function() {
             this.state[this.state.length - 1] = [$(this.textarea_sel).val(), this.stop_time];
             $("#record-btn").removeClass("record-off");
             $("#record-btn").addClass("record-on");
+            this.player.update_state(this.state);
         } else {
             if(this.state.length > 1) {
               this.player.enable_btn();
