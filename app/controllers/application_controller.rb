@@ -5,20 +5,27 @@
 
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :signed_in?, :current_admin
 
   def signed_in?
     !current_user.nil?
   end
 
-  # def current_user=(user)
-  #   @current_user = user
-  # end
-
   def current_user
-    # @current_user ||= User.find_by(session[:user_id])
     if session[:user_id].present?
       User.find(session[:user_id])
+    else
+      return nil
+    end
+  end
+
+  def current_admin
+    curr_user = current_user
+    
+    return nil if curr_user.nil?
+
+    if curr_user.admin == true
+      return current_user
     else
       return nil
     end
@@ -47,6 +54,25 @@
       return false
     else
       return true
+    end
+  end
+
+  def confirm_admin
+
+    curr_user = current_user
+
+    if curr_user.nil?
+      flash[:notice] = 'You must logged in to to view this page'
+      redirect_to login_path
+      return false
+    end
+
+    if curr_user.admin == true
+      return true
+    else
+      flash[:notice] = 'You must be an admin to view this page'
+      redirect_to profile_path
+      return false
     end
   end
 end
