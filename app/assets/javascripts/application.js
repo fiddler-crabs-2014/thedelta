@@ -24,4 +24,6 @@
 //= require languages/index_view
 //= require answers/new_view
 //= require answers/show_view
+//= require sessions/login_view
+//= require users/new_view
 // require_tree .

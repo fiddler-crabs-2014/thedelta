@@ -1,9 +1,9 @@
   $(document).ready(function(){
     if(this_page("AnswersController", "show")){
       $(document).ready(function(){
-        start = JSON.parse($('.show_delta').text())[0][0];
-        delta = JSON.parse($('.show_delta').text());
-        end   = JSON.parse($('.show_delta').text())[Object.keys(delta).length-1][0];
+        var start = JSON.parse($('.show_delta').text())[0][0];
+        var delta = JSON.parse($('.show_delta').text());
+        var end   = JSON.parse($('.show_delta').text())[Object.keys(delta).length-1][0];
 
         $('.do_vote').click(function(e){
           e.preventDefault();
