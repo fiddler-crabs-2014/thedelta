@@ -25,7 +25,8 @@ Recorder.prototype.disable_save = function() {
 };
 
 Recorder.prototype.toggle_record_light = function() {
-
+  console.log("hi");
+  console.log($("#record-light"));
   if($("#record-light").hasClass("record-off")) {
 
     $("#record-light").removeClass("record-off");

@@ -13,10 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.caret
+//= require this_page
 //= require editor
-//= require languages
 //= require player
 //= require recorder
-//= require recorder_view
 //= require toggle_preview
+//= require layout/layout_view
+//= require questions/index_view
+//= require questions/show_view
+//= require languages/index_view
+//= require answers/new_view
+//= require answers/show_view
 // require_tree .
