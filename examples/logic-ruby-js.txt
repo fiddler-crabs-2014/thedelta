@@ -1,0 +1,46 @@
+
+
+Ruby:
+
+class Person
+  attr_accessor :name, :age
+  
+  def initialize(name, age)
+    @name = name
+    @age  = age 
+  end
+
+  def say_hi
+    'Hello there!'
+  end
+end
+
+
+JavaScript
+
+function Person = function(name, age) {
+    this.name = name;
+    this.age = age;   
+}
+
+Person.prototype.say_hi = function() {
+  console.log('Hello there!');
+  }   
+
+Ruby:
+
+Javascript:
+
+GetWeekday = function(eval_date) {
+  switch (eval_date.getDay()) {
+    case 0:
+    case 6:
+        day = "It's the weekend. Let's party!";
+        break;
+    default:
+      day = "It's a weekday. Get back to work!"
+  } 
+
+  return day;
+  }
+

@@ -24,6 +24,7 @@
         1,
         null,
         1,
+        null,
         1,
         15,
         11,
@@ -56,6 +57,7 @@
         1,
         0,
         null,
+        null,
         null
       ],
       "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/application_controller.rb": [
@@ -65,6 +67,7 @@
         null,
         null,
         null,
+        1,
         1,
         1,
         null,
@@ -135,6 +138,15 @@
         0,
         0,
         null,
+        null,
+        null,
+        1,
+        1,
+        162,
+        null,
+        null,
+        1,
+        162,
         null,
         null
       ],
@@ -434,6 +446,6 @@
         null
       ]
     },
-    "timestamp": 1401295209
+    "timestamp": 1401306068
   }
 }
