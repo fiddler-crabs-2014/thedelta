@@ -34,12 +34,13 @@ describe "User can visit signup page" do
   context "and the user can sign up" do
     
     xit "valid user creditials can create an account" do
+      visit logout_path
       visit sign_up_path
       fill_in 'user_name', :with => user.name
       fill_in 'user_username', :with => user.username
       fill_in 'user_email', :with => user.email
       fill_in 'user_password', :with => 'password'
-      fill_in 'user_password_confirm', :with => 'password'
+      fill_in 'user_password_confirmation', :with => 'password'
       
       click_on 'Create User'  
 
