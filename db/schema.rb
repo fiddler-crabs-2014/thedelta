@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140527181746) do
     t.integer  "vote_count"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "delta",       default: "f"
+    t.text     "delta"
   end
 
   create_table "categories", force: true do |t|
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140527181746) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
   end
 
   create_table "votes", force: true do |t|
