@@ -236,3 +236,12 @@ body.custom {
     font-size: 17px;
   }
 }
+
+@media all and (max-width: 410px) {
+    #code_example {
+        width: 100%;
+    }
+    .code_example_view {
+        font-size: 15px;
+    }
+}
