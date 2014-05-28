@@ -21,7 +21,12 @@ class SessionsController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       flash[:notice] = 'You are logged in'
-      redirect_to profile_path
+
+      if params[:referer_url]
+        redirect_to params[:referer_url]
+      else
+        redirect_to profile_path
+      end
     else
       session.clear
       flash[:notice] = "Invalid email / password combination"

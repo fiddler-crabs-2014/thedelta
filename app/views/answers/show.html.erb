@@ -1,46 +1,63 @@
-<h1 class="jimbo_header"><%= @answer.question.query %> </h1>
-
-<h3 class="jimbo_header" id="language_delta"><%= @answer.question.start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @answer.question.end_language %></h3>
-
-<h3 class="jimbo_header">Answer submitted by <%= @answer.user.username %>  <span id='vote-result-<%= @answer.id %>'><%= @answer.upvote_count %> Up / <%= @answer.downvote_count %> Down</span></h3>
-
-  <div class="show_answer_container">
-    
-    <h4 class="answer_header"><%= @answer.question.start_language %> Solution</h4>
-    <pre class="show_original answer_box">
-      
-    </pre>
+<div id="answer_show_wrap">
   
+  <h1 class="jimbo_header show_answer" ><%= @answer.question.query %> </h1>
+  <a href="/questions?category=<%= @answer.question.category_id %>&end_language=<%=@answer.question.end_language%>&start_language=<%=@answer.question.start_language%>">
+    <h3 class="jimbo_header language_delta">
+      <span class="glyphicon glyphicon-arrow-left"></span>
+      <%= @answer.question.category.name %>
+      
+    </h3>
+  </a>
+  <a href="/questions/<%=@answer.question.id%>">
+    <h3 class="jimbo_header language_delta">
+      <span class="glyphicon glyphicon-arrow-left"></span>
+      Question
+      
+    </h3>
+  </a>
+
+  <h3 class="submission">Answer submitted by <%= @answer.user.username %> <br>  <span id='vote-result-<%= @answer.id %>'><%= @answer.upvote_count %> Up | <%= @answer.downvote_count %> Down</span></h3>
+
   <% if current_user %>
     <%= form_tag '/vote' do %>
       <%= hidden_field_tag 'answer_id', @answer.id %>
       <%= hidden_field_tag 'user_id', @answer.user.id %>
       <%= hidden_field_tag 'vote_value', '1' %>
-      <%= submit_tag "Up Vote", class: "btn btn-primary btn-sm do_vote"  %>
+      <%= submit_tag "Up Vote", class: "btn btn-success btn-sm do_vote"  %>
     <% end %>
     <%= form_tag '/vote' do %>
       <%= hidden_field_tag 'answer_id', @answer.id %>
       <%= hidden_field_tag 'user_id', @answer.user.id %>
       <%= hidden_field_tag 'vote_value', '-1' %>
-      <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm do_vote"  %>
+      <%= submit_tag "Down Vote", class: "btn btn-danger btn-sm do_vote"  %>
     <% end %> 
   <% end %>
 
-</div>
-  <div class="show_answer_container" id="delta">
-    <h4 class="answer_header">Delta</h4>
-    <pre class="show_delta answer_box" id="preview_answer" value="<%= @answer.id%>" >
-      <%= @answer.delta %>
-    </pre> 
-    <button id="play_answer" class="btn btn-primary btn-sm">Play</button>
-  </div>
-    
-  <div class="show_answer_container">
-    <h4 class="answer_header"><%= @answer.question.end_language %> Solution</h4>
-    <pre class="show_final answer_box">
+    <div id="start_to_end">
       
-    </pre>
-  </div>
+      <div class="show_answer_container">
+        
+        <h4 class="answer_header"><%= @answer.question.start_language %> Solution</h4>
+        <pre class="show_original answer_box">
+          
+        </pre>
+
+    </div>
+      <div class="show_answer_container" id="delta">
+        <h4 class="answer_header">Delta <button id="play_answer" class="btn btn-primary btn-sm play_answer_show">Play</button></h4>
+        <pre class="show_delta answer_box" id="preview_answer" value="<%= @answer.id%>" >
+          <%= @answer.delta %>
+        </pre> 
+      </div>
+        
+      <div class="show_answer_container">
+        <h4 class="answer_header"><%= @answer.question.end_language %> Solution</h4>
+        <pre class="show_final answer_box">
+          
+        </pre>
+      </div>
+    </div>
+</div>
 
 <script>
   $(document).ready(function(){
@@ -59,7 +76,7 @@
       });
 
     });
-    
+
     $('.show_original').html(start)
     $('.show_final').html(end)
 

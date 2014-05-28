@@ -107,16 +107,15 @@ end
 describe "User can visit login page" do
   let(:user) { FactoryGirl.create(:user) }
 
-  context "and valid creditals will login" do
+  context "and login redirects to home page" do
     it "valid email / password can login" do
       visit login_path
       
       fill_in 'email_username', :with => user.username
       fill_in 'password', :with => 'password'
       click_on 'Sign In'  
-      expect(current_path).to eq(profile_path)
+      expect(current_path).to eq(root_path)
     end
-
 
     xit "valid email / password shows profile welcome message" do
       visit login_path
