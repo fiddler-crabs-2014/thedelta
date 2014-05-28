@@ -31,8 +31,8 @@
       $.get('get_answer/', {question_id: questionId}, function(response) {
  
             players[questionId] = new Player({
-                play_sel: "#Play_Question_"+questionId,
-                view_sel: "#Preview_Question_"+questionId
+                play_selector: "#Play_Question_"+questionId,
+                view_selector: "#Preview_Question_"+questionId
             });
 
             players[questionId].play(response);

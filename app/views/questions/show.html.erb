@@ -22,8 +22,8 @@
     $.get('/get_answers/', { question_id: questionId }, function(response) {
       response.forEach(function(answer){
           players[answer.id] = new Player({
-              play_sel: "#play_answer_" + answer.id,
-              view_sel: "#preview_answer_" + answer.id
+              play_selector: "#play_answer_" + answer.id,
+              view_selector: "#preview_answer_" + answer.id
           });
           players[answer.id].play(JSON.parse(answer.delta));
       });  
