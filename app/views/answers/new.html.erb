@@ -25,10 +25,10 @@
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :question_id, :value => @question.id %>
       <%= f.text_area(:delta, size: '50x7', name:'box', placeholder: "Type code example here. Then hit record to start recording your demo.") %>
-      <%= f.submit "Save" , :class => "btn btn-warning btn-lg", :id => "Save" %>
+      <%= f.submit "Save" , :class => "btn btn-warning btn-lg", :id => "save" %>
     <% end %>
-    <button id="Record" class="btn btn-danger btn-lg"><div id="record-btn" class="record-off"></div>Record</button>
-    <button id="Play" class="btn btn-primary btn-lg">Play</button>
+    <button id="record" class="btn btn-danger btn-lg"><div id="record-btn" class="record-off"></div>Record</button>
+    <button id="play" class="btn btn-primary btn-lg">Play</button>
     <button id="reset" class="btn btn-warning btn-lg">reset</button>
 
     <pre id="view"></pre>

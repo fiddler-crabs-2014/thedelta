@@ -1,16 +1,16 @@
 $( document ).ready(function() {
 
   var player  = new Player({
-      play_sel: "#Play",
+      play_sel: "#play",
       view_sel: "#view",
   });
 
   var recorder = new Recorder({
       textarea_sel: "#recorder textarea",
-      record_sel: "#Record",
+      record_sel: "#record",
       view_sel: "#view",
       reset_sel: "#reset",
-      save_sel: "#Save",
+      save_sel: "#save",
       player: player
   });
 
@@ -29,7 +29,6 @@ $( document ).ready(function() {
 });
 
 function Recorder(args) {
-  console.log("Function starts: Recorder");
     this.textarea_sel = args.textarea_sel;
     this.record_sel = args.record_sel;
     this.reset_sel = args.reset_sel;
@@ -82,7 +81,7 @@ Recorder.prototype.record = function() {
         };
 
         this.start_time = Date.now();
-        $("#answer_delta").caret(1);
+        $("#answer_delta").caret(0);
         
     }.bind(this));
     
