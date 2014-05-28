@@ -2,7 +2,7 @@
   <h4 class="question_index"> <%= link_to question.query, question_path(question)%> </h4>
 
   <% if !question.answers.empty? %>
-    <span style="font-family: Raleway, sans-serif"><%= link_to 'Top answer', answer_path(question.answers.first) %> submitted by <%= question.answers.first.user.username %> <%= link_to '(see more answers)', question_path(question) %></span>
+    <span style="font-family: Raleway, sans-serif"><%= link_to 'Top answer', answer_path(question.top_answer) %> submitted by <%= question.top_answer.user.username %> <%= link_to '(see more answers)', question_path(question) %></span>
     
     <pre class="show_answer" id="Preview_Question_<%=question.id %>">
 
