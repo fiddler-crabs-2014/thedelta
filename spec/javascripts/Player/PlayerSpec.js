@@ -22,12 +22,12 @@ describe("Player", function() {
 
   });
 
-  describe('#enable_btn', function(){
+  describe('#enable', function(){
 
     it("should enable the play button", function(){
 
       player.disable();
-      player.enable_btn();
+      player.enable();
       expect($(player.play_sel).attr("disabled")).not.toBeDefined();
     
     });

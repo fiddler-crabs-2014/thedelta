@@ -8,7 +8,7 @@ Player.prototype.disable = function() {
     $(this.play_sel).attr('disabled', 'disabled');
 };
 
-Player.prototype.enable_btn = function() {
+Player.prototype.enable = function() {
     $(this.play_sel).removeAttr('disabled');
 };
 
@@ -83,7 +83,7 @@ Player.prototype.play = function(states) {
         this.disable();
 
         setTimeout(function() {
-            this.enable_btn();
+            this.enable();
         }.bind(this), animation_length_ms);
 
     }.bind(this));
