@@ -1,6 +1,9 @@
 class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :answer
+
+  # after_create :update_answer
+  before_save :update_answer
   
 
   def self.record_vote(user_id, answer_id, vote_value)
@@ -14,5 +17,15 @@ class Vote < ActiveRecord::Base
     return  record_vote
   end
 
+  private
+
+    def update_answer
+
+      # self.answer.upvote_count = Vote.where(answer_id: self.id).where("vote_value > 0").count
+      # self.answer.downvote_count = Vote.where(answer_id: self.id).where("vote_value < 0").count
+      # self.answer.save
+      self.answer.update_votes
+      # return true
+    end
   
 end
