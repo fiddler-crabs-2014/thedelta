@@ -78,8 +78,9 @@
       <% end %>
     </div>
   
-
-  <%= yield %>
+  <div id="page-identifier" data-controller="<%= @controller %>" data-action="<%= @action %>">
+   <%= yield %>
+  </div>
 
 </div>
 

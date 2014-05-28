@@ -4638,3 +4638,345 @@ Started GET "/assets/sublime_blur.png" for 127.0.0.1 at 2014-05-28 10:51:10 -040
 
 
 Started GET "/assets/dark_geometric.png" for 127.0.0.1 at 2014-05-28 10:51:10 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+Processing by LanguagesController#index as HTML
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  Rendered languages/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+Completed 200 OK in 41ms (Views: 40.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/toggle_preview.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/editor.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/recorder_view.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/sublime_blur.png" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/assets/dark_geometric.png" for 127.0.0.1 at 2014-05-28 10:56:12 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+Processing by LanguagesController#index as HTML
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  Rendered languages/index.html.erb within layouts/application (5.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+Completed 200 OK in 29ms (Views: 21.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/editor.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/recorder_view.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/toggle_preview.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/sublime_blur.png" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/assets/dark_geometric.png" for 127.0.0.1 at 2014-05-28 11:19:12 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:22:00 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:22:04 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:22:15 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:22:24 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+Processing by LanguagesController#index as HTML
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  Rendered languages/index.html.erb within layouts/application (4.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+Completed 200 OK in 22ms (Views: 17.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/editor.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/recorder_view.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/toggle_preview.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/sublime_blur.png" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/assets/dark_geometric.png" for 127.0.0.1 at 2014-05-28 11:22:30 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:23:06 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:24:27 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:25:02 -0400
+Processing by LanguagesController#index as HTML
+Completed 500 Internal Server Error in 0ms
+
+NoMethodError (undefined method `action_name' for LanguagesController:Class):
+  app/controllers/application_controller.rb:87:in `action'
+
+
+  Rendered /Users/johnathan/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/johnathan/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/johnathan/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/johnathan/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:25:21 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:25:34 -0400
+Processing by LanguagesController#index as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+Processing by LanguagesController#index as HTML
+  [1m[36mLanguage Load (0.2ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  Rendered languages/index.html.erb within layouts/application (4.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+Completed 200 OK in 25ms (Views: 20.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/editor.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/languages.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/recorder_view.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/toggle_preview.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/sublime_blur.png" for 127.0.0.1 at 2014-05-28 11:25:46 -0400
+
+
+Started GET "/assets/dark_geometric.png" for 127.0.0.1 at 2014-05-28 11:25:46 -0400

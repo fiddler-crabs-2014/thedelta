@@ -1,6 +1,7 @@
 require 'json'
 
 class AnswersController < ApplicationController
+
   def new
     if current_user && params[:question]
       @question = Question.find(params[:question])
@@ -33,4 +34,5 @@ class AnswersController < ApplicationController
     def answer_params
       params.require(:answer).permit(:delta, :question_id, :user_id)
     end
+
 end
