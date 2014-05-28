@@ -31,7 +31,7 @@ $(document).ready(function(){
   $('.go_link').on('click', function(){
     if (start_language_selected === 'SELECT LANGUAGE' || end_language_selected === 'SELECT LANGUAGE') {
       // eventually fix this to be more responsive
-      alert('Please select two programming languages');
+      $('#error_messages').html("<span>PLEASE SELECT TWO LANGUAGES</span>")
       return false;
     }
     else {
