@@ -182,22 +182,29 @@ body.custom {
     .styled-select {
         width: 100%;
         margin: 55px auto;
+        padding-left: 160px;
         float: none;
     }
     .pick_languages h1 {
-        font-size: 4em;
+        font-size: 6em;
     }
     #start_language {
-        margin-left: 180px;
-        margin-top: -41px;
+        margin-left: 257px;
+        margin-top: -56px;
     }
     #end_language {
-        margin-left: 258px;
-        margin-top: -40px;
+        margin-left: 378px;
+        margin-top: -56px;
     }
 }
 
-@media all and (max-width: 510px) {
+@media all and (max-width: 860px) {
+    .styled-select {
+        padding-left: 110px;
+    }
+}
+
+@media all and (max-width: 720px) {    
   .styled-select {
     padding-left: 20px;
   }
@@ -212,6 +219,9 @@ body.custom {
     margin-left: 193px;
     margin-top: -34px;
   }
+}
+
+@media all and (max-width: 510px) {
   #code_example {
     width: 400px;
   }
