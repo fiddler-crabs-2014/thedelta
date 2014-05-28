@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/user.rb": [
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/user.rb": [
         1,
         1,
         1,
@@ -16,11 +16,11 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/helpers/application_helper.rb": [
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/answers_controller.rb": [
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/answers_controller.rb": [
         1,
         null,
         1,
@@ -60,7 +60,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/application_controller.rb": [
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -112,6 +112,138 @@
         null,
         null,
         1,
+<<<<<<< HEAD
+=======
+        1,
+        162,
+        null,
+        null,
+        1,
+        162,
+        null,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/categories_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        7,
+        4,
+        4,
+        4,
+        null,
+        3,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/languages_controller.rb": [
+        1,
+        null,
+        1,
+        10,
+        10,
+        null,
+        null,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/questions_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        11,
+        8,
+        8,
+        8,
+        8,
+        8,
+        null,
+        3,
+        null,
+        null,
+        null,
+        null,
+        1,
+        15,
+        15,
+        15,
+        15,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/sessions_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        6,
+        null,
+        6,
+        4,
+        null,
+        2,
+        null,
+        6,
+        6,
+        null,
+        null,
+        null,
+        6,
+        4,
+        4,
+        null,
+        4,
+        1,
+        null,
+        3,
+        null,
+        null,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/users_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        3,
+>>>>>>> master
         0,
         0,
         0,
@@ -140,6 +272,12 @@
         null,
         null,
         null,
+<<<<<<< HEAD
+=======
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/controllers/votes_controller.rb": [
+>>>>>>> master
         1,
         1,
         11,
@@ -152,7 +290,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/answer.rb": [
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/answer.rb": [
         1,
         1,
         1,
@@ -173,7 +311,26 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/ShaunMcGeever/Desktop/thedelta/app/models/question.rb": [
+=======
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/category.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/comment.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/language.rb": [
+        1,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/question.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -187,12 +344,41 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/ShaunMcGeever/Desktop/thedelta/app/models/category.rb": [
+=======
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/session.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/vote.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        55,
+        null,
+        55,
+        47,
+        null,
+        55,
+        55,
+        55,
+        null,
+        null,
+>>>>>>> master
         1,
         1,
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1401311032
+=======
+    "timestamp": 1401307645
+>>>>>>> master
   }
 }
