@@ -357,20 +357,12 @@
         1,
         null,
         1,
-        55,
+        48,
         null,
         null,
         1,
-        52,
+        37,
         null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        102,
-        102,
-        102,
         null,
         null
       ],
@@ -393,6 +385,14 @@
         1,
         1,
         1,
+        null,
+        1,
+        27,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/session.rb": [
@@ -403,9 +403,6 @@
       "/Users/adrianpask/Documents/DevBootCamp/thedelta/app/models/vote.rb": [
         1,
         1,
-        1,
-        null,
-        null,
         1,
         null,
         null,
@@ -427,13 +424,13 @@
         null,
         null,
         null,
-        102,
+        0,
         null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1401287285
+    "timestamp": 1401290695
   }
 }

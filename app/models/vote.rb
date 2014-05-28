@@ -1,9 +1,6 @@
 class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :answer
-
-  # after_create :update_answer
-  before_save :update_answer
   
 
   def self.record_vote(user_id, answer_id, vote_value)
