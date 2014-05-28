@@ -1,7 +1,7 @@
 <div id='login' style="width:480px;margin:30px auto;">
 <%= form_for(user) do |f| %>
   <%= render 'shared/error_messages', object: f.object, html: {:class => "form"} %>
-
+  <%= hidden_field_tag :referer_url %>
   <div class="signup_field">
     <%= f.text_field :name, class: 'form-control input-lg signup', placeholder: 'Name' %>
   </div>
