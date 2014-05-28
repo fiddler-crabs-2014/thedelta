@@ -78,8 +78,9 @@
       <% end %>
     </div>
   
-
-  <%= yield %>
+  <div id="page-identifier" data-controller="<%= @controller %>" data-action="<%= @action %>">
+   <%= yield %>
+  </div>
 
 </div>
 
@@ -88,11 +89,6 @@
     <span style="font-size: 1.5em; font-weight: 400">Designed and Developed by</span> <br> Adrian Pask<br> Johnathan Weisner<br> Phil London<br> and Shaun McGeever <br>
   </footer>
 <% end %>
-<script>
-  $('.reload').on('click', function(e) {
-    e.preventDefault();
-    window.location.assign('/')
-  });
-</script>
+
 </body>
 </html>
