@@ -17,7 +17,16 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to :profile, notice: 'User was successfully created.' }
+        flash[:notice] = 'You successfullly created an account'
+
+        format.html do
+          if params[:referer_url]
+            redirect_to params[:referer_url]
+          else
+            redirect_to profile_path
+          end
+        end
+        # format.html { redirect_to :profile, notice: 'User was successfully created.' }
         # format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
