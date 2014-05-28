@@ -132,6 +132,13 @@ body.custom {
     border-radius: 0px;
 }
 
+#error_messages {
+    color: red;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    margin-top: -20px;
+}
+
 /* media query */
 
 @media all and (max-width: 1260px) {
@@ -228,4 +235,13 @@ body.custom {
   .code_example_view {
     font-size: 17px;
   }
+}
+
+@media all and (max-width: 410px) {
+    #code_example {
+        width: 100%;
+    }
+    .code_example_view {
+        font-size: 15px;
+    }
 }
