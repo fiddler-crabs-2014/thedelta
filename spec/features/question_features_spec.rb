@@ -54,22 +54,14 @@ describe "Question Features" do
 				expect(page).to have_css('pre')
 			end
 
-			xit "should display the top answer for that question in a box" do
-				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
-				expect(find(:css, 'pre').text()).to eq(JSON.parse(answer.delta))
-			end
-
 			it "should display the top answer's user" do
 				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
 				expect(page).to have_content answer.user.username
 			end
 
-			xit "should show the top answer for each question, if that question has an answer" do
+			it "should show the top answer for each question, if that question has an answer" do
 				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
-				
-				page.all('pre').count.should eq(questions.count)
-				# page.all(button("Play")).count.should eql(questions.count)
-				
+				page.all('pre').count.should eq(Answer.where(question: answer.question).count)
 			end
 
 
@@ -103,7 +95,7 @@ describe "Question Features" do
 			expect(page).to have_css('pre')
 		end
 
-		xit "should display the user who submitted the answer" do
+		it "should display the user who submitted the answer" do
 			visit question_path(answer.question)
 			expect(page).to have_content answer.user.username
 		end
@@ -113,11 +105,10 @@ describe "Question Features" do
 			find_link('See Answer')
 		end
 
-		xit "should redirect when 'see answer' is clicked" do
+		it "should redirect when 'see answer' is clicked" do
 			visit question_path(answer.question)
 			click_link('See Answer')
-			expect(page).to eq(answer_path(question.answers.first))
-			current_path.should == answer_path(question.answers.first)
+			current_path.should == answer_path(answer.id)
 		end
 
 		it "should display 'Add Answer' link" do
