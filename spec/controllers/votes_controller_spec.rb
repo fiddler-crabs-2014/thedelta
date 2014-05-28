@@ -18,7 +18,7 @@ describe VotesController do
         }.to change { Vote.count }.by(1)
     end
 
-    xit "should record one down vote" do
+    it "should record one down vote" do
       
       expect {
         session[:user_id] = user_1.id

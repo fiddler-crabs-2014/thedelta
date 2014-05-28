@@ -51,7 +51,6 @@ FactoryGirl.define do
     # end
   end
 
-<<<<<<< HEAD
   # factory :answer do 
   #   question_id 1
   #   user_id 1
@@ -60,11 +59,7 @@ FactoryGirl.define do
   # end 
 
   factory :answer do
-    association :question, factory: :question
-=======
-  factory :answer do
     association :question, factory: :question 
->>>>>>> master
     association :user, factory: :user
     delta "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}"
   end
