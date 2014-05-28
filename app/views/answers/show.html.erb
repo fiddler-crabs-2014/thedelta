@@ -1,8 +1,15 @@
 <div id="answer_show_wrap">
   
-  <h1 class="jimbo_header show_answer"><%= @answer.question.query %> </h1>
+  <h1 class="jimbo_header show_answer" ><%= @answer.question.query %> </h1>
+  <a href="/questions?category=<%= @answer.question.category_id %>&end_language=<%=@answer.question.end_language%>&start_language=<%=@answer.question.start_language%>">
+    <h3 class="jimbo_header language_delta">
+      <span class="glyphicon glyphicon-arrow-left"></span>
+      <%= @answer.question.category.name %>
+      
+    </h3>
+  </a>
   <a href="/questions/<%=@answer.question.id%>">
-    <h3 class="jimbo_header" id="language_delta">
+    <h3 class="jimbo_header language_delta">
       <span class="glyphicon glyphicon-arrow-left"></span>
       Question
       

@@ -8,18 +8,18 @@ class Answer < ActiveRecord::Base
   has_many :comments
   has_many :votes
 
-  # def upvote_count
-  #   return Vote.where(answer_id: self.id).where("vote_value > 0").count
-  # end
+  def upvote_count
+    return Vote.where(answer_id: self.id).where("vote_value > 0").count
+  end
 
-  # def downvote_count
-  #   return Vote.where(answer_id: self.id).where("vote_value < 0").count
-  # end
+  def downvote_count
+    return Vote.where(answer_id: self.id).where("vote_value < 0").count
+  end
 
   def update_votes
-    puts "triggered update Votes #{self.class.to_s} " + 
-      Vote.where(answer_id: self.id).where("vote_value > 0").count.to_s + " " + 
-      Vote.where(answer_id: self.id).where("vote_value < 0").count.to_s
+    # puts "triggered update Votes #{self.class.to_s} " + 
+    #   Vote.where(answer_id: self.id).where("vote_value > 0").count.to_s + " " + 
+    #   Vote.where(answer_id: self.id).where("vote_value < 0").count.to_s
     update_attribute(:upvote_count,  Vote.where(answer_id: self.id).where("vote_value > 0").count)
     self.downvote_count = Vote.where(answer_id: self.id).where("vote_value < 0").count
     self.save

@@ -44,7 +44,7 @@
   background-color: #4E9689;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  top: 90px;
+  top: 107px;
   left: 0;
   padding: 10px;
   font-size: 1em;
@@ -60,8 +60,8 @@
 
 /* show page */
 
-#language_delta {
-  margin-top: -35px;
+.language_delta {
+  margin-top: -20px;
   font-size: 1em;
 }
 
@@ -103,17 +103,12 @@
 
 @media all and (max-width: 745px) {
   .add_answer {
-    top: 135px;
+    top: 111px;
   }
 }
 
-@media all and (max-width: 720px) {
+@media all and (max-width: 670px) {
   .answers {
-    position: relative;
-    margin: -160px auto;
-    padding: 40px;
-    padding-top: 165px;
-    border-radius: 10px;
-    background-color: rgba(229,242,247,0.9);
+    margin: -140px auto;
   }
 }

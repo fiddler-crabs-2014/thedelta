@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-// require jquery.turbolinks
 //= require jquery_ujs
-// require turbolinks
 //= require jquery.caret
+//= require editor
 //= require languages
 //= require player
-//= require recorder
+//= require recorder_view
+//= require toggle_preview
 // require_tree .

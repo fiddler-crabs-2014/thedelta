@@ -13,21 +13,21 @@ describe("Player", function() {
 
   });
 
-  describe('#disable_btn', function(){
+  describe('#disable', function(){
 
     it("should disable the play button", function(){
-      player.disable_btn();
+      player.disable();
       expect($(player.play_sel)).toBeDisabled();
     });
 
   });
 
-  describe('#enable_btn', function(){
+  describe('#enable', function(){
 
     it("should enable the play button", function(){
 
-      player.disable_btn();
-      player.enable_btn();
+      player.disable();
+      player.enable();
       expect($(player.play_sel).attr("disabled")).not.toBeDefined();
     
     });
