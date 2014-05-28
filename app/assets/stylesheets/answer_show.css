@@ -7,6 +7,15 @@
   border-radius: 10px;
 }
 
+.answers.new {
+  margin: -95px auto;
+}
+
+.jimbo_header.custom.new {
+  font-size: 1em;
+  margin: -30px;
+}
+
 .jimbo_header.show_answer {
   margin-top: 15px;
 }
