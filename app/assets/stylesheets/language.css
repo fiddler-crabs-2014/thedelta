@@ -54,16 +54,19 @@ body.custom {
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 /* list of languages */
- #start_language {
+
+#start_language {
     margin-left: 260px;
     margin-top: -56px;
 }
+
 #end_language {
     margin-left: 380px;
     margin-top: -55px;
 }
+
 .styled-select select {
-    padding:6px;
+    padding: 6px;
     position: absolute;
     margin-top: -45px;
     font-size: 0.3em;
@@ -80,7 +83,7 @@ body.custom {
     display: inline-block;
     -webkit-appearance:none;
     -moz-appearance:none;
-    appearance:none;
+    /*appearance:none;*/
     cursor:pointer;
 }
 /* go button */
@@ -138,6 +141,8 @@ body.custom {
     font-size: 1.5em;
     margin-top: -20px;
 }
+
+/* mozilla */
 
 /* media query */
 
@@ -244,4 +249,33 @@ body.custom {
     .code_example_view {
         font-size: 15px;
     }
+}
+
+@-moz-document url-prefix() {
+  /* CSS rules here apply to:
+     + The page "http://www.w3.org/".
+     + Any page whose URL begins with "http://www.w3.org/Style/"
+     + Any page whose URL's host is "mozilla.org" or ends with
+       ".mozilla.org"
+     + Any page whose URL starts with "https:" */
+
+  /* make the above-mentioned pages really ugly */
+  #start_language {
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  #end_language {
+    margin-left: 15px;
+    margin-top: 29px;
+  }
+  @media all and (max-width: 720px) {
+    #start_language {
+        margin-left: 9px;
+        margin-top: 12px;
+    }
+    #end_language {
+        margin-left: 8px;
+        margin-top: 12px;
+    }
+  }
 }
