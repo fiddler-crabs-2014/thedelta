@@ -58,6 +58,7 @@ FactoryGirl.define do
   #   vote_count {rand(1..10)}
   # end 
 
+
   factory :answer do
     association :question, factory: :question 
     association :user, factory: :user
