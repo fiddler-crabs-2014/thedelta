@@ -58,18 +58,11 @@ describe "Question Features" do
 				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
 				expect(page).to have_content answer.user.username
 			end
-
+			
 			it "should show the top answer for each question, if that question has an answer" do
 				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
 				page.all('pre').count.should eq(Answer.where(question: answer.question).count)
 			end
-
-			xit "should display a link, and redirect the user back to the categories" do
-				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
-				click_link('categories')
-				expect(page).to eq(categories_path(start_language: start_language, end_language: end_language))
-			end
-
 		end
 	end
 
