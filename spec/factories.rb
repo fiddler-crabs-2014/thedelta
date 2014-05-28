@@ -19,7 +19,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :admin do
+  factory :admin, class: User do
     sequence(:name) { |n| "Duke Farnsworth The {n}"}
     sequence(:username) { |n| "user-#{n}" }
     sequence(:email) { |n| "user-#{n}@example.com" }
