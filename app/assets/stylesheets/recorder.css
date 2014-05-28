@@ -57,6 +57,16 @@ pre {
     -o-tab-size: 2;
 }
 
+#view {
+    background-color: rgba(229,242,247,0);
+    border: none;
+    margin-top: 20px;
+}
+
+#answer_delta {
+    margin-bottom: 15px;
+}
+
 @media all and (max-width: 600px) {
     #recorder {
         width: 100%;

@@ -17,4 +17,5 @@
 //= require languages
 //= require player
 //= require recorder_view
+//= require toggle_preview
 // require_tree .
