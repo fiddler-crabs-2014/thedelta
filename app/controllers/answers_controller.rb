@@ -16,13 +16,13 @@ class AnswersController < ApplicationController
   end
 
   def create
-    if !params[:delta].nil? && params[:delta].length >1
-      @answer = Answer.new(delta: params[:delta].to_json, user_id: params[:user_id], question_id: params[:question_id]) 
-      if @answer.valid?
-        @answer.save
+    if params[:delta].present? && params[:delta].length >1
+      @answer = Answer.new(delta: params[:delta].to_json, user_id: current_user.id, question_id: params[:question_id]) 
+      if @answer.save
         render json: { question_id: @answer.question_id }.to_json
       else
         @answer.errors.full_messages
+        redirect_to new_answer_path
       end
     else
       flash[:notice] = "That was not a valid Answer."

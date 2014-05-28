@@ -2,7 +2,7 @@
     if(this_page("QuestionsController", "show")){
       var questionId = $("h1").attr("id");
       var players = {};
-
+      
       
 
       $.get('/get_answers/', { question_id: questionId }, function(response) {

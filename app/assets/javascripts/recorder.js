@@ -123,15 +123,22 @@ Recorder.prototype.save = function() {
         e.preventDefault();
 
         var question_id = parseInt($('#answer_question_id').attr('value'));
-        var user_id = parseInt($('#answer_user_id').attr('value'));
-
+        var token = $( 'meta[name="csrf-token"]' ).attr( 'content' )
+        
         $("#loader").removeClass("hidden");
         $("#loader").addClass("show");
-
+         
+        $.ajaxSetup( {
+            beforeSend: function ( xhr ) {
+              xhr.setRequestHeader( 'X-CSRF-Token', token );
+            }
+        });
+         
         $.post("/answers/create.json", {
+            token: token,
             delta: this.states,
             question_id: question_id,
-            user_id: user_id
+
         }, function(response) {
             window.location.replace("/questions/" + response.question_id);
 
