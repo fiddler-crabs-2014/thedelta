@@ -4,7 +4,7 @@ function Player(args) {
     this.states = [0];
 };
 
-Player.prototype.disable_btn = function() {
+Player.prototype.disable = function() {
     $(this.play_sel).attr('disabled', 'disabled');
 };
 
@@ -80,7 +80,7 @@ Player.prototype.play = function(states) {
         });
 
 
-        this.disable_btn();
+        this.disable();
 
         setTimeout(function() {
             this.enable_btn();

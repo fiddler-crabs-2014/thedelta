@@ -13,10 +13,10 @@ describe("Player", function() {
 
   });
 
-  describe('#disable_btn', function(){
+  describe('#disable', function(){
 
     it("should disable the play button", function(){
-      player.disable_btn();
+      player.disable();
       expect($(player.play_sel)).toBeDisabled();
     });
 
@@ -26,7 +26,7 @@ describe("Player", function() {
 
     it("should enable the play button", function(){
 
-      player.disable_btn();
+      player.disable();
       player.enable_btn();
       expect($(player.play_sel).attr("disabled")).not.toBeDefined();
     
