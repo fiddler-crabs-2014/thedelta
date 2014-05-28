@@ -1,6 +1,13 @@
 <h1 class="jimbo_header">Questions for <%= @category.name %> </h1>
 
-<h3 class="jimbo_header" id="language_delta"><%= @start_language %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @end_language %></h3>
+<a href="" id="back_to_category">
+<h3 class="jimbo_header" id="language_delta">
+  <span class="glyphicon glyphicon-arrow-left"></span>
+  <span id="start_lang"><%= @start_language %></span>
+  to
+  <span id="end_lang"><%= @end_language %></span>
+  <span>Categories</span>
+</h3></a>
 
 <div class="answers">
   <%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
@@ -32,5 +39,10 @@
       });
     });
 
+    var start_language = $('#start_lang').text()
+    var end_language   = $('#end_lang').text()
+    var category_id    = parseInt($('h1').attr('class'))
+
+    $('#back_to_category').attr('href', '/categories?end_language='+end_language+'&start_language='+start_language)
   });
 </script>

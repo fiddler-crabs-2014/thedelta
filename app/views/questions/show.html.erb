@@ -1,9 +1,11 @@
-<h1 class="jimbo_header" id="<%=@question.id%>"><%= @question.query %> </h1>
-<h3 class="jimbo_header" id="language_delta"><%= @start_language.name %> <span class="glyphicon glyphicon-arrow-right"></span> <%= @end_language.name %>
-</h3>
-
-
-
+<h1 class="<%= @question.category_id %> jimbo_header" id="<%=@question.id%>"><%= @question.query%> </h1>
+<a id="back_to_category" href=""><h3 class="jimbo_header" id="language_delta">
+  <span class="glyphicon glyphicon-arrow-left"></span>
+  <span id="start_lang"><%= @start_language.name %></span>
+  to
+  <span id="end_lang"><%= @end_language.name %></span>
+  <span> (<%= @question.category.name %>) </span>
+</h3></a>
 
 <div class="answers">
   <%= link_to "Add Answer", new_answer_path(question: @question), {:class => 'add_answer'} %>
@@ -26,6 +28,12 @@
           players[answer.id].play(JSON.parse(answer.delta));
       });  
     });
+
+    var start_language = $('#start_lang').text()
+    var end_language   = $('#end_lang').text()
+    var category_id    = parseInt($('h1').attr('class'))
+
+    $('#back_to_category').attr('href', '/questions?category='+category_id+'&end_language='+end_language+'&start_language='+start_language)
   });
 </script>
 
