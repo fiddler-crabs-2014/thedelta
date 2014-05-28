@@ -1,21 +1,21 @@
 function Player(args) {
-    this.play_sel = args.play_sel;
-    this.view_sel = args.view_sel;
+    this.play_selector = args.play_selector;
+    this.view_selector = args.view_selector;
     this.states = [0];
 };
 
-Player.prototype.disable_btn = function() {
-    $(this.play_sel).attr('disabled', 'disabled');
+Player.prototype.disable = function() {
+    $(this.play_selector).attr('disabled', 'disabled');
 };
 
-Player.prototype.enable_btn = function() {
-    $(this.play_sel).removeAttr('disabled');
+Player.prototype.enable = function() {
+    $(this.play_selector).removeAttr('disabled');
 };
 
 Player.prototype.play = function(states) {
     this.states = states;
-    $(this.view_sel).html(this.states[0][0]);
-    var view_sel = this.view_sel;
+    $(this.view_selector).html(this.states[0][0]);
+    var view_selector = this.view_selector;
 
     if (!(this.states instanceof Array)) {
         this.states = $.map(this.states, function(value, index) {
@@ -23,7 +23,7 @@ Player.prototype.play = function(states) {
         });
     };
 
-    $(document).on("click", this.play_sel, function() {
+    $(document).on("click", this.play_selector, function() {
 
         var animation_length_ms = this.states[this.states.length - 1][1];
         var animation_length_s = Math.ceil(this.states[this.states.length - 1][1] * 10) / 10000;
@@ -56,14 +56,11 @@ Player.prototype.play = function(states) {
 
                 };
             
-                console.log(this_frame.substr(position, 2));
-
                 if (this_frame.length === position){
                     this_frame = this_frame + " ";
                 };
 
                 if (this_frame.substr(position, 1) === "\n"){
-                    console.log("hello");
                     this_frame = this_frame.substr(0, position) + " " + this_frame.substr(position);
                 };
         
@@ -75,15 +72,15 @@ Player.prototype.play = function(states) {
         
         new_states.forEach(function(state){
             setTimeout(function() {
-                $(view_sel).html(state[0]);
+                $(view_selector).html(state[0]);
             }, state[1]);
         });
 
 
-        this.disable_btn();
+        this.disable();
 
         setTimeout(function() {
-            this.enable_btn();
+            this.enable();
         }.bind(this), animation_length_ms);
 
     }.bind(this));

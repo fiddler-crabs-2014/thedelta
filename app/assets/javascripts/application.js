@@ -11,11 +11,19 @@
 // about supported directives.
 //
 //= require jquery
-// require jquery.turbolinks
 //= require jquery_ujs
-// require turbolinks
 //= require jquery.caret
-//= require languages
+//= require this_page
+//= require editor
 //= require player
 //= require recorder
+//= require toggle_preview
+//= require layout/layout_view
+//= require questions/index_view
+//= require questions/show_view
+//= require languages/index_view
+//= require answers/new_view
+//= require answers/show_view
+//= require sessions/login_view
+//= require users/new_view
 // require_tree .

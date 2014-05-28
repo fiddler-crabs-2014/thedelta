@@ -34,12 +34,13 @@ describe "User can visit signup page" do
   context "and the user can sign up" do
     
     xit "valid user creditials can create an account" do
+      visit logout_path
       visit sign_up_path
       fill_in 'user_name', :with => user.name
       fill_in 'user_username', :with => user.username
       fill_in 'user_email', :with => user.email
       fill_in 'user_password', :with => 'password'
-      fill_in 'user_password_confirm', :with => 'password'
+      fill_in 'user_password_confirmation', :with => 'password'
       
       click_on 'Create User'  
 
@@ -107,16 +108,15 @@ end
 describe "User can visit login page" do
   let(:user) { FactoryGirl.create(:user) }
 
-  context "and valid creditals will login" do
+  context "and login redirects to home page" do
     it "valid email / password can login" do
       visit login_path
       
       fill_in 'email_username', :with => user.username
       fill_in 'password', :with => 'password'
       click_on 'Sign In'  
-      expect(current_path).to eq(profile_path)
+      expect(current_path).to eq(root_path)
     end
-
 
     xit "valid email / password shows profile welcome message" do
       visit login_path

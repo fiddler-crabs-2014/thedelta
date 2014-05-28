@@ -1,132 +1,14 @@
-
- $.fn.refresh = function() {
-    return $(this.selector);
-  };
-
-$( document ).ready(function() {
-
-
-  (function($) {
-    $.fn.caret = function(pos) {
-      var target = this[0];
-      var isContentEditable = target.contentEditable === 'true';
-      //get
-      if (arguments.length == 0) {
-        //HTML5
-        if (window.getSelection) {
-          //contenteditable
-          if (isContentEditable) {
-            target.focus();
-            var range1 = window.getSelection().getRangeAt(0),
-                range2 = range1.cloneRange();
-            range2.selectNodeContents(target);
-            range2.setEnd(range1.endContainer, range1.endOffset);
-            return range2.toString().length;
-          }
-          //textarea
-          return target.selectionStart;
-        }
-        //IE<9
-        if (document.selection) {
-          target.focus();
-          //contenteditable
-          if (isContentEditable) {
-              var range1 = document.selection.createRange(),
-                  range2 = document.body.createTextRange();
-              range2.moveToElementText(target);
-              range2.setEndPoint('EndToEnd', range1);
-              return range2.text.length;
-          }
-          //textarea
-          var pos = 0,
-              range = target.createTextRange(),
-              range2 = document.selection.createRange().duplicate(),
-              bookmark = range2.getBookmark();
-          range.moveToBookmark(bookmark);
-          while (range.moveStart('character', -1) !== 0) pos++;
-          return pos;
-        }
-        //not supported
-        return 0;
-      }
-      //set
-      if (pos == -1)
-        pos = this[isContentEditable? 'text' : 'val']().length;
-      //HTML5
-      if (window.getSelection) {
-        //contenteditable
-        if (isContentEditable) {
-          target.focus();
-          window.getSelection().collapse(target.firstChild, pos);
-        }
-      }
-    }
-  })(jQuery)
-
-
-    var player  = new Player({
-        play_sel: "#Play",
-        view_sel: "#view",
-    });
-
-    var recorder = new Recorder({
-        textarea_sel: "#recorder textarea",
-        record_sel: "#Record",
-        view_sel: "#view",
-        reset_sel: "#reset",
-        save_sel: "#Save",
-        player: player
-    });
-
-
-    recorder.record();
-    recorder.reset();
-
-
-
-    recorder.save();
-
-    $("textarea").keydown(function(e) {
-
-        var tabKey = 9;
-        var enterKey = 13;
-
-        formattingKeyPress(tabKey, "\t", e, this);
-        formattingKeyPress(enterKey, "\n", e, this);
-
-    });
-
-});
-
-
-
-function formattingKeyPress(key, substitute, event, myObj) {
-
-    if (event.keyCode === key) { // tab was pressed
-        event.preventDefault();
-
-        var $myObj = $(myObj);
-        var start = $myObj.caret();
-        var value = $myObj.val();
-
-        $myObj.val(value.substring(0, start) + substitute + value.substring(start));
-        $myObj.caret(start + 1);
-    }
-};
-
-
 function Recorder(args) {
-  console.log("Function starts: Recorder");
-    this.textarea_sel = args.textarea_sel;
-    this.record_sel = args.record_sel;
-    this.reset_sel = args.reset_sel;
-    this.view_sel = args.view_sel;
-    this.save_sel = args.save_sel;
+    this.textarea_selector = args.textarea_selector;
+    this.record_selector = args.record_selector;
+    this.reset_selector = args.reset_selector;
+    this.view_selector = args.view_selector;
+    this.save_selector = args.save_selector;
     this.player = args.player;
-    this.player.disable_btn();
+    this.player.disable();
 
 
-    this.state = [0];
+    this.states = [0];
     this.start = false;
     this.start_time = 0;
     this.time_from_start = 0;
@@ -135,75 +17,101 @@ function Recorder(args) {
 };
 
 Recorder.prototype.enable_save = function() {
-  $(this.save_sel).removeAttr('disabled');
+  $(this.save_selector).removeAttr('disabled');
 };
 
 Recorder.prototype.disable_save = function() {
-  $(this.save_sel).attr('disabled','disabled');
+  $(this.save_selector).attr('disabled','disabled');
+};
+
+Recorder.prototype.toggle_record_light = function() {
+  console.log("hi");
+  console.log($("#record-light"));
+  if($("#record-light").hasClass("record-off")) {
+
+    $("#record-light").removeClass("record-off");
+    $("#record-light").addClass("record-on");
+
+  } else {
+    
+    $("#record-light").removeClass("record-on");
+    $("#record-light").addClass("record-off");
+    
+  };
+};
+
+Recorder.prototype.recording_exists = function() {
+  this.states.length > 1;
+};
+
+Recorder.prototype.initialize_base_recording_state = function () {
+  this.states[this.states.length - 1] = [$(this.textarea_selector).val(), this.stop_time];
+  console.log(this.states[this.states.length - 1]);
 };
 
 Recorder.prototype.record = function() {
 
-    $(this.record_sel).on("click", function() {
+    $(this.record_selector).on("click", function() {
+        this.toggle_record_light();
 
         if (!this.start) {
             this.start = true;
 
-            this.player.disable_btn();
-            this.state[this.state.length - 1] = [$(this.textarea_sel).val(), this.stop_time];
-            $("#record-btn").removeClass("record-off");
-            $("#record-btn").addClass("record-on");
-            this.player.update_state(this.state);
+            this.player.disable();
+            this.initialize_base_recording_state();
+            this.player.update_state(this.states);
+
         } else {
-            if(this.state.length > 1) {
-              this.player.enable_btn();
+
+            if(this.recording_exists) {
+
+              this.player.enable();
               this.enable_save();
+
             };
+
             this.start = false;
             this.stop_time = this.time_from_start;
-
-            $("#record-btn").removeClass("record-on");
-            $("#record-btn").addClass("record-off");
-            this.player.update_state(this.state);
+            this.player.update_state(this.states);
 
         };
 
         this.start_time = Date.now();
-        $("#answer_delta").focus();
+        $("#answer_delta").caret(0);
         
     }.bind(this));
     
-    this.player.play(this.state);
+    this.player.play(this.states);
 
-    $(this.textarea_sel).on("input", function() {
+    $(this.textarea_selector).on("input", function() {
         if (this.start) {
             this.time_from_start = Date.now() - this.start_time + this.stop_time;
-            var add_string = $(this.textarea_sel).val();
+            var add_string = $(this.textarea_selector).val();
 
             add_string = add_string.replace(/</g, "&lt;");
             add_string = add_string.replace(/>/g, "&gt;");
 
-            this.state.push([add_string, this.time_from_start]);
-            this.player.update_state(this.state);
+            this.states.push([add_string, this.time_from_start]);
+            this.player.update_state(this.states);
         };
     }.bind(this));
 };
 
 
 Recorder.prototype.reset = function() {
-    $(this.reset_sel).on("click", function() {
-        this.player.disable_btn();
+    $(this.reset_selector).on("click", function() {
+        this.player.disable();
         this.disable_save();
 
-        $(this.view_sel).empty();
-        $(this.textarea_sel).val(this.state[0][0]);
+        $(this.view_selector).empty();
+        $(this.textarea_selector).val(this.states[0][0]);
 
-        this.state = [0];
+        this.states = [0];
         this.start = false;
         this.stop_time = 0;
         this.start_time = 0;
         this.time_from_start = 0;
-        this.player.update_state(this.state);
+        this.player.update_state(this.states);
     }.bind(this));
 };
 
@@ -221,7 +129,7 @@ Recorder.prototype.save = function() {
         $("#loader").addClass("show");
 
         $.post("/answers/create.json", {
-            delta: this.state,
+            delta: this.states,
             question_id: question_id,
             user_id: user_id
         }, function(response) {
@@ -230,4 +138,3 @@ Recorder.prototype.save = function() {
         }.bind(this), "JSON");
     }.bind(this));
 };
-

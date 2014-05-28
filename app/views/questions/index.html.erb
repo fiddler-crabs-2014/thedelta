@@ -1,6 +1,6 @@
 <h1 class="jimbo_header">Questions for <%= @category.name %> </h1>
 
-<a href="" id="back_to_category">
+<a href="/categories?&amp;end_language=#{@end_language.name}&amp;start_language=#{@start_language.name}" id="back_to_category">
 <h3 class="jimbo_header language_delta">
   <span class="glyphicon glyphicon-arrow-left"></span>
   <span id="start_lang"><%= @start_language %></span>
@@ -12,37 +12,3 @@
 <div class="answers">
   <%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
 </div>
-
-<script>
-  $(document).ready(function(){
- 
-    var questions = $('.question_index');
-    var question_id_array = [];
-    var players = {};
-
-    for (var i=0;i<questions.length;i++) {
-      question_link = $(questions[i]).find('a').attr('href');
-      question_id   = question_link.match(/\d+/).join("");
-      question_id_array.push(question_id);
-    };
-
-    question_id_array.forEach(function(questionId) {
- 
-      $.get('get_answer/', {question_id: questionId}, function(response) {
- 
-            players[questionId] = new Player({
-                play_sel: "#Play_Question_"+questionId,
-                view_sel: "#Preview_Question_"+questionId
-            });
-
-            players[questionId].play(response);
-      });
-    });
-
-    var start_language = $('#start_lang').text()
-    var end_language   = $('#end_lang').text()
-    var category_id    = parseInt($('h1').attr('class'))
-
-    $('#back_to_category').attr('href', '/categories?end_language='+end_language+'&start_language='+start_language)
-  });
-</script>

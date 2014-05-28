@@ -6,6 +6,7 @@
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   helper_method :current_user, :signed_in?, :current_admin
+  before_action :controller, :action
 
   def signed_in?
     !current_user.nil?
@@ -75,4 +76,13 @@
       return false
     end
   end
+
+  private
+    def controller
+      @controller ||= self.class 
+    end
+
+    def action
+      @action ||= self.action_name
+    end
 end

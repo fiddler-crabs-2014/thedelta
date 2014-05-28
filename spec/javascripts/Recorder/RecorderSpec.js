@@ -5,16 +5,16 @@ describe("Recorder", function() {
   beforeEach(function() {
 
     player = new Player({
-      play_sel: "#play",
-      view_sel: "#view",
+      play_selelector: "#play",
+      view_selector: "#view",
     });
 
     recorder = new Recorder({
-        textarea_sel: "#editor",
-        record_sel: "#record",
-        view_sel: "#view",
-        reset_sel: "#reset",
-        save_sel: "#save",
+        textarea_selector: "#editor",
+        record_selector: "#record",
+        view_selector: "#view",
+        reset_selector: "#reset",
+        save_selector: "#save",
         player: player
     });
 
@@ -26,9 +26,9 @@ describe("Recorder", function() {
   describe('#enable_save', function(){
 
     it("should enable the save button", function(){
-      $(recorder.save_sel).attr('disabled','disabled');
+      $(recorder.save_selector).attr('disabled','disabled');
       recorder.enable_save();
-      expect($(recorder.save_sel)).not.toBeDisabled();
+      expect($(recorder.save_selector)).not.toBeDisabled();
     });
 
   });

@@ -1,5 +1,5 @@
 <h1 class="<%= @question.category_id %> jimbo_header" id="<%=@question.id%>"><%= @question.query%> </h1>
-<a id="back_to_category" href=""><h3 class="jimbo_header language_delta">
+<a id="back_to_questions" href=""><h3 class="jimbo_header language_delta">
   <span class="glyphicon glyphicon-arrow-left"></span>
   <span id="start_lang"><%= @question.start_language %></span>
   to
@@ -11,29 +11,4 @@
   <%= link_to "Add Answer", new_answer_path(question: @question), {:class => 'add_answer'} %>
   <%= render partial: 'shared/answer', collection: @answers %>
 </div>
-
-<script>
-  $(document).ready(function(){
-    var questionId = $("h1").attr("id");
-    var players = {};
-
-    
-
-    $.get('/get_answers/', { question_id: questionId }, function(response) {
-      response.forEach(function(answer){
-          players[answer.id] = new Player({
-              play_sel: "#play_answer_" + answer.id,
-              view_sel: "#preview_answer_" + answer.id
-          });
-          players[answer.id].play(JSON.parse(answer.delta));
-      });  
-    });
-
-    var start_language = $('#start_lang').text()
-    var end_language   = $('#end_lang').text()
-    var category_id    = parseInt($('h1').attr('class'))
-
-    $('#back_to_category').attr('href', '/questions?category='+category_id+'&end_language='+end_language+'&start_language='+start_language)
-  });
-</script>
 

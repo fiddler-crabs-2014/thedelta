@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -77,8 +78,9 @@
       <% end %>
     </div>
   
-
-  <%= yield %>
+  <div id="page-identifier" data-controller="<%= @controller %>" data-action="<%= @action %>">
+   <%= yield %>
+  </div>
 
 </div>
 
@@ -87,11 +89,6 @@
     <span style="font-size: 1.5em; font-weight: 400">Designed and Developed by</span> <br> Adrian Pask<br> Johnathan Weisner<br> Phil London<br> and Shaun McGeever <br>
   </footer>
 <% end %>
-<script>
-  $('.reload').on('click', function(e) {
-    e.preventDefault();
-    window.location.assign('/')
-  });
-</script>
+
 </body>
 </html>

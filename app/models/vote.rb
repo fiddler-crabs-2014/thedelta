@@ -14,5 +14,15 @@ class Vote < ActiveRecord::Base
     return  record_vote
   end
 
+  private
+
+    def update_answer
+
+      # self.answer.upvote_count = Vote.where(answer_id: self.id).where("vote_value > 0").count
+      # self.answer.downvote_count = Vote.where(answer_id: self.id).where("vote_value < 0").count
+      # self.answer.save
+      self.answer.update_votes
+      # return true
+    end
   
 end

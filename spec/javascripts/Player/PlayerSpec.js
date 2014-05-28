@@ -5,30 +5,30 @@ describe("Player", function() {
   beforeEach(function() {
 
     player = new Player({
-      play_sel: "#play",
-      view_sel: "#view",
+      play_selector: "#play",
+      view_selector: "#view",
     });
 
     loadFixtures('play_view.html');
 
   });
 
-  describe('#disable_btn', function(){
+  describe('#disable', function(){
 
     it("should disable the play button", function(){
-      player.disable_btn();
-      expect($(player.play_sel)).toBeDisabled();
+      player.disable();
+      expect($(player.play_selector)).toBeDisabled();
     });
 
   });
 
-  describe('#enable_btn', function(){
+  describe('#enable', function(){
 
     it("should enable the play button", function(){
 
-      player.disable_btn();
-      player.enable_btn();
-      expect($(player.play_sel).attr("disabled")).not.toBeDefined();
+      player.disable();
+      player.enable();
+      expect($(player.play_selector).attr("disabled")).not.toBeDefined();
     
     });
 
@@ -59,8 +59,8 @@ describe("Player", function() {
       it("button should be disabled", function() {
      
         player.play(states);
-        $(player.play_sel).trigger("click");
-         expect($(player.play_sel)).toBeDisabled();
+        $(player.play_selector).trigger("click");
+         expect($(player.play_selector)).toBeDisabled();
      
       });
 
