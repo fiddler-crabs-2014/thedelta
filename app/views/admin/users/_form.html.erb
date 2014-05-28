@@ -1,0 +1,24 @@
+<div id='login' style="width:480px;margin:30px auto;">
+<%= form_for(user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object, html: {:class => "form"} %>
+
+  <div class="signup_field">
+    <%= f.text_field :name, class: 'form-control input-lg signup', placeholder: 'Name' %>
+  </div>
+  <div class="field">
+    <%= f.text_field :username, class: 'form-control input-lg signup', placeholder: 'Username' %>
+  </div>
+  <div class="field">
+    <%= f.text_field :email,class: 'form-control input-lg signup', placeholder: 'Email' %>
+  </div>
+  <div class="field">
+    <%= f.password_field :password, class: 'form-control input-lg signup', placeholder: 'Password' %>
+  </div>
+  <div class="field">
+    <%= f.password_field :password_confirm,class: 'form-control input-lg signup', placeholder: 'Password Confirmation' %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'btn-lg btn-success', style: "width: 440px; margin:20px;" %>
+  </div>
+<% end %>
+</div>

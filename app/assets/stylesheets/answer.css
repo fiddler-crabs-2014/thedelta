@@ -1,3 +1,7 @@
+.answers.new {
+  width: 95%;
+}
+
 .instructions {
   position: absolute;
   top: 120px;
@@ -9,50 +13,42 @@
   font-size: 1.2em;
   padding: 25px;
   background-color: #F4FCE8;
-  margin: 56px 0 0 0;
+  margin: 20px 0 0 0;
 }
-
 .instructions h3 {
-  margin: 0;
+    margin: 0;
 }
-
 .instructions ol {
-  padding-left: 19px;
-  margin-top: 10px;
+    padding-left: 19px;
+    margin-top: 10px;
 }
-
 .instructions li {
-  font-size: 0.9em;
-  margin-bottom: 5px;
+    font-size: 0.9em;
+    margin-bottom: 5px;
 }
-
 .jimbo_header {
-  color:white;
+    color:white;
 }
-
 #preview_record {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
-
 #preview_stop {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
-
 #preview_play {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
-
 #preview_save {
-  padding: 2px 4px;
+    padding: 2px 4px;
 }
 
-@media all and (max-width: 1150px) {
+@media all and (max-width: 1230px) {
   .instructions {
     position: relative;
     top: 0;
     left: 0;
     width: 335px;
-    margin: 0 auto;
+    margin: -15px auto;
     margin-bottom: 20px;
     height: auto;
     font-family: 'Raleway', sans-serif;
@@ -60,5 +56,11 @@
     font-size: 1em;
     padding: 8px;
     background-color: #F4FCE8;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .instructions {
+    width: 100%;
   }
 }

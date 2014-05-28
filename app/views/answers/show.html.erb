@@ -11,18 +11,20 @@
       
     </pre>
   
-  <%= form_tag '/vote' do %>
-    <%= hidden_field_tag 'answer_id', @answer.id %>
-    <%= hidden_field_tag 'user_id', @answer.user.id %>
-    <%= hidden_field_tag 'vote_value', '1' %>
-    <%= submit_tag "Up Vote", class: "btn btn-primary btn-sm do_vote"  %>
+  <% if current_user %>
+    <%= form_tag '/vote' do %>
+      <%= hidden_field_tag 'answer_id', @answer.id %>
+      <%= hidden_field_tag 'user_id', @answer.user.id %>
+      <%= hidden_field_tag 'vote_value', '1' %>
+      <%= submit_tag "Up Vote", class: "btn btn-primary btn-sm do_vote"  %>
+    <% end %>
+    <%= form_tag '/vote' do %>
+      <%= hidden_field_tag 'answer_id', @answer.id %>
+      <%= hidden_field_tag 'user_id', @answer.user.id %>
+      <%= hidden_field_tag 'vote_value', '-1' %>
+      <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm do_vote"  %>
+    <% end %> 
   <% end %>
-  <%= form_tag '/vote' do %>
-    <%= hidden_field_tag 'answer_id', @answer.id %>
-    <%= hidden_field_tag 'user_id', @answer.user.id %>
-    <%= hidden_field_tag 'vote_value', '-1' %>
-    <%= submit_tag "Down Vote", class: "btn btn-primary btn-sm do_vote"  %>
-  <% end %> 
 
 </div>
   <div class="show_answer_container" id="delta">
@@ -42,9 +44,9 @@
 
 <script>
   $(document).ready(function(){
-    start = JSON.parse($('.show_delta').text())[0][0]
-    delta = JSON.parse($('.show_delta').text())
-    end   = JSON.parse($('.show_delta').text())[Object.keys(delta).length-1][0]
+    start = JSON.parse($('.show_delta').text())[0][0];
+    delta = JSON.parse($('.show_delta').text());
+    end   = JSON.parse($('.show_delta').text())[Object.keys(delta).length-1][0];
 
     $('.do_vote').click(function(e){
       e.preventDefault();
@@ -64,9 +66,9 @@
     player = new Player({
       play_sel: "#play_answer",
       view_sel: "#preview_answer"
-    })
+    });
 
-    player.play(delta)
+    player.play(delta);
 
   });
 </script>

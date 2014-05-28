@@ -16,11 +16,10 @@ button#Record, button#Stop, button#Play, button#reset, input#Save {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 95%;
 }
-
-.cursor{
-  background-color:red;
+.cursor {
+    background-color:red;
 }
-.record-off,.record-on {
+.record-off, .record-on {
     width:13px;
     height:13px;
     -webkit-border-radius: 20px;
@@ -33,12 +32,9 @@ button#Record, button#Stop, button#Play, button#reset, input#Save {
     position: relative;
     top: 0;
 }
-
-#Record{
-  padding-left: 8px;
+#Record {
+    padding-left: 8px;
 }
-
-
 .record-off {
     background-color:#000000;
 }
@@ -59,5 +55,10 @@ pre {
     tab-size: 2;
     -moz-tab-size: 2;
     -o-tab-size: 2;
-    /*white-space: pre-wrap;*/
+}
+
+@media all and (max-width: 600px) {
+    #recorder {
+        width: 100%;
+    }
 }

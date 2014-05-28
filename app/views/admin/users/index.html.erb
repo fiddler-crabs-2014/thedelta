@@ -1,0 +1,17 @@
+<h1 style='color:white;'>Users Admin</h1>
+<table class='table' style='color:white;'>
+  <tr>
+    <th>Name</th>
+    <th>User Name</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= link_to user.username, admin_user_path(user) %></td>
+      <td><%= user.email %></td> 
+      <td><%= link_to 'edit', edit_admin_user_path(user) %> </td>   
+    </tr>
+  <% end %>
+</table>

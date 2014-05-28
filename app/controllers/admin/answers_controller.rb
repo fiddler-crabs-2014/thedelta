@@ -1,13 +1,9 @@
 require 'json'
 
-class AnswersController < ApplicationController
-  def new
-    if current_user && params[:question]
-      @question = Question.find(params[:question])
-      @answer = Answer.new     
-    else
-      redirect_to login_path
-    end
+class Admin::AnswersController < ApplicationController
+
+  def index
+    @answers = Answer.all
   end
 
   def show
@@ -27,6 +23,12 @@ class AnswersController < ApplicationController
       flash[:notice] = "That was not a valid Answer."
       redirect_to new_answer_path(question: params[:question_id])
     end
+  end
+
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to admin_answers_path
   end
 
   private
