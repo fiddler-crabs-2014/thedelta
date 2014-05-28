@@ -16,5 +16,6 @@
 //= require editor
 //= require languages
 //= require player
+//= require recorder
 //= require recorder_view
 // require_tree .
