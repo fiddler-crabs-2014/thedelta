@@ -1,9 +1,9 @@
 <h1 class="<%= @question.category_id %> jimbo_header" id="<%=@question.id%>"><%= @question.query%> </h1>
 <a id="back_to_category" href=""><h3 class="jimbo_header" id="language_delta">
   <span class="glyphicon glyphicon-arrow-left"></span>
-  <span id="start_lang"><%= @start_language.name %></span>
+  <span id="start_lang"><%= @question.start_language %></span>
   to
-  <span id="end_lang"><%= @end_language.name %></span>
+  <span id="end_lang"><%= @question.end_language %></span>
   <span> (<%= @question.category.name %>) </span>
 </h3></a>
 
