@@ -69,7 +69,7 @@ Recorder.prototype.record = function() {
             this.player.update_state(this.state);
         } else {
             if(this.state.length > 1) {
-              this.player.enable_btn();
+              this.player.enable();
               this.enable_save();
             };
             this.start = false;
@@ -82,7 +82,7 @@ Recorder.prototype.record = function() {
         };
 
         this.start_time = Date.now();
-        $("#answer_delta").focus();
+        $("#answer_delta").caret(1);
         
     }.bind(this));
     
