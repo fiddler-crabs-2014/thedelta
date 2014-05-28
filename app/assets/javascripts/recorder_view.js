@@ -55,7 +55,7 @@ Recorder.prototype.disable_save = function() {
   $(this.save_sel).attr('disabled','disabled');
 };
 
-Recorder.prototype.inrecord = function() {
+Recorder.prototype.record = function() {
 
     $(this.record_sel).on("click", function() {
 
