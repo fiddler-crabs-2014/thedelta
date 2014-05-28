@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
 
   def new
+    if current_user
+      flash[:notice] = "You are logged in, no need to create another account"
+      redirect_to profile_path
+    end
     @user = User.new
 
     # respond_to do |format|
@@ -14,24 +18,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        session[:user_id] = @user.id
-        flash[:notice] = 'You successfullly created an account'
+    # if params[:password] != params[:password_confirmation]
+    #   flash[:notice] = 'Passwords did not match'
+    #   render :new
+    # end
 
-        format.html do
-          if params[:referer_url]
-            redirect_to params[:referer_url]
-          else
-            redirect_to profile_path
-          end
-        end
-        # format.html { redirect_to :profile, notice: 'User was successfully created.' }
-        # format.json { render json: @user, status: :created, location: @user }
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = 'You successfullly created an account'
+
+      if params[:referer_url]
+        redirect_to params[:referer_url]
       else
-        format.html { render action: "new" }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to profile_path
       end
+    else
+      render :new
     end
   end
 
