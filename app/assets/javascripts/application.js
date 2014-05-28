@@ -18,4 +18,5 @@
 //= require player
 //= require recorder
 //= require recorder_view
+//= require toggle_preview
 // require_tree .
