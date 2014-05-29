@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/user.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/user.rb": [
         1,
         1,
         1,
@@ -16,11 +16,11 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/helpers/application_helper.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/answers_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/answers_controller.rb": [
         1,
         null,
         1,
@@ -60,7 +60,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/application_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -149,7 +149,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/categories_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/categories_controller.rb": [
         1,
         null,
         1,
@@ -166,7 +166,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/languages_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/languages_controller.rb": [
         1,
         null,
         1,
@@ -176,7 +176,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/questions_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/questions_controller.rb": [
         1,
         null,
         1,
@@ -216,7 +216,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/sessions_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -262,7 +262,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/users_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -332,7 +332,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/votes_controller.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/votes_controller.rb": [
         1,
         null,
         1,
@@ -359,7 +359,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/answer.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/answer.rb": [
         1,
         1,
         1,
@@ -380,22 +380,22 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/category.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/category.rb": [
         1,
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/comment.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/comment.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/language.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/language.rb": [
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/question.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/question.rb": [
         1,
         1,
         1,
@@ -409,12 +409,12 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/session.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/session.rb": [
         1,
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/vote.rb": [
+      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/vote.rb": [
         1,
         1,
         1,
@@ -445,6 +445,6 @@
         null
       ]
     },
-    "timestamp": 1401312075
+    "timestamp": 1401328102
   }
 }
