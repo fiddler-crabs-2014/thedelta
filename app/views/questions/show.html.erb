@@ -8,7 +8,7 @@
 </h3></a>
 
 <div class="answers">
-  <%= link_to "Add Answer", new_answer_path(question: @question), {:class => 'add_answer'} %>
+  <%= link_to "Add Answer!", new_answer_path(question: @question), {:class => 'add_answer submit_button'} %>
   <%= render partial: 'shared/answer', collection: @answers %>
 </div>
 

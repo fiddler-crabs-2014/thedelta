@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/user.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/user.rb": [
         1,
         1,
         1,
@@ -16,11 +16,11 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/helpers/application_helper.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/answers_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/answers_controller.rb": [
         1,
         null,
         1,
@@ -60,7 +60,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/application_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -71,11 +71,11 @@
         1,
         null,
         1,
-        141,
+        135,
         null,
         null,
         1,
-        91,
+        92,
         8,
         null,
         null,
@@ -141,24 +141,24 @@
         null,
         1,
         1,
-        162,
+        159,
         null,
         null,
         1,
-        162,
+        159,
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/categories_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/categories_controller.rb": [
         1,
         null,
         1,
         null,
         1,
-        7,
-        4,
-        4,
-        4,
+        5,
+        2,
+        2,
+        2,
         null,
         3,
         null,
@@ -166,7 +166,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/languages_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/languages_controller.rb": [
         1,
         null,
         1,
@@ -176,7 +176,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/questions_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/questions_controller.rb": [
         1,
         null,
         1,
@@ -196,10 +196,10 @@
         null,
         null,
         1,
-        15,
-        15,
-        15,
-        15,
+        14,
+        14,
+        14,
+        14,
         null,
         null,
         1,
@@ -216,7 +216,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/sessions_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -262,7 +262,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/users_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -332,21 +332,24 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/votes_controller.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/votes_controller.rb": [
         1,
         null,
         1,
-        null,
         49,
         49,
+        49,
         null,
+        null,
+        49,
+        0,
+        0,
+        0,
         null,
         null,
         49,
         98,
-        null,
         49,
-        null,
         null,
         null,
         null,
@@ -359,7 +362,7 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/answer.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/answer.rb": [
         1,
         1,
         1,
@@ -371,37 +374,37 @@
         1,
         null,
         1,
-        60,
+        58,
         null,
         null,
         1,
-        37,
+        36,
         null,
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/category.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/category.rb": [
         1,
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/comment.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/comment.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/language.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/language.rb": [
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/question.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/question.rb": [
         1,
         1,
         1,
         null,
         1,
-        51,
+        49,
         null,
         null,
         1,
@@ -409,12 +412,12 @@
         null,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/session.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/session.rb": [
         1,
         1,
         null
       ],
-      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/vote.rb": [
+      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/vote.rb": [
         1,
         1,
         1,
@@ -445,6 +448,6 @@
         null
       ]
     },
-    "timestamp": 1401312075
+    "timestamp": 1401327716
   }
 }
