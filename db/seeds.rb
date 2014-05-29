@@ -28,27 +28,39 @@ categories.each { |method| method.save }
 			# javascript
 			Question.create(category_id: enumerables.id, :query => "How do I make an each method?", start_language: ruby.name, end_language: javascript.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: ruby.name, end_language: javascript.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write a reduce method?", start_language: ruby.name, end_language: javascript.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write a filter method?", start_language: ruby.name, end_language: javascript.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write an each_with_index method?", start_language: ruby.name, end_language: javascript.name)
 
 			# Python
 			Question.create(category_id: enumerables.id, :query => "How do I make an each method?", start_language: ruby.name, end_language: python.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: ruby.name, end_language: python.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write a reduce method?", start_language: ruby.name, end_language: python.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write a filter method?", start_language: ruby.name, end_language: python.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write an each_with_index method?", start_language: ruby.name, end_language: python.name)
 
 			# php
 			Question.create(category_id: enumerables.id, :query => "How do I make an each method?", start_language: ruby.name, end_language: php.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: ruby.name, end_language: php.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write a reduce method?", start_language: ruby.name, end_language: php.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write a filter method?", start_language: ruby.name, end_language: php.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write an each_with_index method?", start_language: ruby.name, end_language: php.name)
 
 		# Start: javascript
 			# Ruby
 			Question.create(category_id: enumerables.id, :query => "How do I make a forEach method?", start_language: javascript.name, end_language: ruby.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: javascript.name, end_language: ruby.name)
+			Question.create(category_id: enumerables.id, :query => "How do I write a reduce method?", start_language: javascript.name, end_language: ruby.name)
 			
 			# Python
 			Question.create(category_id: enumerables.id, :query => "How do I make a forEach method?", start_language: javascript.name, end_language: python.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: javascript.name, end_language: python.name)
+			Question.create(category_id: enumerables.id, :query => "How do I make a reduce method?", start_language: javascript.name, end_language: python.name)
 			
 			# php
 			Question.create(category_id: enumerables.id, :query => "How do I make a forEach method?", start_language: javascript.name, end_language: php.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: javascript.name, end_language: php.name)
+			Question.create(category_id: enumerables.id, :query => "How do I make a reduce method?", start_language: javascript.name, end_language: php.name)
 		#
 	##
 
@@ -56,12 +68,15 @@ categories.each { |method| method.save }
 		# Start: Ruby
 			# javascript
 				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: javascript.name)
+				Question.create(category_id: logic.id, :query => "How do I write a case statement?", start_language: ruby.name, end_language: javascript.name)
 
 			# Python
 				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: python.name)
+				Question.create(category_id: logic.id, :query => "How do I write a case statement?", start_language: ruby.name, end_language: python.name)
 				
 			# php
 				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: php.name)
+				Question.create(category_id: logic.id, :query => "How do I write a case statement?", start_language: ruby.name, end_language: php.name)
 
 		# Start: javascript
 			# Ruby
