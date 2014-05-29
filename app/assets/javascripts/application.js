@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.caret
-//= require is_page
+//= require utils
 //= require editor
 //= require player
 //= require recorder

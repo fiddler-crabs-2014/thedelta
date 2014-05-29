@@ -89,23 +89,29 @@ DELTA.RecorderView.prototype.setup_save = function() {
   this.disable_save();
 
   $("form[name=recorder]").submit(function(e) {
-    e.preventDefault();
+      e.preventDefault();
 
-    var question_id = parseInt($('#answer_question_id').attr('value'));
-    var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+      var question_id = parseInt($('#answer_question_id').attr('value'));
+      var token = $( 'meta[name="csrf-token"]' ).attr( 'content' )
+      
+      $("#loader").removeClass("hidden");
+      $("#loader").addClass("show");
+       
+      $.ajaxSetup( {
+          beforeSend: function ( xhr ) {
+            xhr.setRequestHeader( 'X-CSRF-Token', token );
+          }
+      });
+       
+      $.post("/answers/create.json", {
+          token: token,
+          delta: this.recorder.snapshots,
+          question_id: question_id,
 
-    $("#loader").removeClass("hidden");
-    $("#loader").addClass("show");
+      }, function(response) {
+          window.location.replace("/questions/" + response.question_id);
 
-    $.ajaxSetup( {
-      beforeSend: function ( xhr ) {
-        xhr.setRequestHeader( 'X-CSRF-Token', token );
-      }
-    });
-
-    this.recorder.save(question_id, token).done(function(response) {
-      window.location.replace("/questions/" + response.question_id);
-    });
+      }.bind(this), "JSON");
   }.bind(this));
 };
 

@@ -42,16 +42,6 @@ DELTA.Recorder.prototype.stop = function() {
     return this.snapshots;
 }
 
-DELTA.Recorder.prototype.save = function(question_id, token) {
-    return $.ajax({
-        url: "/answers/create.json",
-        data: {
-            token: token,
-            delta: this.snapshots,
-            question_id: question_id
-        }
-    });
-};
 
 DELTA.Recorder.prototype.reset = function() {
     this.snapshots = [0];
