@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
       flash[:notice] = "Invalid email / password combination"
       redirect_to :login
     end
-
   end
 
   def logout

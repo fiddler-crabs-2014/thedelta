@@ -1,0 +1,86 @@
+  [1m[36mLanguage Load (0.5ms)[0m  [1mSELECT "languages".* FROM "languages"[0m
+  [1m[35mLanguage Load (0.6ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLanguage Load (0.4ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mLanguage Load (0.4ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mLanguage Load (0.4ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "languages" SET "name" = $1, "updated_at" = $2 WHERE "languages"."id" = 4[0m  [["name", "PHP"], ["updated_at", "2014-05-29 18:30:49.646801"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36mLanguage Load (0.5ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLanguage Load (0.4ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLanguage Load (0.3ms)[0m  [1mSELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLanguage Load (0.3ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLanguage Load (0.3ms)[0m  SELECT  "languages".* FROM "languages"  WHERE "languages"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.498217"], ["end_language", "JavaScript"], ["query", "How do I make a case statement"], ["start_language", "Ruby"], ["updated_at", "2014-05-29 18:33:30.498217"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.501195"], ["end_language", "Python"], ["query", "How do I make a case statement"], ["start_language", "Ruby"], ["updated_at", "2014-05-29 18:33:30.501195"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.502757"], ["end_language", "PHP"], ["query", "How do I make a case statement"], ["start_language", "Ruby"], ["updated_at", "2014-05-29 18:33:30.502757"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.504329"], ["end_language", "Ruby"], ["query", "How do I make a case statement"], ["start_language", "JavaScript"], ["updated_at", "2014-05-29 18:33:30.504329"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.505868"], ["end_language", "Python"], ["query", "How do I make a case statement"], ["start_language", "JavaScript"], ["updated_at", "2014-05-29 18:33:30.505868"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.507385"], ["end_language", "PHP"], ["query", "How do I make a case statement"], ["start_language", "JavaScript"], ["updated_at", "2014-05-29 18:33:30.507385"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.508961"], ["end_language", "Ruby"], ["query", "How do I make a case statement"], ["start_language", "Python"], ["updated_at", "2014-05-29 18:33:30.508961"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.510388"], ["end_language", "JavaScript"], ["query", "How do I make a case statement"], ["start_language", "Python"], ["updated_at", "2014-05-29 18:33:30.510388"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.511889"], ["end_language", "PHP"], ["query", "How do I make a case statement"], ["start_language", "Python"], ["updated_at", "2014-05-29 18:33:30.511889"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.513399"], ["end_language", "Ruby"], ["query", "How do I make a case statement"], ["start_language", "PHP"], ["updated_at", "2014-05-29 18:33:30.513399"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.514823"], ["end_language", "JavaScript"], ["query", "How do I make a case statement"], ["start_language", "PHP"], ["updated_at", "2014-05-29 18:33:30.514823"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.516298"], ["end_language", "Python"], ["query", "How do I make a case statement"], ["start_language", "PHP"], ["updated_at", "2014-05-29 18:33:30.516298"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.517766"], ["end_language", "JavaScript"], ["query", "How do I make a while loop"], ["start_language", "Ruby"], ["updated_at", "2014-05-29 18:33:30.517766"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.518957"], ["end_language", "Python"], ["query", "How do I make a while loop"], ["start_language", "Ruby"], ["updated_at", "2014-05-29 18:33:30.518957"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.520231"], ["end_language", "PHP"], ["query", "How do I make a while loop"], ["start_language", "Ruby"], ["updated_at", "2014-05-29 18:33:30.520231"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.521597"], ["end_language", "Ruby"], ["query", "How do I make a while loop"], ["start_language", "JavaScript"], ["updated_at", "2014-05-29 18:33:30.521597"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.523062"], ["end_language", "Python"], ["query", "How do I make a while loop"], ["start_language", "JavaScript"], ["updated_at", "2014-05-29 18:33:30.523062"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.524856"], ["end_language", "PHP"], ["query", "How do I make a while loop"], ["start_language", "JavaScript"], ["updated_at", "2014-05-29 18:33:30.524856"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.526559"], ["end_language", "Ruby"], ["query", "How do I make a while loop"], ["start_language", "Python"], ["updated_at", "2014-05-29 18:33:30.526559"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.527806"], ["end_language", "JavaScript"], ["query", "How do I make a while loop"], ["start_language", "Python"], ["updated_at", "2014-05-29 18:33:30.527806"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.528979"], ["end_language", "PHP"], ["query", "How do I make a while loop"], ["start_language", "Python"], ["updated_at", "2014-05-29 18:33:30.528979"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.530235"], ["end_language", "Ruby"], ["query", "How do I make a while loop"], ["start_language", "PHP"], ["updated_at", "2014-05-29 18:33:30.530235"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.531535"], ["end_language", "JavaScript"], ["query", "How do I make a while loop"], ["start_language", "PHP"], ["updated_at", "2014-05-29 18:33:30.531535"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("category_id", "created_at", "end_language", "query", "start_language", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["category_id", 2], ["created_at", "2014-05-29 18:33:30.533047"], ["end_language", "Python"], ["query", "How do I make a while loop"], ["start_language", "PHP"], ["updated_at", "2014-05-29 18:33:30.533047"]]
+  [1m[35m (0.2ms)[0m  COMMIT
