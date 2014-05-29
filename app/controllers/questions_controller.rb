@@ -2,7 +2,6 @@ class QuestionsController < ApplicationController
   before_action :find_question_id, except: [:index]
   before_action :correct_params?, only: [:index]
 
-
   def index
     @questions = Question.where(category_id: params[:category].to_i, start_language: params[:start_language], end_language: params[:end_language])
     @category = params[:category]

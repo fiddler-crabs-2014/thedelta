@@ -135,6 +135,23 @@ body.custom {
     border-radius: 0px;
 }
 
+.code_example_view2 {
+    display: block;
+    position: relative;
+    padding: 18.5px;
+    margin: -185px 0 0px;
+    z-index: 100;
+    font-size: 20px;
+    line-height: 1.42857143;
+    height: 70px;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #333;
+    background: #d4d8d9;
+    border: none;
+    border-radius: 0px;
+}
+
 #error_messages {
     color: red;
     font-family: 'Raleway', sans-serif;
@@ -142,7 +159,10 @@ body.custom {
     margin-top: -20px;
 }
 
-/* mozilla */
+.code_example_view p {
+    margin: 0;
+    padding: 0;
+}
 
 /* media query */
 
@@ -152,6 +172,9 @@ body.custom {
         margin-left: -50px;
     }
     .code_example_view {
+        font-size: 15px;
+    }
+    .code_example_view2 {
         font-size: 15px;
     }
 }
@@ -167,6 +190,9 @@ body.custom {
         width: 32%;
     }
     .code_example_view {
+        font-size: 13px;
+    }
+    .code_example_view2 {
         font-size: 13px;
     }
 }
@@ -190,6 +216,14 @@ body.custom {
         margin: 0 auto;
         font-size: 21px;
         height: 339px;
+    }
+    .code_example_view2 {
+        position: relative;
+        margin: -75px auto;
+        margin-bottom: 20px;
+        font-size: 21px;
+        height: auto;
+        border: none;
     }
     .styled-select {
         width: 100%;
@@ -240,6 +274,9 @@ body.custom {
   .code_example_view {
     font-size: 17px;
   }
+  .code_example_view2 {
+    font-size: 17px;
+  }
 }
 
 @media all and (max-width: 410px) {
@@ -248,6 +285,22 @@ body.custom {
     }
     .code_example_view {
         font-size: 15px;
+    }
+    .code_example_view2 {
+        font-size: 15px;
+    }
+}
+
+@media all and (max-width: 409px) {
+    .styled-select select {
+        position: relative;
+        top: -14px;
+    }
+    #start_language {
+        margin-left: 27px
+    }
+    #end_language {
+        margin-left: 27px;
     }
 }
 

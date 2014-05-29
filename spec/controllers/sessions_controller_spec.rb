@@ -2,6 +2,10 @@ require "spec_helper"
 
 describe SessionsController do
   
+  # before(:each) do
+  #     ApplicationController.any_instance.stub(:last_visited_page).and_return(root_path)
+  # end
+
   let(:user) { FactoryGirl.create(:user) }
   
   describe "#login" do
@@ -28,11 +32,13 @@ describe SessionsController do
 
   describe "#attempt_login" do
     before { session[:user_id] = nil}
+    before (:each) do
+      ApplicationController.any_instance.stub(:last_visited_page).and_return(profile_path)
+    end
 
     it "Sets session[:user_id] with valid credentials" do
-      post :attempt_login, email_username: user.email, password: 'password'
+      post :attempt_login, email_username: user.email, password: user.password
       expect(session[:user_id]).to equal user.id
-
     end
 
     it "Successful login with email redirects to profile page" do

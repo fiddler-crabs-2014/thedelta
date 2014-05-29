@@ -1,11 +1,11 @@
 $( document ).ready(function() {
-  if(this_page("AnswersController", "new")){
-    var player  = new Player({
+  if(DELTA.is_page("AnswersController", "new")){
+    var player  = new DELTA.Player({
         play_selector: "#play",
-        view_selector: "#view",
+        view_selector: "#view"
     });
 
-    var recorder = new Recorder({
+    var recorder = new DELTA.RecorderView({
         textarea_selector: "#recorder textarea",
         record_selector: "#record",
         view_selector: "#view",
@@ -14,16 +14,14 @@ $( document ).ready(function() {
         player: player
     });
 
-    recorder.record();
-    recorder.reset();
-    recorder.save();
+    recorder.init();
 
-    var tab_key = 9;
-    var enter_key = 13;
+    var editor = new DELTA.Editor("#recorder textarea");
+    editor.initialize_character_replacement([9,13]);
 
-    var editor = new Editor("#recorder textarea", [[tab_key,"\t"],
-                                                   [enter_key,"\n"]]);
-
-    editor.initialize_event_listener();
+    $('#play').on('click', function(){
+        $('#view').css("background-color", '#f5f5f5');
+        $('#view').css("border",'1px solid #ccc');
+    });
   };
 });

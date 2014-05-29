@@ -1,91 +1,108 @@
-function Player(args) {
+var DELTA = DELTA || {};
+
+DELTA.Player = function(args) {
     this.play_selector = args.play_selector;
     this.view_selector = args.view_selector;
-    this.states = [0];
+    this.snapshots = [0];
 };
 
-Player.prototype.disable = function() {
+DELTA.Player.prototype.disable = function() {
     $(this.play_selector).attr('disabled', 'disabled');
 };
 
-Player.prototype.enable = function() {
+DELTA.Player.prototype.enable = function() {
     $(this.play_selector).removeAttr('disabled');
 };
 
-Player.prototype.play = function(states) {
-    this.states = states;
-    $(this.view_selector).html(this.states[0][0]);
+DELTA.Player.prototype.add_caret_to_states = function() {
+    var new_states = [];
+    var this_frame;
+    var this_frame_time;
+    var position;
+
+    for (var i = 0; i < this.snapshots.length; i++) {
+        this_frame = this.snapshots[i][0];
+        this_frame_time = this.snapshots[i][1];
+
+        if (i < this.snapshots.length-1) {
+            var next_frame = this.snapshots[i + 1][0];
+
+            for (var x = 0; x <= this_frame.length; x++) {
+                if (!(this_frame[x] === next_frame[x])) {
+                    position = x;
+                    break;
+                };
+            };
+            if (this_frame.length === position){
+                this_frame = this_frame + " ";
+            };
+            if (this_frame.substr(position, 1) === "\n"){
+                this_frame = this_frame.substr(0, position) + " " + this_frame.substr(position);
+            };
+            this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
+        };
+        this_frame_time = parseInt(this_frame_time);
+        new_states.push([this_frame, this_frame_time]);
+    };
+    return new_states;
+};
+
+DELTA.Player.prototype.reduce_user_pauses_during_playback = function(states) {
+    var difference_between_steps = [];
+
+    for(var i = 0; i < states.length-1 ; i++){
+        difference_between_steps.push(states[i+1][1] - states[i][1]);
+    };
+
+    for(var i = 0; i < states.length ; i++){
+        if(difference_between_steps[i] > 2000) {
+            difference_between_steps[i] = (Math.random() * 500) + 1500;
+        }; 
+    };
+
+    for(var i = 0; i < states.length - 1 ; i++){
+        states[i+1][1] = difference_between_steps[i] + states[i][1];
+
+        if(i === states.length -1) {
+            states[i+1][1] = states[i][1] + 250;
+        };
+    };
+
+    return states;
+};
+
+DELTA.Player.prototype.play = function(snapshots) {
+    this.snapshots = snapshots;
+    $(this.view_selector).html(this.snapshots[0][0]);
     var view_selector = this.view_selector;
 
-    if (!(this.states instanceof Array)) {
-        this.states = $.map(this.states, function(value, index) {
+    if (!(this.snapshots instanceof Array)) {
+        this.snapshots = $.map(this.snapshots, function(value, index) {
             return [value];
         });
     };
 
     $(document).on("click", this.play_selector, function() {
 
-        var animation_length_ms = this.states[this.states.length - 1][1];
-        var animation_length_s = Math.ceil(this.states[this.states.length - 1][1] * 10) / 10000;
+        var new_states = this.add_caret_to_states();
 
-        if (animation_length_ms === undefined || animation_length_s === undefined) {
+        new_states = this.reduce_user_pauses_during_playback(new_states);
 
-            animation_length_ms = 10;
-            animation_length_s = 0.2;
-
-        };
-
-        var new_states = [];
-        var this_frame;
-        var this_frame_time;
-        var position;
-
-        for (var i = 0; i < this.states.length; i++) {
-            this_frame = this.states[i][0];
-            this_frame_time = this.states[i][1];
-       
-            if (i < this.states.length-1) {
-                var next_frame = this.states[i + 1][0];
-     
-                for (var x = 0; x <= this_frame.length; x++) {
-
-                    if (!(this_frame[x] === next_frame[x])) {
-                        position = x;
-                        break;
-                    };
-
-                };
-            
-                if (this_frame.length === position){
-                    this_frame = this_frame + " ";
-                };
-
-                if (this_frame.substr(position, 1) === "\n"){
-                    this_frame = this_frame.substr(0, position) + " " + this_frame.substr(position);
-                };
-        
-                this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
-            };
-           
-            new_states.push([this_frame, this_frame_time]);
-        };
-        
         new_states.forEach(function(state){
             setTimeout(function() {
                 $(view_selector).html(state[0]);
             }, state[1]);
         });
 
-
         this.disable();
 
         setTimeout(function() {
             this.enable();
-        }.bind(this), animation_length_ms);
+        }.bind(this), new_states[new_states.length-1][1]);
 
     }.bind(this));
 };
 
-Player.prototype.update_state = function(states) {
-    this.states = states;
+DELTA.Player.prototype.update_snapshots = function(snapshots) {
+    this.snapshots = snapshots;
 };

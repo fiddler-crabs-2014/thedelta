@@ -4,7 +4,8 @@
   <%= form_tag attempt_login_path, class: 'form-signin', method:'POST' do %>
   
   <h2 class="form-signin-heading">Please Sign In</h2>
-    <%= hidden_field_tag :referer_url %>
+    <%= hidden_field_tag :referrer_url %>
+    <%= hidden_field_tag :base_url %>
     <div class="form-group">
     <%= text_field_tag :email_username, "", class: 'form-control input-lg',
     placeholder: 'Email address', style: 'margin:20px; width:440px; border-radius:5px;', autofocus: true %>
