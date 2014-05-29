@@ -32,13 +32,12 @@ describe "User can visit signup page" do
   let(:user) { FactoryGirl.create(:user) }
 
   before (:each) do
-    ApplicationController.any_instance.stub(:last_visited_page).and_return(profile_path)
+    ApplicationController.any_instance.stub(:last_visited_page).and_return(categories_path)
   end
 
   context "and the user can sign up" do
     
-    xit "valid user creditials can create an account" do
-      # visit logout_path
+    xit "with valid user creditials and create an account" do
       visit sign_up_path
       fill_in 'user_name', :with => user.name
       fill_in 'user_username', :with => user.username
@@ -46,9 +45,9 @@ describe "User can visit signup page" do
       fill_in 'user_password', :with => user.password
       fill_in 'user_password_confirmation', :with => user.password
       
-      click_on 'Create User'  
+      click_on 'Create Account'  
 
-      expect(current_path).to eq(profile_path)
+      expect(current_path).to eq(root_path)
     end
 
   end
@@ -67,7 +66,7 @@ describe "User can visit signup page" do
       fill_in 'user_password', :with => 'password'
       fill_in 'user_password_confirmation', :with => 'password'
       
-      click_on 'Create User'  
+      click_on 'Create Account'  
 
       expect(current_path).to eq(sign_up_path)
     end
@@ -80,7 +79,7 @@ describe "User can visit signup page" do
       fill_in 'user_password', :with => 'password'
       fill_in 'user_password_confirmation', :with => 'password'
       
-      click_on 'Create User'  
+      click_on 'Create Account'  
 
       expect(current_path).to eq(sign_up_path)
 
@@ -94,7 +93,7 @@ describe "User can visit signup page" do
       fill_in 'user_password', :with => 'password1'
       fill_in 'user_password_confirmation', :with => 'password2'
       
-      click_on 'Create User'  
+      click_on 'Create Account'  
 
       expect(current_path).to eq(sign_up_path)
 
@@ -136,7 +135,6 @@ describe "User can visit login page" do
       fill_in 'email_username', :with => user.username
       fill_in 'password', :with => 'password'
       click_on 'Sign In' 
-      #expect page to be profile page text 
       expect(current_path).to eq(profile_path)
     end
   end

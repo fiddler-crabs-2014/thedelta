@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
   before_action :confirm_logged_in, only: [:profile, :edit, :update]
 
+  def index
+    redirect_to root_path
+  end
+
 
   def new
     if current_user
       flash[:notice] = "You are logged in, no need to create another account"
-      redirect_to last_visited_page(params)
+      redirect_to profile_path
     else
       @user = User.new  
     end
@@ -15,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = 'You successfullly created an account'
+      flash[:notice] = 'You successfully created an account'
       redirect_to last_visited_page(params)
     else
       render :new

@@ -91,5 +91,4 @@
         return profile_path
       end
     end
-
 end
