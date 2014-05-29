@@ -23,13 +23,13 @@
       <%= hidden_field_tag 'answer_id', @answer.id %>
       <%= hidden_field_tag 'user_id', @answer.user.id %>
       <%= hidden_field_tag 'vote_value', '1' %>
-      <%= submit_tag "Up Vote", class: "btn btn-success btn-sm do_vote"  %>
+      <%= submit_tag "Up Vote", class: "btn btn-success btn-sm do_vote up_vote"  %>
     <% end %>
     <%= form_tag '/vote' do %>
       <%= hidden_field_tag 'answer_id', @answer.id %>
       <%= hidden_field_tag 'user_id', @answer.user.id %>
       <%= hidden_field_tag 'vote_value', '-1' %>
-      <%= submit_tag "Down Vote", class: "btn btn-danger btn-sm do_vote"  %>
+      <%= submit_tag "Down Vote", class: "btn btn-danger btn-sm do_vote down_vote"  %>
     <% end %> 
   <% end %>
 
@@ -44,7 +44,7 @@
 
     </div>
       <div class="show_answer_container" id="delta">
-        <h4 class="answer_header">Delta <button id="play_answer" class="btn btn-primary btn-sm play_answer_show">Play</button></h4>
+        <h4 class="answer_header">Delta <button id="play_answer" class="btn btn-primary btn-sm play_answer_show play">Play</button></h4>
         <pre class="show_delta answer_box" id="preview_answer" value="<%= @answer.id%>" >
           <%= @answer.delta %>
         </pre> 

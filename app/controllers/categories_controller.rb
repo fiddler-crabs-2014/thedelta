@@ -1,7 +1,5 @@
 class CategoriesController < ApplicationController
 
-  protect_from_forgery with: :exception
-
   def index
     if params[:start_language] && params[:end_language]
     	@categories = Category.all

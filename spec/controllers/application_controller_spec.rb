@@ -28,34 +28,6 @@ describe ApplicationController do
         controller.current_user?("").should be_false
       end
     end
-
-    describe "#sign_out" do
-      xit "should return nil" do
-        controller.sign_out.to_not be_success
-      end
-    end
-
-    describe "#signed_in_user" do
-      xit "should redirect to login with flash message" do
-        controller.stub(signed_in?: false)
-        controller.signed_in_user
-        flash[:notice].should eq("Please sign in.")
-      end
-    end
-
-
-    describe "#confirm_logged_in" do
-      xit "should redirect to login with flash message" do
-        expect(controller.confirm_logged_in).to return_error
-      end
-    end
-
-    describe "#confirm_admin" do
-      xit "should redirect to login with flash message" do
-        controller.confirm_admin
-        current_path.should == login_path
-      end
-    end
   end
 
   context "when a user is signed in and a session is set" do
@@ -88,7 +60,7 @@ describe ApplicationController do
     end
 
     describe "#sign_out" do
-      xit "should return nil" do
+      it "should return nil" do
         controller.sign_out.should be_nil
       end
     end
@@ -109,18 +81,13 @@ describe ApplicationController do
 
     describe "#confirm_admin" do
       xit "should redirect to login with flash message" do
-        controller.confirm_admin.should be_nil
-        # current_path.should == login_path
+        controller.confirm_admin.should be_false
       end
     end
   end
 
   context "when a user is an admin" do
-    let!(:admin) { FactoryGirl.create(:admin) }
-    # admin.admin = true
-    # user = double("receiver", :admin => true)
-    # admin.should_receive(:admin).and_return(true)
-
+    let(:admin) { FactoryGirl.create(:admin) }
     before { controller.stub(current_user: admin) }
     before { session[:user_id] = admin.id }
     
@@ -149,7 +116,7 @@ describe ApplicationController do
     end
 
     describe "#sign_out" do
-      xit "should return nil" do
+      it "should return nil" do
         controller.sign_out.should be_nil
       end
     end
@@ -171,7 +138,6 @@ describe ApplicationController do
     describe "#confirm_admin" do
       it "should return true" do
         controller.confirm_admin.should be_true
-        # current_path.should == login_path
       end
     end
   end
