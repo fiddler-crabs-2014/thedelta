@@ -14,8 +14,8 @@ DELTA.Player.prototype.enable = function() {
     $(this.play_selector).removeAttr('disabled');
 };
 
-DELTA.Player.prototype.add_caret_to_states = function() {
-    var new_states = [];
+DELTA.Player.prototype.add_caret_to_snapshots = function() {
+    var snapshots = [];
     var this_frame;
     var this_frame_time;
     var position;
@@ -42,33 +42,33 @@ DELTA.Player.prototype.add_caret_to_states = function() {
             this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
         };
         this_frame_time = parseInt(this_frame_time);
-        new_states.push([this_frame, this_frame_time]);
+        snapshots.push([this_frame, this_frame_time]);
     };
-    return new_states;
+    return snapshots;
 };
 
-DELTA.Player.prototype.reduce_user_pauses_during_playback = function(states) {
+DELTA.Player.prototype.reduce_user_pauses_during_playback = function(snapshots) {
     var difference_between_steps = [];
 
-    for(var i = 0; i < states.length-1 ; i++){
-        difference_between_steps.push(states[i+1][1] - states[i][1]);
+    for(var i = 0; i < snapshots.length-1 ; i++){
+        difference_between_steps.push(snapshots[i+1][1] - snapshots[i][1]);
     };
 
-    for(var i = 0; i < states.length ; i++){
+    for(var i = 0; i < snapshots.length ; i++){
         if(difference_between_steps[i] > 2000) {
             difference_between_steps[i] = (Math.random() * 500) + 1500;
         }; 
     };
 
-    for(var i = 0; i < states.length - 1 ; i++){
-        states[i+1][1] = difference_between_steps[i] + states[i][1];
+    for(var i = 0; i < snapshots.length - 1 ; i++){
+        snapshots[i+1][1] = difference_between_steps[i] + snapshots[i][1];
 
-        if(i === states.length -1) {
-            states[i+1][1] = states[i][1] + 250;
+        if(i === snapshots.length -1) {
+            snapshots[i+1][1] = snapshots[i][1] + 250;
         };
     };
 
-    return states;
+    return snapshots;
 };
 
 DELTA.Player.prototype.play = function(snapshots) {
@@ -84,21 +84,21 @@ DELTA.Player.prototype.play = function(snapshots) {
 
     $(document).on("click", this.play_selector, function() {
 
-        var new_states = this.add_caret_to_states();
+        var snapshots = this.add_caret_to_snapshots();
 
-        new_states = this.reduce_user_pauses_during_playback(new_states);
+        snapshots = this.reduce_user_pauses_during_playback(snapshots);
 
-        new_states.forEach(function(state){
+        snapshots.forEach(function(snapshot){
             setTimeout(function() {
-                $(view_selector).html(state[0]);
-            }, state[1]);
+                $(view_selector).html(snapshot[0]);
+            }, snapshot[1]);
         });
 
         this.disable();
 
         setTimeout(function() {
             this.enable();
-        }.bind(this), new_states[new_states.length-1][1]);
+        }.bind(this), snapshots[snapshots.length-1][1]);
 
     }.bind(this));
 };
