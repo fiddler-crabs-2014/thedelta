@@ -291,6 +291,19 @@ body.custom {
     }
 }
 
+@media all and (max-width: 409px) {
+    .styled-select select {
+        position: relative;
+        top: -14px;
+    }
+    #start_language {
+        margin-left: 27px
+    }
+    #end_language {
+        margin-left: 27px;
+    }
+}
+
 @-moz-document url-prefix() {
   #start_language {
     margin-left: 20px;
