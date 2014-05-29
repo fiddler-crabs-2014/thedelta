@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def login  
+    if current_user
+      redirect_to root_path
+    end
   end
 
   def attempt_login
@@ -9,7 +12,6 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = 'Successfully logged in'
-      puts "i'm in here!"
       redirect_to last_visited_page(params)
     else
       session.clear

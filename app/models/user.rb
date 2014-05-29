@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :username, format: /\A[^\W]+\z/
+  validates :email, presence: true, uniqueness: true, format: /\w{1,}[@]+\w{1,}[.]+\w{2,}/
   has_secure_password
   
   has_many :answers

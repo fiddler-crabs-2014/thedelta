@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def new
     if current_user
       flash[:notice] = "You are logged in, no need to create another account"
-      redirect_to profile_path
+      redirect_to last_visited_page(params)
     else
       @user = User.new  
     end
@@ -32,11 +32,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-      if @user.update_attributes(user_params)
-        redirect_to :profile, notice: 'User was successfully updated.'
-      else
-        render action: "edit"
-      end
+    if @user.update_attributes(user_params)
+      redirect_to :profile, notice: 'User was successfully updated.'
+    else
+      render action: "edit"
+    end
   end
 
   private

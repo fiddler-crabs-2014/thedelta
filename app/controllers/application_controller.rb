@@ -33,7 +33,7 @@
 
   def sign_out
     session.clear
-    self.current_user = nil
+    current_user = nil
   end
 
   def signed_in_user

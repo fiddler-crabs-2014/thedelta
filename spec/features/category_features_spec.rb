@@ -19,7 +19,7 @@ describe "Category Features" do
 			let!(:category) { FactoryGirl.create(:category) }
 			let!(:categories) { [category, Category.create(name:"Logic Flow")] }
 			let!(:question){ FactoryGirl.create(:question)}
-
+			let!(:new_category) { Category.create(name:"Classes") }
 
 			it "should display start language" do
 				visit categories_path(start_language: start_language.name, end_language: end_language.name)
@@ -38,10 +38,10 @@ describe "Category Features" do
 				end
 			end
 
-			xit "user can click on a category, and redirect to questions index" do
+			it "user can click on a category, and redirect to questions index" do
 				visit categories_path(start_language: start_language.name, end_language: end_language.name)
-				click_on(category.name)
-				current_path.should == questions_path(category: category.id, start_language: start_language.name, end_language: end_language.name)
+				click_on(new_category.name)
+				current_path.should == questions_path
 			end
 
 		end
