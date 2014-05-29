@@ -18,8 +18,8 @@ describe User do
   end
 
   context 'invalid values for each property' do
-    xit { user.should_not allow_value('dsaff', 'john@', '@john').for(:email) }
-    xit { user.should_not allow_value('john@smith', 'john smith', 'john+smith').for(:username) }
+    it { user.should_not allow_value('dsaff', 'john@', '@john').for(:email) }
+    it { user.should_not allow_value('john@smith', 'john smith', 'john+smith').for(:username) }
   end
 
   it { should have_many(:answers) }

@@ -1,8 +1,5 @@
 class QuestionsController < ApplicationController
 
-  protect_from_forgery with: :exception
-
-
   def index
     if params[:start_language] && params[:end_language] && params[:category]
       @category = Category.find(params[:category])

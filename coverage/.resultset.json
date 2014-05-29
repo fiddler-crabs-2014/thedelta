@@ -1,38 +1,38 @@
 {
   "RSpec": {
     "coverage": {
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/user.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/user.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/user.rb": [
         1,
         1,
-        1,
-        null,
-        null,
         1,
         1,
         1,
         null,
         1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        8,
+        4,
+        4,
+        4,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/helpers/application_helper.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/answers_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/answers_controller.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/answers_controller.rb": [
         1,
         null,
         1,
@@ -72,38 +72,30 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/application_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/application_controller.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/application_controller.rb": [
         1,
-        null,
-        null,
-        null,
-        null,
         1,
         1,
         1,
         null,
         1,
-        135,
+        149,
         null,
         null,
         1,
-        92,
-        8,
+        116,
+        13,
         null,
         null,
         null,
         null,
         null,
         1,
-        34,
+        35,
+        null,
+        35,
         null,
         34,
-        null,
-        33,
         1,
         null,
         null,
@@ -115,8 +107,8 @@
         null,
         null,
         1,
-        0,
-        0,
+        2,
+        2,
         null,
         null,
         1,
@@ -127,12 +119,12 @@
         null,
         null,
         1,
+        14,
+        2,
+        2,
+        2,
+        null,
         12,
-        2,
-        2,
-        2,
-        null,
-        10,
         null,
         null,
         null,
@@ -157,226 +149,177 @@
         null,
         1,
         1,
-        159,
+        170,
         null,
         null,
         1,
-        159,
+        170,
         null,
-        null
-      ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/categories_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/categories_controller.rb": [
->>>>>>> master
-        1,
         null,
         1,
+        0,
+        0,
+        0,
+        0,
+        0,
         null,
-        1,
-        5,
-        2,
-        2,
-        2,
-        null,
-        3,
-        null,
+        0,
         null,
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/languages_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/languages_controller.rb": [
->>>>>>> master
-        1,
-        null,
-        1,
-        10,
-        10,
-        null,
-        null,
-        null
-      ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/questions_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/questions_controller.rb": [
->>>>>>> master
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        11,
-        8,
-        8,
-        8,
-        8,
-        8,
-        null,
-        3,
-        null,
-        null,
-        null,
-        null,
-        1,
-        14,
-        14,
-        14,
-        14,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/sessions_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/sessions_controller.rb": [
->>>>>>> master
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        6,
-        null,
-        6,
-        4,
-        null,
-        2,
-        null,
-        6,
-        6,
-        null,
-        null,
-        null,
-        6,
-        4,
-        4,
-        null,
-        4,
-        1,
-        null,
-        3,
-        null,
-        null,
-        2,
-        2,
-        2,
-        null,
-        null,
-        null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        null,
-        null,
-        null
-      ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/users_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/users_controller.rb": [
->>>>>>> master
-        1,
-        1,
-        null,
-        null,
-        1,
-        3,
-        0,
-        0,
-        null,
-        3,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        3,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        3,
-        2,
-        2,
-        null,
-        2,
-        0,
-        null,
-        2,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        3,
-        null,
-        null,
-        1,
-        4,
-        null,
-        4,
-        4,
-        4,
-        null,
-        null,
-        4,
-        null,
-        null,
-        null,
-        null,
-        null,
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/categories_controller.rb": [
         1,
         null,
         1,
         7,
+        3,
+        3,
+        3,
+        null,
+        4,
+        null,
         null,
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/controllers/votes_controller.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/controllers/votes_controller.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/languages_controller.rb": [
         1,
         null,
         1,
-        49,
+        10,
+        10,
+        null,
+        null,
+        null
+      ],
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/questions_controller.rb": [
+        1,
+        null,
+        1,
+        12,
+        9,
+        9,
+        9,
+        9,
+        9,
+        null,
+        3,
+        null,
+        null,
+        null,
+        null,
+        1,
+        14,
+        14,
+        14,
+        14,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/sessions_controller.rb": [
+        1,
+        null,
+        1,
+        7,
+        0,
+        null,
+        null,
+        null,
+        1,
+        8,
+        null,
+        8,
+        5,
+        5,
+        5,
+        null,
+        3,
+        3,
+        3,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/users_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        3,
+        0,
+        0,
+        null,
+        3,
+        null,
+        null,
+        null,
+        1,
+        4,
+        4,
+        2,
+        2,
+        2,
+        null,
+        2,
+        null,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        4,
+        4,
+        2,
+        null,
+        2,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        8,
+        null,
+        null,
+        null
+      ],
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/votes_controller.rb": [
+        1,
+        null,
+        1,
         49,
         49,
         null,
@@ -402,11 +345,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/answer.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/answer.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/answer.rb": [
         1,
         1,
         1,
@@ -427,38 +366,22 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/category.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/category.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/category.rb": [
         1,
         1,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/comment.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/comment.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/comment.rb": [
         1,
         1,
         1,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/language.rb": [
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/language.rb": [
         1,
         null
       ],
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/question.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/language.rb": [
-        1,
-        null
-      ],
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/question.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/question.rb": [
         1,
         1,
         1,
@@ -472,20 +395,12 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/session.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/session.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/session.rb": [
         1,
         1,
         null
       ],
-<<<<<<< HEAD
-      "/Users/philiplondon/Desktop/dbc/phase3/thedelta/app/models/vote.rb": [
-=======
-      "/Users/johnathan/Desktop/DBC/Week8/thedelta/app/models/vote.rb": [
->>>>>>> master
+      "/Users/ShaunMcGeever/Desktop/thedelta/app/models/vote.rb": [
         1,
         1,
         1,
@@ -516,10 +431,6 @@
         null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1401327716
-=======
-    "timestamp": 1401328102
->>>>>>> master
+    "timestamp": 1401347535
   }
 }
