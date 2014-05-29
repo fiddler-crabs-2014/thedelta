@@ -9,12 +9,10 @@
           e.preventDefault();
           var data = $(this).parent().serialize();
 
-          console.log("vote clicked: " + data);
 
           $.post('/vote.json', data)
           .success(function(response){
 
-            console.log("AJAX success" + response.text);
             $(response.id).html(response.text);
 
           });
