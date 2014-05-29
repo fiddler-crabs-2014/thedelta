@@ -1,8 +1,4 @@
  class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
- 
-
   protect_from_forgery with: :exception
   helper_method :current_user, :signed_in?, :current_admin
   before_action :controller, :action
@@ -84,4 +80,16 @@
     def action
       @action ||= self.action_name
     end
+
+    def last_visited_page(params)
+      referrer_url = params[:referrer_url]
+      base_url = params[:base_url]
+      last_path_visited = referrer_url.gsub!(base_url, '')
+      if last_path_visited != '/sign-up' &&  last_path_visited != '/login'
+        return last_path_visited
+      else
+        return profile_path
+      end
+    end
+
 end

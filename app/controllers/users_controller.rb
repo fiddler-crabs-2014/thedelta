@@ -6,32 +6,17 @@ class UsersController < ApplicationController
     if current_user
       flash[:notice] = "You are logged in, no need to create another account"
       redirect_to profile_path
+    else
+      @user = User.new  
     end
-    @user = User.new
-
-    # respond_to do |format|
-    #   format.html # new.html.erb
-    #   format.json { render json: @user }
-    # end
   end
 
   def create
     @user = User.new(user_params)
-
-    # if params[:password] != params[:password_confirmation]
-    #   flash[:notice] = 'Passwords did not match'
-    #   render :new
-    # end
-
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = 'You successfullly created an account'
-
-      if params[:referer_url]
-        redirect_to params[:referer_url]
-      else
-        redirect_to profile_path
-      end
+      redirect_to last_visited_page(params)
     else
       render :new
     end
@@ -47,16 +32,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
-    respond_to do |format|
       if @user.update_attributes(user_params)
-        format.html { redirect_to :profile, notice: 'User was successfully updated.' }
-        # format.json { head :no_content }
+        redirect_to :profile, notice: 'User was successfully updated.'
       else
-        format.html { render action: "edit" }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   private

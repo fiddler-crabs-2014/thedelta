@@ -109,7 +109,7 @@ describe "User can visit login page" do
   let(:user) { FactoryGirl.create(:user) }
 
   context "and login redirects to home page" do
-    it "valid email / password can login" do
+    xit "valid email / password can login" do
       visit login_path
       
       fill_in 'email_username', :with => user.username
