@@ -1,5 +1,5 @@
   $(document).ready(function(){
-    if(this_page("QuestionsController", "index")){
+    if(DELTA.is_page("QuestionsController", "index")){
       var questions = $('.question_index');
       var question_id_array = [];
       var players = {};
@@ -14,7 +14,7 @@
    
         $.get('get_answer/', {question_id: questionId}, function(response) {
    
-              players[questionId] = new Player({
+              players[questionId] = new DELTA.Player({
                   play_selector: "#Play_Question_"+questionId,
                   view_selector: "#Preview_Question_"+questionId
               });
