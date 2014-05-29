@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
 
   def attempt_login
     user = User.find_user_by_email_or_username(params[:email_username])
-
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = 'Successfully logged in'

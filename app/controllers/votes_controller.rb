@@ -3,7 +3,7 @@ class VotesController < ApplicationController
   def record
     @answer = Answer.find(params[:answer_id])
     record_vote = Vote.record_vote(session[:user_id], 
-      params[:answer_id], params[:vote_value])
+    params[:answer_id], params[:vote_value])
 
     if params[:question_id]
       respond_to do |format|
