@@ -15,13 +15,11 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-      if @user.save
-        session[:user_id] = @user.id
-        redirect_to :profile, notice: 'User was successfully created.'
-      else
-        render action: "new"
-      end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to :profile, notice: 'User was successfully created.'
+    else
+      render action: "new"
     end
   end
 
@@ -35,11 +33,10 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-      if @user.update_attributes(user_params)
-        redirect_to admin_users_path, notice: 'User was successfully updated.'
-      else
-        render action: "edit"
-      end
+    if @user.update_attributes(user_params)
+      redirect_to admin_users_path, notice: 'User was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
