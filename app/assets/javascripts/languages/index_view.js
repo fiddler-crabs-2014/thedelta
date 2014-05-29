@@ -1,13 +1,22 @@
 $(document).ready(function(){
   if(DELTA.is_page("LanguagesController", "index")){
-    start_languages         = $('#start_language').text().split("\n");
-    end_languages           = $('#end_language').text().split("\n");
+    start_languages         = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
+    end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
     start_language_selected = 'SELECT LANGUAGE';
     end_language_selected   = 'SELECT LANGUAGE';
 
+    $('#start_language').empty()
+    for (var i=0;i<start_languages.length;i++) {
+      $('#start_language').append("<option value='" + i + "'>" + start_languages[i] + "</option>")
+    }
+    $('#end_language').empty()
+    for (var i=0;i<end_languages.length;i++) {
+      $('#end_language').append("<option value='" + i + "'>" + end_languages[i] + "</option>")
+    }
+
     $('#start_language').on('change', function(){
       start_language_selected = $('#start_language option:selected').text();
-      end_languages           = $('#start_language').text().split("\n");
+      end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
       $('#end_language').empty();
 
       end_languages.forEach(function(language) {
@@ -29,9 +38,12 @@ $(document).ready(function(){
     $('.go_link').on('click', function(){
       if (start_language_selected === 'SELECT LANGUAGE' || end_language_selected === 'SELECT LANGUAGE') {
         $('#error_messages').html('PLEASE SELECT TWO LANGUAGES')
+        return false;
       } else {
         ahref = $(this).find('a');
         ahref.attr('href', "/categories?end_language=" + end_language_selected + "&start_language=" + start_language_selected);   
+        start_languages         = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
+        end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
       }
     });
     
