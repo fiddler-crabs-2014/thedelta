@@ -1,14 +1,9 @@
-// to call:
-// var editor = new DELTA.Editor("#txt");
-// editor.initialize_tab_replacement() OR
-// editor.initalize_char_replacement([3, "\t"])
-
 var DELTA = DELTA || {};
 DELTA.Editor = function(textarea_selector) {
   this.textarea_selector = textarea_selector;
 };
 
-// initialize_character_replacement(keys)
+
 DELTA.Editor.prototype.initialize_character_replacement = function(keys_to_replace){
   this.character_replacement_data = { 9: "\t", 
                                      13: "\n" };
