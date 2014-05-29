@@ -10,7 +10,8 @@
   background-color: rgba(229,242,247,0.9);
 }
 
-.answer-block {
+.answer-block,
+.answers_list_item {
   margin-bottom: 50px;
   padding: 10px;
   border-radius: 10px;
@@ -44,7 +45,7 @@
   background-color: #4E9689;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  top: 107px;
+  top: 81px;
   left: 0;
   padding: 10px;
   font-size: 1em;
@@ -124,7 +125,10 @@
 
 @media all and (max-width: 745px) {
   .add_answer {
-    top: 111px;
+    top: 110px;
+    width: 100px;
+    margin:0;
+    padding: 3px 3px;
   }
 }
 

@@ -1,7 +1,7 @@
 $(document).ready(function(){
   if(DELTA.is_page("LanguagesController", "index")){
-    start_languages         = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
-    end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
+    start_languages         = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'PHP']
+    end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'PHP']
     start_language_selected = 'SELECT LANGUAGE';
     end_language_selected   = 'SELECT LANGUAGE';
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     $('#start_language').on('change', function(){
       start_language_selected = $('#start_language option:selected').text();
-      end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
+      end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'PHP']
       $('#end_language').empty();
 
       end_languages.forEach(function(language) {
@@ -42,8 +42,8 @@ $(document).ready(function(){
       } else {
         ahref = $(this).find('a');
         ahref.attr('href', "/categories?end_language=" + end_language_selected + "&start_language=" + start_language_selected);   
-        start_languages         = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
-        end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'Java']
+        start_languages         = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'PHP']
+        end_languages           = ['SELECT LANGUAGE', 'Ruby', 'JavaScript', 'Python', 'PHP']
       }
     });
     

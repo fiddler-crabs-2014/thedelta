@@ -5,6 +5,12 @@
   height: auto;
   padding: 10px;
   border-radius: 10px;
+  background: url(hazy.png);
+}
+
+div .answers{
+  background: url(hazy.png);
+
 }
 
 .answers.new {
