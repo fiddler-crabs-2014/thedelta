@@ -63,7 +63,8 @@ describe AnswersController do
 	describe "#create" do
 
 		it "should respond with a delta paramter" do
-		    get :create, delta: answer.delta
+   			ApplicationController.any_instance.stub(:current_user).and_return(user)
+		    get :create, delta: answer.delta, question_id: answer.question
 		    expect(response).to be_success
 		end
 
@@ -74,8 +75,7 @@ describe AnswersController do
 
 	  it "should create an answer with valid attributes" do
 	    expect {
-	      Answer.create(question_id: question.id, user_id: user.id, delta: "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}")
-	      	
+	      Answer.create(question_id: question.id, user_id: user.id, delta: "{\"0\":[\"\",\"0\"],\"1\":[\"t\",\"1423\"],\"2\":[\"th\",\"1511\"]}") 	
 	      }.to change { Answer.count }.by(1)
 	  end
 

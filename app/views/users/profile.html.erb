@@ -1,8 +1,19 @@
 <div class="username_header"><%= "Welcome, #{@user.name}!" %></div>
-<h2>Answers:</h2>
-<ul>
+<h2 style="color:white">Contributed Answers:</h2>
+<table class="table" style="color:white;">
+  <tr>
+    <th>Category</th>
+    <th>Question</th>
+    <th>Language</th>
+    <th>Votes</th>
+  </tr>
   <% @user.answers.each do |answer| %>
-    <li><%= link_to "#{answer.question.query} #{answer.question.start_language} -> #{answer.question.end_language}", question_path(answer.question) %></li>
+    <tr>
+      <td><%= "#{answer.question.category.name}"%></td>
+      <td><%= link_to "#{answer.question.query}", answer_path(answer) %></td>
+      <td><%= "#{answer.question.start_language} -> #{answer.question.end_language}" %></td>
+      <td><%= "#{answer.upvote_count} Up | #{answer.downvote_count} Down" %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 

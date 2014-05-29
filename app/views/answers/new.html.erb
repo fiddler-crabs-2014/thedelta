@@ -22,7 +22,6 @@
 
   <div id="recorder">
     <%= form_for @answer, url: '/answers/create.json', method:'post', html: { name:"recorder" } do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :question_id, :value => @question.id %>
       <%= f.text_area(:delta, size: '50x7', name:'box', placeholder: "Type code example here. Then hit record to start recording your demo.") %>
       <%= f.submit "Save" , :class => "btn btn-warning btn-lg", :id => "save" %>

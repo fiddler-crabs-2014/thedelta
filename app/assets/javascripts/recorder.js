@@ -1,10 +1,5 @@
 var DELTA = DELTA || {};
 
-// DELTA.Snapshot = function(text, time) {
-//     this.text = text;
-//     this.time = time;
-// };
-
 DELTA.Recorder = function() { 
     this.snapshots = [0];
     this.recording = false;
@@ -47,13 +42,13 @@ DELTA.Recorder.prototype.stop = function() {
     return this.snapshots;
 }
 
-DELTA.Recorder.prototype.save = function(question_id, user_id) {
+DELTA.Recorder.prototype.save = function(question_id, token) {
     return $.ajax({
-        url: "/answers/create.json", 
+        url: "/answers/create.json",
         data: {
+            token: token,
             delta: this.snapshots,
-            question_id: question_id,
-            user_id: user_id
+            question_id: question_id
         }
     });
 };

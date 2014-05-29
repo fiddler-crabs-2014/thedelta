@@ -58,13 +58,11 @@ describe "Question Features" do
 				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
 				expect(page).to have_content answer.user.username
 			end
-
+			
 			it "should show the top answer for each question, if that question has an answer" do
 				visit questions_path(category: answer.question.category, start_language: question.start_language, end_language: question.end_language)
 				page.all('pre').count.should eq(Answer.where(question: answer.question).count)
 			end
-
-
 		end
 	end
 

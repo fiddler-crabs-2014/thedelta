@@ -92,12 +92,18 @@ DELTA.RecorderView.prototype.setup_save = function() {
     e.preventDefault();
 
     var question_id = parseInt($('#answer_question_id').attr('value'));
-    var user_id = parseInt($('#answer_user_id').attr('value'));
+    var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
 
     $("#loader").removeClass("hidden");
     $("#loader").addClass("show");
 
-    this.recorder.save(question_id, user_id).done(function(response) {
+    $.ajaxSetup( {
+      beforeSend: function ( xhr ) {
+        xhr.setRequestHeader( 'X-CSRF-Token', token );
+      }
+    });
+
+    this.recorder.save(question_id, token).done(function(response) {
       window.location.replace("/questions/" + response.question_id);
     });
   }.bind(this));

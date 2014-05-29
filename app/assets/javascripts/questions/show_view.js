@@ -2,7 +2,7 @@
     if(DELTA.is_page("QuestionsController", "show")){
       var questionId = $("h1").attr("id");
       var players = {};
-
+      
       
 
       $.get('/get_answers/', { question_id: questionId }, function(response) {
@@ -19,6 +19,6 @@
       var end_language   = $('#end_lang').text()
       var category_id    = parseInt($('h1').attr('class'))
 
-      $('#back_to_category').attr('href', '/questions?category='+category_id+'&end_language='+end_language+'&start_language='+start_language)
+      $('#back_to_questions').attr('href', '/questions?category='+category_id+'&end_language='+end_language+'&start_language='+start_language)
     };
   });
