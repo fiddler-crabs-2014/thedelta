@@ -1,5 +1,5 @@
 <div class="answer-block">
-  <h4 class="question_index"> <%= link_to question.query, question_path(question)%> </h4>
+  <h4 class="question_index"> <%= link_to question.query, question_path(question.id)%> </h4>
 
   <% if !question.answers.empty? %>
     <span style="font-family: Raleway, sans-serif"><%= link_to 'Top answer', answer_path(question.top_answer) %> submitted by <%= question.top_answer.user.username %> <%= link_to '(see more answers)', question_path(question) %></span>
