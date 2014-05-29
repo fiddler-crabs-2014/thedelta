@@ -2,9 +2,9 @@
 ruby   = Language.new(:name => "Ruby")
 javascript    = Language.new(:name => "JavaScript")
 python = Language.new(:name => "Python")
-java   = Language.new(:name => "Java")
+php   = Language.new(:name => "php")
 
-languages = [ruby, javascript, python, java]
+languages = [ruby, javascript, python, php]
 
 languages.each { |language| language.save }
 
@@ -25,7 +25,7 @@ categories.each { |method| method.save }
 # Question Data
 	## Enumerables
 		# Start: Ruby 
-			# Javascript
+			# javascript
 			Question.create(category_id: enumerables.id, :query => "How do I make an each method?", start_language: ruby.name, end_language: javascript.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: ruby.name, end_language: javascript.name)
 
@@ -33,11 +33,11 @@ categories.each { |method| method.save }
 			Question.create(category_id: enumerables.id, :query => "How do I make an each method?", start_language: ruby.name, end_language: python.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: ruby.name, end_language: python.name)
 
-			# Java
-			Question.create(category_id: enumerables.id, :query => "How do I make an each method?", start_language: ruby.name, end_language: java.name)
-			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: ruby.name, end_language: java.name)
+			# php
+			Question.create(category_id: enumerables.id, :query => "How do I make an each method?", start_language: ruby.name, end_language: php.name)
+			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: ruby.name, end_language: php.name)
 
-		# Start: Javascript
+		# Start: javascript
 			# Ruby
 			Question.create(category_id: enumerables.id, :query => "How do I make a forEach method?", start_language: javascript.name, end_language: ruby.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: javascript.name, end_language: ruby.name)
@@ -46,128 +46,130 @@ categories.each { |method| method.save }
 			Question.create(category_id: enumerables.id, :query => "How do I make a forEach method?", start_language: javascript.name, end_language: python.name)
 			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: javascript.name, end_language: python.name)
 			
-			# Java
-			Question.create(category_id: enumerables.id, :query => "How do I make a forEach method?", start_language: javascript.name, end_language: java.name)
-			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: javascript.name, end_language: java.name)
+			# php
+			Question.create(category_id: enumerables.id, :query => "How do I make a forEach method?", start_language: javascript.name, end_language: php.name)
+			Question.create(category_id: enumerables.id, :query => "How do I make a map method?", start_language: javascript.name, end_language: php.name)
 		#
 	##
 
 	## logic
 		# Start: Ruby
-			# Javascript
+			# javascript
 				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: javascript.name)
 
 			# Python
 				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: java.name)
+			# php
+				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: php.name)
 
-		# Start: Javascript
+		# Start: javascript
 			# Ruby
 				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: javascript.name, end_language: ruby.name)
 
 			# Python
 				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: javascript.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: javascript.name, end_language: java.name)
+			# php
+				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: javascript.name, end_language: php.name)
 		#
 	##
 
 	## classes
 		# Start: Ruby
-			# Javascript
+			# javascript
 				Question.create(category_id: classes.id, :query => "How do I make a class like object?", start_language: ruby.name, end_language: javascript.name)
 
 			# Python
 				Question.create(category_id: classes.id, :query => "How do I make a class like object?", start_language: ruby.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: classes.id, :query => "How do I make a class like object?", start_language: ruby.name, end_language: java.name)
+			# php
+				Question.create(category_id: classes.id, :query => "How do I make a class like object?", start_language: ruby.name, end_language: php.name)
 
-		# Start: Javascript
+		# Start: javascript
 			# Ruby
 				Question.create(category_id: classes.id, :query => "How do I make a constructor function?", start_language: javascript.name, end_language: ruby.name)
 
 			# Python
 				Question.create(category_id: classes.id, :query => "How do I make a constructor function?", start_language: javascript.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: classes.id, :query => "How do I make a constructor function?", start_language: javascript.name, end_language: java.name)
+			# php
+				Question.create(category_id: classes.id, :query => "How do I make a constructor function?", start_language: javascript.name, end_language: php.name)
 		#
 	##
 
 	## methods
 		# Start: Ruby
-			# Javascript
+			# javascript
 				Question.create(category_id: methods.id, :query => "How do I make a method?", start_language: ruby.name, end_language: javascript.name)
 
 			# Python
 				Question.create(category_id: methods.id, :query => "How do I make a method?", start_language: ruby.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: methods.id, :query => "How do I make a method?", start_language: ruby.name, end_language: java.name)
+			# php
+				Question.create(category_id: methods.id, :query => "How do I make a method?", start_language: ruby.name, end_language: php.name)
 
-		# Start: Javascript
+		# Start: javascript
 			# Ruby
 				Question.create(category_id: methods.id, :query => "How do I make a function?", start_language: javascript.name, end_language: ruby.name)
 
 			# Python
 				Question.create(category_id: methods.id, :query => "How do I make a function?", start_language: javascript.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: methods.id, :query => "How do I make a function?", start_language: javascript.name, end_language: java.name)
+			# php
+				Question.create(category_id: methods.id, :query => "How do I make a function?", start_language: javascript.name, end_language: php.name)
 		#
 	##
 
 
 	## Regex
 		# Start: Ruby
-			# Javascript
+			# javascript
 				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: ruby.name, end_language: javascript.name)
 
 			# Python
 				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: ruby.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: ruby.name, end_language: java.name)
+			# php
+				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: ruby.name, end_language: php.name)
 
-		# Start: Javascript
+		# Start: javascript
 			# Ruby
 				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: javascript.name, end_language: ruby.name)
 
 			# Python
 				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: javascript.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: javascript.name, end_language: java.name)
+			# php
+				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: javascript.name, end_language: php.name)
 		#
 	##
 
 
 	## Regex
 		# Start: Ruby
-			# Javascript
+			# javascript
 				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: ruby.name, end_language: javascript.name)
 
 			# Python
 				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: ruby.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: ruby.name, end_language: java.name)
+			# php
+				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: ruby.name, end_language: php.name)
 
-		# Start: Javascript
+		# Start: javascript
 			# Ruby
 				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: javascript.name, end_language: ruby.name)
 
 			# Python
 				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: javascript.name, end_language: python.name)
 				
-			# Java
-				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: javascript.name, end_language: java.name)
+			# php
+				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: javascript.name, end_language: php.name)
 		#
 	##
+
+	
 
 User.delete_all
 phil = User.create(:name => 'phil', :username => 'philipe', :email => 'phil@london.com', :password_digest => 'hello', :password => 'hello', admin: true)
