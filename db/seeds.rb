@@ -2,7 +2,7 @@
 ruby   = Language.new(:name => "Ruby")
 javascript    = Language.new(:name => "JavaScript")
 python = Language.new(:name => "Python")
-php   = Language.new(:name => "php")
+php   = Language.new(:name => "PHP")
 
 languages = [ruby, javascript, python, php]
 
@@ -169,7 +169,7 @@ categories.each { |method| method.save }
 		#
 	##
 
-	
+
 
 User.delete_all
 phil = User.create(:name => 'phil', :username => 'philipe', :email => 'phil@london.com', :password_digest => 'hello', :password => 'hello', admin: true)
