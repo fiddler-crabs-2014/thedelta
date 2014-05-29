@@ -7,9 +7,9 @@
     <pre class="show_answer" id="Preview_Question_<%=question.id %>">
 
     </pre>
-    <button id="Play_Question_<%= question.id %>" class="btn btn-primary btn-sm">Play</button>
-     <%= link_to 'View all Deltas', question_path(question), :class=>"btn btn-success btn-sm" %>
-     <%= link_to 'Submit Answer', "/answers/new?question=#{question.id}", :class=>"btn btn-sm submit_button" %>
+    <button id="Play_Question_<%= question.id %>" class="btn btn-primary btn-sm play">Play</button>
+     <%= link_to 'View all Deltas', question_path(question), :class=>"btn btn-success btn-sm answer" %>
+     <%= link_to 'Submit Answer', "/answers/new?question=#{question.id}", :class=>"btn btn-sm  submit_button" %>
   <% else %>
     <p><%= link_to 'Submit an answer', "/answers/new?question=#{question.id}", :class => 'question_link' %></p>
   <% end %>

@@ -15,7 +15,7 @@
 
       <h1>Teach me <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'SELECT LANGUAGE'}, {:id => 'end_language'}) %></h1>
       
-      <div class="go_link">
+      <div class="go_link main-button">
         <span><%= link_to 'Go learn!', categories_path %></span>
       </div> 
   </div>
