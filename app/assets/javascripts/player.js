@@ -26,14 +26,6 @@ DELTA.Player.prototype.play = function(snapshots) {
     };
 
     $(document).on("click", this.play_selector, function() {
-        console.log("Playing");
-        var animation_length_ms = this.snapshots[this.snapshots.length - 1][1];
-        var animation_length_s = Math.ceil(this.snapshots[this.snapshots.length - 1][1] * 10) / 10000;
-
-        if (animation_length_ms === undefined || animation_length_s === undefined) {
-            animation_length_ms = 10;
-            animation_length_s = 0.2;
-        };
 
         var new_states = [];
         var this_frame;
@@ -46,6 +38,7 @@ DELTA.Player.prototype.play = function(snapshots) {
 
             if (i < this.snapshots.length-1) {
                 var next_frame = this.snapshots[i + 1][0];
+
                 for (var x = 0; x <= this_frame.length; x++) {
                     if (!(this_frame[x] === next_frame[x])) {
                         position = x;
@@ -60,8 +53,32 @@ DELTA.Player.prototype.play = function(snapshots) {
                 };
                 this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
             };
+            this_frame_time = parseInt(this_frame_time);
+
             new_states.push([this_frame, this_frame_time]);
         };
+        var difference_between_steps = [];
+
+        for(var i = 0; i < new_states.length-1 ; i++){
+            difference_between_steps.push(new_states[i+1][1] - new_states[i][1]);
+        };
+
+        for(var i = 0; i < new_states.length ; i++){
+            if(difference_between_steps[i] > 2000) {
+                difference_between_steps[i] = (Math.random() * 500) + 1500;
+            }; 
+        };
+
+        for(var i = 0; i < new_states.length - 1 ; i++){
+            new_states[i+1][1] = difference_between_steps[i] + new_states[i][1];
+
+            if(i === new_states.length -1) {
+                new_states[i+1][1] = new_states[i][1] + 250;
+            };
+        };
+
+
+
         
         new_states.forEach(function(state){
             setTimeout(function() {
@@ -73,7 +90,7 @@ DELTA.Player.prototype.play = function(snapshots) {
 
         setTimeout(function() {
             this.enable();
-        }.bind(this), animation_length_ms);
+        }.bind(this), new_states[new_states.length-1][1]);
 
     }.bind(this));
 };

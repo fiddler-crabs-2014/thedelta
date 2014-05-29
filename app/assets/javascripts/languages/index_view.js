@@ -1,6 +1,5 @@
 $(document).ready(function(){
   if(DELTA.is_page("LanguagesController", "index")){
-    console.log("hi");
     var start_languages         = $('#start_language').text().split("\n");
     var end_languages           = $('#end_language').text().split("\n");
     var start_language_selected = 'SELECT LANGUAGE';
