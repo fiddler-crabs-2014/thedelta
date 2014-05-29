@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   def attempt_login
 
     if params[:email_username].present? && params[:password].present?
-      #user can login using either email or username
       if params[:email_username].include?("@")
         found_user = User.where(email: params[:email_username]).first
       else

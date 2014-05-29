@@ -1,5 +1,5 @@
 class BaseAnswerController < ApplicationController
-	
+
 	def create
 	  if params[:delta].present? && params[:delta].length >1
 	    @answer = Answer.new(delta: params[:delta].to_json, user_id: current_user.id, question_id: params[:question_id]) 
@@ -7,7 +7,7 @@ class BaseAnswerController < ApplicationController
 	      render json: { question_id: @answer.question_id }.to_json
 	    else
 	      @answer.errors.full_messages
-	      redirect_to new_answer_path
+	      redirect_to new_answer_path(question: params[:question])
 	    end
 	  else
 	    flash[:notice] = "That was not a valid Answer."
