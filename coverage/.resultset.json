@@ -71,11 +71,19 @@
         1,
         null,
         1,
+<<<<<<< HEAD
         137,
         null,
         null,
         1,
         87,
+=======
+        141,
+        null,
+        null,
+        1,
+        91,
+>>>>>>> f725d62ceeab7237efcf4bc3f66e7f8531532435
         8,
         null,
         null,
@@ -177,7 +185,10 @@
         null
       ],
       "/Users/ShaunMcGeever/Desktop/thedelta/app/controllers/questions_controller.rb": [
+<<<<<<< HEAD
         1,
+=======
+>>>>>>> f725d62ceeab7237efcf4bc3f66e7f8531532435
         1,
         1,
         null,
@@ -299,6 +310,37 @@
         null,
         2,
         0,
+<<<<<<< HEAD
+        null,
+        2,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        4,
+        null,
+        4,
+        4,
+        4,
+        null,
+        null,
+        4,
+        null,
+        null,
+        null,
+=======
+>>>>>>> f725d62ceeab7237efcf4bc3f66e7f8531532435
         null,
         2,
         null,
@@ -328,6 +370,11 @@
         null,
         null,
         null,
+        null,
+        1,
+        null,
+        1,
+        7,
         null,
         1,
         null,
@@ -450,6 +497,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1401350610
+=======
+    "timestamp": 1401312075
+>>>>>>> f725d62ceeab7237efcf4bc3f66e7f8531532435
   }
 }
