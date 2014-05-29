@@ -20,17 +20,6 @@ describe "Category Features" do
 			let!(:categories) { [category, Category.create(name:"Logic Flow")] }
 			let!(:question){ FactoryGirl.create(:question)}
 
-
-			it "should display start language" do
-				visit categories_path(start_language: start_language.name, end_language: end_language.name)
-				expect(page).to have_content(start_language.name)
-			end
-
-			it "should display end language" do
-				visit categories_path(start_language: start_language.name, end_language: end_language.name)
-				expect(page).to have_content(end_language.name)
-			end
-
 			it "should display all categories" do
 				visit categories_path(start_language: start_language, end_language: end_language)
 				 categories.each do |category|
