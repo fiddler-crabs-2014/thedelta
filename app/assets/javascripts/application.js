@@ -13,11 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.caret
-//= require this_page
+//= require utils
 //= require editor
 //= require player
 //= require recorder
-//= require toggle_preview
+//= require recorder_view
 //= require layout/layout_view
 //= require questions/index_view
 //= require questions/show_view
@@ -27,3 +27,5 @@
 //= require sessions/login_view
 //= require users/new_view
 // require_tree .
+
+

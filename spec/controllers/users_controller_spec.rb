@@ -20,19 +20,20 @@ describe UsersController do
     subject {post :create, user: FactoryGirl.attributes_for(:user)}
 
     it "should create user valid attributes" do
+      ApplicationController.any_instance.stub(:last_visited_page).and_return(root_path)
+
       expect{post :create, user: FactoryGirl.attributes_for(:user)}.to change { User.count }.by(1)
     end
 
     it "should redirect to profile page after creating user" do
+      ApplicationController.any_instance.stub(:last_visited_page).and_return(root_path) 
       post :create, user: FactoryGirl.attributes_for(:user)
-      expect(response).to redirect_to(profile_path) 
+      expect(response).to redirect_to(root_path) 
     end
 
-    xit "should not create user with invalid email" do
-      expect {
-        post :create, user: {username: user.username, email: '', password: 'password', password_confirmation: 'password'}
-        
-        }.to change { User.count }.by(0)
+    it "should not create user with invalid email" do
+        post :create, user: {username: user.username, email: '123@', password: 'passwor', password_confirmation: 'password'}
+        expect(response).to render_template(:new)    
     end
 
     it "invalid email should render new template" do
