@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.where(category_id: params[:category].to_i, start_language: params[:start_language], end_language: params[:end_language])
-    @category = params[:category]
+    @category = Category.find(params[:category])
     @start_language = params[:start_language] 
     @end_language = params[:end_language]
   end
