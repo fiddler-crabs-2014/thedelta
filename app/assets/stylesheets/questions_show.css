@@ -125,7 +125,10 @@
 
 @media all and (max-width: 745px) {
   .add_answer {
-    top: 111px;
+    top: 110px;
+    width: 100px;
+    margin:0;
+    padding: 3px 3px;
   }
 }
 
