@@ -71,26 +71,7 @@ categories.each { |method| method.save }
 	##
 
 	## logic
-		# Start: Ruby
-			# javascript
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: javascript.name)
-
-			# Python
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: python.name)
-				
-			# php
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: ruby.name, end_language: php.name)
-
-		# Start: javascript
-			# Ruby
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: javascript.name, end_language: ruby.name)
-
-			# Python
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: javascript.name, end_language: python.name)
-				
-			# php
-				Question.create(category_id: logic.id, :query => "How do I make an if else statement?", start_language: javascript.name, end_language: php.name)
-		#
+		# See Below
 	##
 
 	## classes
@@ -117,54 +98,16 @@ categories.each { |method| method.save }
 	##
 
 	## methods
-		# Start: Ruby
-			# javascript
-				Question.create(category_id: methods.id, :query => "How do I make a method?", start_language: ruby.name, end_language: javascript.name)
-
-			# Python
-				Question.create(category_id: methods.id, :query => "How do I make a method?", start_language: ruby.name, end_language: python.name)
-				
-			# php
-				Question.create(category_id: methods.id, :query => "How do I make a method?", start_language: ruby.name, end_language: php.name)
-
-		# Start: javascript
-			# Ruby
-				Question.create(category_id: methods.id, :query => "How do I make a function?", start_language: javascript.name, end_language: ruby.name)
-
-			# Python
-				Question.create(category_id: methods.id, :query => "How do I make a function?", start_language: javascript.name, end_language: python.name)
-				
-			# php
-				Question.create(category_id: methods.id, :query => "How do I make a function?", start_language: javascript.name, end_language: php.name)
-		#
+		## See Below
 	##
 
 
 	## Regex
-		# Start: Ruby
-			# javascript
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: ruby.name, end_language: javascript.name)
-
-			# Python
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: ruby.name, end_language: python.name)
-				
-			# php
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: ruby.name, end_language: php.name)
-
-		# Start: javascript
-			# Ruby
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: javascript.name, end_language: ruby.name)
-
-			# Python
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: javascript.name, end_language: python.name)
-				
-			# php
-				Question.create(category_id: regex.id, :query => "How do I find a match using regular expressions?", start_language: javascript.name, end_language: php.name)
-		#
+		#See Below
 	##
 
 
-	## Regex
+	## Inheritance
 		# Start: Ruby
 			# javascript
 				Question.create(category_id: inheritance.id, :query => "How does inheritance work?", start_language: ruby.name, end_language: javascript.name)
@@ -217,12 +160,43 @@ Answer.create(delta: "{\"0\":[\"class Person\\n  attr_accessor :name, :age\\n  \
 
 
 
+logic_questions = ["How do I make an if/else statement?","How do I make a case statement?","How do I make a while loop?"]
+
+	logic_questions.each do |question|
+		languages.each do |start_language|
+			languages.each do |end_language|
+				unless start_language == end_language
+					Question.create(category_id: logic.id, :query => question, start_language: start_language.name, end_language: end_language.name)
+				end
+			end
+		end
+	end
 
 
+method_questions = ["How do I define a method or function?", "How can I call a method or a function?", "How can I call a method or a function with a variable number of arguments?"]
+
+	method_questions.each do |question|
+		languages.each do |start_language|
+			languages.each do |end_language|
+				unless start_language == end_language
+					Question.create(category_id: methods.id, :query => question, start_language: start_language.name, end_language: end_language.name)
+				end
+			end
+		end
+	end
 
 
+regex_questions = ["How do I match text?", "How do I substitue text?", "How do I scan for matches?"]
 
-
+	regex_questions.each do |question|
+		languages.each do |start_language|
+			languages.each do |end_language|
+				unless start_language == end_language
+					Question.create(category_id: regex.id, :query => question, start_language: start_language.name, end_language: end_language.name)
+				end
+			end
+		end
+	end	
 
 
 
