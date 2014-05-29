@@ -1,10 +1,9 @@
 describe("Player", function() {
   var player;
-  var states = [["h",0],["i",3000]];
+  var snapshots = [["h",0],["i",3000]];
 
   beforeEach(function() {
-
-    player = new Player({
+    player = new DELTA.Player({
       play_selector: "#play",
       view_selector: "#view",
     });
@@ -38,27 +37,24 @@ describe("Player", function() {
 
     it("should update the state property of player", function(){
     
-      player.update_state(states);
-      expect(player.states).toEqual(states);
+      player.update_snapshots(snapshots);
+      expect(player.snapshots).toEqual(snapshots);
     
     });
 
   });
 
   describe('#play', function(){
-
-    it("should be able to play back the states", function() {
-    
-      player.play(states);
-      expect(player.states).toEqual(states);
+    it("should be able to play back the snapshots", function() {   
+      player.play(snapshots);
+      expect(player.snapshots).toEqual(snapshots);
     
     });
 
-    describe("when states are playing", function() {
-
+    describe("when snapshots are playing", function() {
       it("button should be disabled", function() {
      
-        player.play(states);
+        player.play(snapshots);
         $(player.play_selector).trigger("click");
          expect($(player.play_selector)).toBeDisabled();
      
