@@ -11,14 +11,12 @@
     <div id="error_messages">
       
     </div>
-    
-    <h1>I know <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'SELECT LANGUAGE'}, {:id => 'start_language'}) %></h1><br>
+      <h1>I know <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'SELECT LANGUAGE'}, {:id => 'start_language'}) %></h1><br>
 
-    <h1>Teach me <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'SELECT LANGUAGE'}, {:id => 'end_language'}) %></h1>
-    
-    <div class="go_link">
-      <span><%= link_to 'Go learn!', categories_path %></span>
-    </div> 
-    
+      <h1>Teach me <%= collection_select(:language, :language_id, @languages, :id, :name, {:prompt => 'SELECT LANGUAGE'}, {:id => 'end_language'}) %></h1>
+      
+      <div class="go_link">
+        <span><%= link_to 'Go learn!', categories_path %></span>
+      </div> 
   </div>
 </div>
