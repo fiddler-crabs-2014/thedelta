@@ -24,8 +24,6 @@
   <pre class="show_answer" id="preview_answer_<%= answer.id %>" value="<%=answer.id%>" >
   </pre>
 
-  <button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button> <%= link_to 'See Answer', answer_path(answer), class:"btn btn-success btn-sm" %>
+  <button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm play">Play</button> <%= link_to 'See Answer', answer_path(answer), class:"btn btn-success btn-sm answer" %>
 
-  <div id="loading-bar<%= answer.id %>" class="loading-bar-wait">
-  </div>
 </div>
