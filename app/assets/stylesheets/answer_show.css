@@ -6,6 +6,7 @@
   padding: 10px;
   border-radius: 10px;
   background: url(hazy.png);
+  overflow: hidden;
 }
 
 div .answers{
