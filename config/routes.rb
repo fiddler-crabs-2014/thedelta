@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'vote-up', to: 'votes#upvote', as: :vote_up
   post 'vote-down', to: 'votes#downvote', as: :vote_down
   post 'vote', to: 'votes#record', as: :vote_record
+  get '/team', to: 'users#team', as: 'team'
   resources :users
   resources :answers
   resources :categories, only: [:index]

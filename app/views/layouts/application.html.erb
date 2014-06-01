@@ -39,6 +39,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <li class="active reload"><a href="/">Pick Your Languages</a></li>
+          <li><a href="/team">Team</a></li>
         </li>
         <% if signed_in? %> 
             <% if current_admin %>
@@ -51,6 +52,7 @@
               </li> 
             <% end %>
             <li class="dropdown">
+
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %>  <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile - " + current_user.name, profile_path %></li>
@@ -87,7 +89,11 @@
 
 <% if @splash %>
   <footer id="footer">
-    <span style="font-size: 1.5em; font-weight: 400">Designed and Developed by</span> <br> Adrian Pask<br> Johnathan Weisner<br> Phil London<br> and Shaun McGeever <br>
+    <span style="font-size: 1.5em; font-weight: 400;"><a href="/team" class="team_link">Designed and Developed by</a></span> 
+    <br> <a href="https://github.com/plondon" class="team_link" target="_blank">Phil London</a>
+    <br> <a href="https://github.com/shaunmcgeever" class="team_link" target="_blank">Shaun McGeever</a>
+    <br> <a href="https://github.com/Adrian-Pask" class="team_link" target="_blank">Adrian Pask</a>
+    <br> and <a href="https://github.com/JohnathanWeisner" class="team_link" target="_blank"></a>Johnathan Weisner
   </footer>
 <% end %>
 
