@@ -43,6 +43,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def team
+    render :team
+  end
+
   private
   
   def user_params

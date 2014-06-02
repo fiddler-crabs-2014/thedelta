@@ -17,6 +17,7 @@
  *= require login_signup
  *= require questions_show
  *= require recorder
+ *= require team
  * require_tree .
  *= require_self
  */
@@ -97,5 +98,14 @@ h1 {
 	font-size: 45px;
 	padding: 15px;
 	color: #F4FCE8;
+}
+
+.team_link {
+  color: white;
+}
+
+.team_link:hover {
+  color: white;
+  text-decoration: none;
 }
 

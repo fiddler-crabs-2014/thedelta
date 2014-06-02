@@ -1,0 +1,14 @@
+.team.answers.new {
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 2em;
+}
+
+.team_image {
+  width: 100px;
+}
+
+.team_desc {
+  font-size: 0.5em;
+  line-height: 1.1em;
+}
