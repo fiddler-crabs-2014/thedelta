@@ -2,6 +2,11 @@
   width: 95%;
 }
 
+.jimbo_header.custom.question {
+  margin-top: -30px;
+  font-size: 1.5em;
+}
+
 .instructions {
   position: absolute;
   top: 120px;
@@ -41,6 +46,8 @@
 #preview_save {
     padding: 2px 4px;
 }
+
+
 
 @media all and (max-width: 1230px) {
   .instructions {
