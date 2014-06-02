@@ -1,14 +1,29 @@
 <div class="answers_list_item">
-
-  <h3 class="answers_index"><span class="answer-num">Answer: <%= answer_counter + 1 %></span><br>
-    <span class="user_name_submit">submitted by <%= answer.user.username %></span>
-    <span class="vote_count"><%= answer.upvote_count %> Up | <%= answer.downvote_count %> Down</span> </h3>
+    <% if current_user %>
+    <h3 class="answers_index"><span class="answer-num">Answer: <%= answer_counter + 1 %></span> <span class="user_name_submit">submitted by <%= answer.user.username %></span></h3>
+      <%= form_tag '/vote', :class=>"vote_form" do %>
+        <%= hidden_field_tag 'answer_id', answer.id %>
+        <%= hidden_field_tag 'user_id', answer.user.id %>
+        <%= hidden_field_tag 'question_id', answer.question.id %>
+        <%= hidden_field_tag 'vote_value', '1' %>
+        <%= submit_tag " #{answer.upvote_count } Up", :class=>"vote_count" %>
+      <% end %>
+      <%= form_tag '/vote', :class=>"vote_form" do %>
+        <%= hidden_field_tag 'answer_id', answer.id %>
+        <%= hidden_field_tag 'user_id', answer.user.id %>
+        <%= hidden_field_tag 'question_id', answer.question.id %>
+        <%= hidden_field_tag 'vote_value', '-1' %>
+        <%= submit_tag "#{answer.downvote_count} Down   |", :class=>"vote_count" %>
+      <% end %> 
+    <% else %>
+    <h3 class="answers_index"><span class="answer-num">Answer: <%= answer_counter + 1 %></span>
+      <span class="user_name_submit">submitted by <%= answer.user.username %></span></h3>
+      <span class="vote_count inactive"><%= answer.upvote_count %> Up | <%= answer.downvote_count %> Down</span>
+    <% end %>
 
   <pre class="show_answer" id="preview_answer_<%= answer.id %>" value="<%=answer.id%>" >
   </pre>
 
-  <button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm">Play</button> <%= link_to 'See Answer', answer_path(answer), class:"btn btn-success btn-sm" %>
+  <button id="play_answer_<%= answer.id %>" class="btn btn-primary btn-sm play">Play</button> <%= link_to 'See Answer', answer_path(answer), class:"btn btn-success btn-sm answer" %>
 
-  <div id="loading-bar<%= answer.id %>" class="loading-bar-wait">
-  </div>
 </div>

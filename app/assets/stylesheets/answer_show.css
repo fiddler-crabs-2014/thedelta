@@ -5,6 +5,13 @@
   height: auto;
   padding: 10px;
   border-radius: 10px;
+  background: url(hazy.png);
+  overflow: hidden;
+}
+
+div .answers{
+  background: url(hazy.png);
+
 }
 
 .answers.new {

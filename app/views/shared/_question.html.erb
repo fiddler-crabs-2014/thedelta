@@ -1,15 +1,16 @@
 <div class="answer-block">
-  <h4 class="question_index"> <%= link_to question.query, question_path(question)%> </h4>
+  <h4 class="question_index"> <%= link_to question.query, question_path(question.id)%> </h4>
 
   <% if !question.answers.empty? %>
-    <span style="font-family: Raleway, sans-serif"><%= link_to 'Top answer', answer_path(question.top_answer) %> submitted by <%= question.top_answer.user.username %> <%= link_to '(see more answers)', question_path(question) %></span>
+    <span style="font-family: Raleway, sans-serif"><%= link_to 'Top answer', answer_path(question.top_answer) %> submitted by <%= question.top_answer.user.username %> <%= link_to '(view all Deltas)', question_path(question) %></span>
     
     <pre class="show_answer" id="Preview_Question_<%=question.id %>">
 
     </pre>
-    <button id="Play_Question_<%= question.id %>" class="btn btn-primary btn-sm">Play</button>
-     <%= link_to 'View all Deltas', question_path(question), :class=>"btn btn-success btn-sm" %>
+    <button id="Play_Question_<%= question.id %>" class="btn btn-primary btn-sm play">Play</button>
+     <%= link_to 'View all Deltas', question_path(question), :class=>"btn btn-success btn-sm answer" %>
+     <%= link_to 'Submit Answer', "/answers/new?question=#{question.id}", :class=>"btn btn-sm  submit_button" %>
   <% else %>
-    <p><%= link_to 'Submit an answer', question_path(question), :class => 'question_link' %></p>
+    <p><%= link_to 'Submit an answer', "/answers/new?question=#{question.id}", :class => 'question_link' %></p>
   <% end %>
 </div>

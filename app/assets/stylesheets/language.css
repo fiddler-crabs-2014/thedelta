@@ -6,7 +6,7 @@
  body.custom.splash {
     height: auto;
     background-color: grey;
-    background-image: url('sublime_blur.png');
+    background-image: url('sublime_blur2.png');
     background-size: cover;
 }
 body.custom {
@@ -25,6 +25,14 @@ body.custom {
     padding: 0;
     padding-bottom: 250px;
 }
+
+.main-button {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: url(squared_metal_light_blue_hover.png);
+}
+
 .styled-select {
     width: 70%;
     height: 450px;
@@ -36,6 +44,10 @@ body.custom {
     box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
     -webkit-box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
     -moz-box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6 );
+}
+
+#bs-example-navbar-collapse-1{
+    background: url(hazy.png);
 }
 
 .pick_languages {
@@ -284,10 +296,10 @@ body.custom {
         width: 100%;
     }
     .code_example_view {
-        font-size: 15px;
+        font-size: 12px;
     }
     .code_example_view2 {
-        font-size: 15px;
+        font-size: 12px;
     }
 }
 

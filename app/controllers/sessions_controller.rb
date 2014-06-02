@@ -1,38 +1,22 @@
 class SessionsController < ApplicationController
 
-  def login
-    
+  def login  
+    if current_user
+      redirect_to profile_path
+    end
   end
 
   def attempt_login
-
-    if params[:email_username].present? && params[:password].present?
-      #user can login using either email or username
-      if params[:email_username].include?("@")
-        found_user = User.where(email: params[:email_username]).first
-      else
-        found_user = User.where(username: params[:email_username]).first
-      end
-      if found_user
-        authorized_user = found_user.authenticate(params[:password])
-      end
-    end
-
-    if authorized_user
-      session[:user_id] = authorized_user.id
-      flash[:notice] = 'You are logged in'
-
-      if params[:referer_url]
-        redirect_to params[:referer_url]
-      else
-        redirect_to profile_path
-      end
+    user = User.find_user_by_email_or_username(params[:email_username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      flash[:notice] = 'Successfully logged in'
+      redirect_to last_visited_page(params)
     else
       session.clear
       flash[:notice] = "Invalid email / password combination"
       redirect_to :login
     end
-
   end
 
   def logout
