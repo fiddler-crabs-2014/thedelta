@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  validates_presence_of :query
   belongs_to :category
   has_many :answers
 
