@@ -27,8 +27,6 @@ DELTA.Recorder.prototype.record_snapshot = function(text) {
     if (this.recording) {
         this.time_from_start = Date.now() - this.start_time + this.stop_time;
 
-        text = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
         this.snapshots.push([text, this.time_from_start]);
         return true;
     };

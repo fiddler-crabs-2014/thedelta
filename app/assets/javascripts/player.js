@@ -14,35 +14,50 @@ DELTA.Player.prototype.enable = function() {
     $(this.play_selector).removeAttr('disabled');
 };
 
-DELTA.Player.prototype.add_caret_to_snapshots = function() {
+DELTA.Player.prototype.escape_angle_brackets = function(snapshots) {
+    for(var i = 0; i < snapshots.length; i++) {
+        snapshots[i][0] = snapshots[i][0].replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    return snapshots;
+};
+
+DELTA.Player.prototype.add_caret_to_snapshots = function(source_snapshots) {
     var snapshots = [];
     var this_frame;
     var this_frame_time;
-    var position;
+    var first_change_index;
+    var difference_in_length = 1;
 
-    for (var i = 0; i < this.snapshots.length; i++) {
-        this_frame = this.snapshots[i][0];
-        this_frame_time = this.snapshots[i][1];
+    for (var i = 0; i < source_snapshots.length; i++) {
+        this_frame = source_snapshots[i][0];
+        this_frame_time = source_snapshots[i][1];
 
-        if (i < this.snapshots.length-1) {
-            var next_frame = this.snapshots[i + 1][0];
+        if (i < source_snapshots.length-1) {
+            var next_frame = source_snapshots[i + 1][0];
+            difference_in_length = Math.abs(next_frame.length - this_frame.length);
 
             for (var x = 0; x <= this_frame.length; x++) {
                 if (!(this_frame[x] === next_frame[x])) {
-                    position = x;
+                    first_change_index = x;
                     break;
                 };
             };
-            if (this_frame.length === position){
+
+            if (this_frame.length === first_change_index){
                 this_frame = this_frame + " ";
             };
-            if (this_frame.substr(position, 1) === "\n"){
-                this_frame = this_frame.substr(0, position) + " " + this_frame.substr(position);
+            if (this_frame.substr(first_change_index, 1) === "\n"){
+                this_frame = this_frame.substr(0, first_change_index) + " " + this_frame.substr(first_change_index);
             };
-            this_frame = this_frame.substr(0, position) + "<span class='cursor'>" + this_frame.substr(position, 1)+'</span>'+this_frame.substr(position + 1);
+
+            console.log(this_frame);
+            console.log(difference_in_length);
+            this_frame = this_frame.substr(0, first_change_index) + "<span class='cursor'>" + this_frame.substr(first_change_index, difference_in_length)+'</span>'+this_frame.substr(first_change_index + difference_in_length);
         };
+        console.log(this_frame);
         this_frame_time = parseInt(this_frame_time);
         snapshots.push([this_frame, this_frame_time]);
+        difference_in_length = 1;
     };
     return snapshots;
 };
@@ -83,9 +98,8 @@ DELTA.Player.prototype.play = function(snapshots) {
     };
 
     $(document).on("click", this.play_selector, function() {
-
-        var snapshots = this.add_caret_to_snapshots();
-
+        var snapshots = this.escape_angle_brackets(this.snapshots);
+        snapshots = this.add_caret_to_snapshots(snapshots);
         snapshots = this.reduce_user_pauses_during_playback(snapshots);
 
         snapshots.forEach(function(snapshot){
