@@ -41,6 +41,11 @@ footer {
   color: white;
 }
 
+#footer_header {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
 
 #flash_box {
 	text-align: center;
@@ -109,3 +114,8 @@ h1 {
   text-decoration: none;
 }
 
+@media all and (max-width: 400px) {
+  #footer_header {
+    font-size: 1.2em;
+  }
+}
