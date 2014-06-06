@@ -109,3 +109,9 @@ h1 {
   text-decoration: none;
 }
 
+@media all and (min-height: 1200px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
