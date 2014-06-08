@@ -118,6 +118,7 @@ h1 {
   footer {
     position: fixed;
     bottom: 0;
+  }
 }
 @media all and (max-width: 400px) {
   #footer_header {
