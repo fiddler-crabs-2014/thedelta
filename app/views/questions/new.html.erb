@@ -1,0 +1,13 @@
+<div class="new-question">
+  <h3 class="new-question-header">Start: <%= @start_language %></h3>
+  <h3 class="new-question-header">End: <%= @end_language %></h3>
+  <h3 class="new-question-header">Category: <%= @category %></h3>
+  <%= form_for @question do |f| %>
+    <p>What's your question?</p><br>
+    <%= f.text_field :query, {:placeholder => 'e.g How do I write an if else statement in PHP?'} %> <br>
+    <%= f.hidden_field :category, :value => @category %>
+    <%= f.hidden_field :start_language, :value => @start_language %>
+    <%= f.hidden_field :end_language, :value => @end_language %>
+    <%= f.submit 'Ask Question!', :class => 'submit-new-question'%>
+  <% end %>
+</div>

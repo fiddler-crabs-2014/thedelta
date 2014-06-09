@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_question_id, except: [:index]
+  before_action :find_question_id, except: [:index, :new, :create]
   before_action :correct_params?, only: [:index]
 
   def index
@@ -9,6 +9,26 @@ class QuestionsController < ApplicationController
     @end_language = params[:end_language]
   end
 
+  def new
+    @question = Question.new
+    @start_language = params[:start_language]
+    @end_language = params[:end_language]
+    @category = Category.find(params[:category]).name
+  end
+
+  def create
+    @question = Question.new(question_params)
+    @category_id = Category.find_by_name(params[:question][:category]).id
+    @question.category_id = @category_id
+    @category = Category.find(@category_id).name
+    @start_language = params[:question][:start_language]
+    @end_language = params[:question][:end_language]
+    if @question.save
+      redirect_to("/questions?category=#{@category_id}&end_language=#{@end_language}&start_language=#{@start_language}")
+    else
+      render :new
+    end
+  end
 
   def show
     @answers = @question.answers_by_votes
@@ -37,6 +57,11 @@ class QuestionsController < ApplicationController
     else
       true
     end
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:query, :start_language, :end_language, :category_id)
   end
 
 end

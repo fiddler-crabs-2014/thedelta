@@ -9,6 +9,8 @@
   <span>Categories</span>
 </h3></a>
 
+<%= link_to "Add Question!", {:controller => 'questions', :action => 'new', :start_language => @start_language, :end_language => @end_language, :category => @category.id}, {:class => 'add_question_button'} %>
+
 <div class="answers">
   <%= render partial: 'shared/question', collection: @questions, :locals => {start_language: @start_language, end_language: @end_language } %>
 </div>

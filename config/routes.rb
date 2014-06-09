@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :users
   resources :answers
   resources :categories, only: [:index]
-  resources :questions, only: [:index, :show]
+  resources :questions, only: [:index, :show, :new, :create]
 
   namespace :admin do
     resources :answers

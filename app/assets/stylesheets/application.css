@@ -16,6 +16,7 @@
  *= require language
  *= require login_signup
  *= require questions_show
+ *= require question_new
  *= require recorder
  *= require team
  * require_tree .
