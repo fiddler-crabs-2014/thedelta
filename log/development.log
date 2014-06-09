@@ -17555,3 +17555,208 @@ NoMethodError (undefined method `delta' for nil:NilClass):
   Rendered /Users/ShaunMcGeever/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.4ms)
   Rendered /Users/ShaunMcGeever/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (2.8ms)
   Rendered /Users/ShaunMcGeever/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (46.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (6.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LanguagesController#index as HTML
+  [1m[35mLanguage Load (2.4ms)[0m  SELECT "languages".* FROM "languages"
+  Rendered languages/index.html.erb within layouts/application (16.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 271ms (Views: 259.0ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/team.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/utils.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/editor.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/recorder_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/layout/layout_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/questions/index_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/questions/show_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/languages/index_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/answers/new_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/sessions/login_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/users/new_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/answers/show_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-06 09:07:07 -0400
+
+
+Started GET "/assets/sublime_blur2.png" for 127.0.0.1 at 2014-06-06 09:07:07 -0400
+
+
+Started GET "/assets/dark_geometric.png" for 127.0.0.1 at 2014-06-06 09:07:07 -0400
+
+
+Started GET "/assets/hazy.png" for 127.0.0.1 at 2014-06-06 09:07:07 -0400
+
+
+Started GET "/assets/squared_metal_light_blue_hover.png" for 127.0.0.1 at 2014-06-06 09:07:07 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-06 09:07:59 -0400
+Processing by LanguagesController#index as HTML
+  [1m[35mLanguage Load (0.4ms)[0m  SELECT "languages".* FROM "languages"
+  Rendered languages/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 93ms (Views: 91.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/answer.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/answer_show.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/category.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/language.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/login_signup.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/questions_show.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/recorder.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/team.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/jquery.caret.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/utils.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/editor.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/recorder.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/recorder_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/layout/layout_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/questions/index_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/questions/show_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/languages/index_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/answers/new_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/answers/show_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/sessions/login_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/users/new_view.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/sublime_blur2.png" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/hazy.png" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/dark_geometric.png" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
+
+
+Started GET "/assets/squared_metal_light_blue_hover.png" for 127.0.0.1 at 2014-06-06 09:08:00 -0400
