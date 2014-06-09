@@ -20,12 +20,13 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @category_id = Category.find_by_name(params[:question][:category]).id
     @question.category_id = @category_id
+    @category = Category.find(@category_id).name
     @start_language = params[:question][:start_language]
     @end_language = params[:question][:end_language]
     if @question.save
       redirect_to("/questions?category=#{@category_id}&end_language=#{@end_language}&start_language=#{@start_language}")
     else
-      redirect_to root_path
+      render :new
     end
   end
 

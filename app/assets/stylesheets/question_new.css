@@ -11,7 +11,7 @@
   font-size: 2em;
 }
 
-.new_question input:last-child {
+.submit-new-question {
   position: absolute;
   right: 0;
   bottom: 30px;
