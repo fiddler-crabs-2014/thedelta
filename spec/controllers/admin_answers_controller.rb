@@ -91,7 +91,7 @@ describe Admin::AnswersController do
 
 	describe "#destroy" do
 		it "should reduce answer count by 1" do
-			expect{ delete :destroy, id: answer:id
+			expect{ delete :destroy, id: answer.id
           }.to change { Answer.count }.by(-1)
 		end
 
