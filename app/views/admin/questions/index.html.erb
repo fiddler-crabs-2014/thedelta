@@ -1,0 +1,13 @@
+<h1 style='color:white;'>Questions Admin</h1>
+<table class='table' style='color:white;'>
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.id %></td>
+    <td><%= question.start_language %></td>
+    <td><%= question.end_language %></td>
+    <td><%= question.query %></td>
+    <td><%= link_to 'show', question_path(question) %></td>
+    <td><%= link_to "delete", admin_question_path(question), :confirm => "Are you sure?", :method=>:delete %></td>
+  </tr>
+<% end %>
+</table>
