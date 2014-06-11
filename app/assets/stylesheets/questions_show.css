@@ -63,7 +63,7 @@
   position: absolute;
   z-index: 10;
   right: 0;
-  top: 130px;
+  top: 100px;
   padding: 10px;
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
@@ -163,6 +163,6 @@
 
 @media all and (max-width: 445px) {
   .add_question_button {
-    top: 165px;
+    top: 120px;
   }
 }

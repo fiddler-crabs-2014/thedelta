@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :answers
     resources :users
+    resources :questions
   end
 
   
